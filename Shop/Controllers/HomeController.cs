@@ -129,7 +129,7 @@ namespace Shop.Controllers
             var ten = collection["ten"];
             var noidung = collection["noidung"];
             var vote = collection["vote"];
-            var malaptop = CommonFields.id;
+            var madienthoai = CommonFields.id;
             var captchaCode = collection["CaptchaCode"];
             /*var trangthai = collection["trangthai"];*/
             bool validationComment = ten == null || noidung == null || vote == null || ten.Equals("") || noidung.Equals("") || vote.Equals("");
@@ -156,7 +156,7 @@ namespace Shop.Controllers
                 /*dg.vote = Convert.ToInt32(vote);*/
                 dg.vote = Convert.ToInt32(vote);
                 dg.ngaydanhgia = DateTime.Now;
-                dg.malaptop = malaptop;
+                dg.madienthoai = madienthoai;
                 dg.trangthai = true;
                 data.DanhGias.InsertOnSubmit(dg);
                 data.SubmitChanges();
@@ -222,14 +222,14 @@ namespace Shop.Controllers
         
         /*public ActionResult Details(int id)
         {
-            var laptop = data.Laptops.Where(n => n.malaptop == id).FirstOrDefault();
-            return View(laptop);
+            var dienthoai = data.Dienthoais.Where(n => n.madienthoai == id).FirstOrDefault();
+            return View(dienthoai);
         }*/
         //dùng cho SEO
         public ActionResult Details(int id, string postName)
         {
-            var laptop = data.Laptops.Where(n => n.malaptop == id).FirstOrDefault();
-            return View(laptop);
+            var dienthoai = data.Dienthoais.Where(n => n.madienthoai == id).FirstOrDefault();
+            return View(dienthoai);
         }
 
         public ActionResult PostDetails(int? id, string postName)
@@ -257,7 +257,7 @@ namespace Shop.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.orderDetails = data.ChiTietDonHangs.Where(m => m.madon == id).ToList();
-            ViewBag.productOrder = data.Laptops.ToList();
+            ViewBag.productOrder = data.Dienthoais.ToList();
             return View(donHang);
         }
 
@@ -270,46 +270,46 @@ namespace Shop.Controllers
             return View(all_blog.ToPagedList(pageNum, pageSize));
         }
 
-        public ActionResult GetListAllLaptop(int? page)
+        public ActionResult GetListAllDienthoai(int? page)
         {
             if (page == null) page = 1;
-            var all_laptop = (from s in data.Laptops select s).OrderBy(m => m.malaptop).Where(n => n.trangthai == true);
+            var all_dienthoai = (from s in data.Dienthoais select s).OrderBy(m => m.madienthoai).Where(n => n.trangthai == true);
             int pageSize = 12;
             int pageNum = page ?? 1;
-            return View(all_laptop.ToPagedList(pageNum, pageSize));
+            return View(all_dienthoai.ToPagedList(pageNum, pageSize));
         }
 
-        public ActionResult ListLaptopTheoSearch(int? page, string SearchString)
+        public ActionResult ListDienthoaiTheoSearch(int? page, string SearchString)
         {
             CommonFields.seek = SearchString;
             if (page == null) page = 1;
-            var all_laptop = (from s in data.Laptops select s).OrderBy(m => m.malaptop).Where(n => n.trangthai == true && (n.tenlaptop.Contains(SearchString)));
+            var all_dienthoai = (from s in data.Dienthoais select s).OrderBy(m => m.madienthoai).Where(n => n.trangthai == true && (n.tendienthoai.Contains(SearchString)));
             int pageSize = 3;
             int pageNum = page ?? 1;
-            return View(all_laptop.ToPagedList(pageNum, pageSize));
+            return View(all_dienthoai.ToPagedList(pageNum, pageSize));
         }
 
-        public ActionResult ListLaptopTheoHangId(int? page, int id)
+        public ActionResult ListDienthoaiTheoHangId(int? page, int id)
         {
             if (page == null) page = 1;
-            var all_laptop = (from s in data.Laptops select s).OrderBy(m => m.malaptop).Where(n => n.mahang == id && n.trangthai == true);
+            var all_dienthoai = (from s in data.Dienthoais select s).OrderBy(m => m.madienthoai).Where(n => n.mahang == id && n.trangthai == true);
             int pageSize = 3;
             int pageNum = page ?? 1;
-            return View(all_laptop.ToPagedList(pageNum, pageSize));
+            return View(all_dienthoai.ToPagedList(pageNum, pageSize));
         }
 
-        public ActionResult ListLaptopTheoNhuCauById(int? page, int id)
+        public ActionResult ListDienthoaiTheoNhuCauById(int? page, int id)
         {
             if (page == null) page = 1;
-            var all_laptop = (from s in data.Laptops select s).OrderBy(m => m.malaptop).Where(n => n.manhucau == id && n.trangthai == true);
+            var all_dienthoai = (from s in data.Dienthoais select s).OrderBy(m => m.madienthoai).Where(n => n.manhucau == id && n.trangthai == true);
             int pageSize = 3;
             int pageNum = page ?? 1;
-            return View(all_laptop.ToPagedList(pageNum, pageSize));
+            return View(all_dienthoai.ToPagedList(pageNum, pageSize));
         }
 
         public ActionResult Comment()
         {
-            var comment = (from cd in data.DanhGias select cd).Where(n => n.malaptop == CommonFields.id && n.trangthai == true); ;
+            var comment = (from cd in data.DanhGias select cd).Where(n => n.madienthoai == CommonFields.id && n.trangthai == true); ;
             return PartialView(comment);
         }
     }

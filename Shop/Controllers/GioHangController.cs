@@ -20,8 +20,8 @@ namespace Shop.Controllers
         public JsonResult GetbyID(int ID)
         {
             HomeModel home = new HomeModel();
-            var Laptop = home.GetListChiTietDonHangTheoDonDatHang(ID).Find(x => x.madon.Equals(ID));
-            return Json(Laptop, JsonRequestBehavior.AllowGet);
+            var Dienthoai = home.GetListChiTietDonHangTheoDonDatHang(ID).Find(x => x.madon.Equals(ID));
+            return Json(Dienthoai, JsonRequestBehavior.AllowGet);
         }
 
         public List<GioHang> Laygiohang()// lấy ra danh sách sản phẩm trong giỏ hàng
@@ -37,7 +37,7 @@ namespace Shop.Controllers
         public ActionResult ThemGioHang(int id, string strURL)// thêm 1 sản phẩm vào giỏ hàng
         {
             List<GioHang> lstGioHang = Laygiohang();
-            GioHang sanpham = lstGioHang.Find(n => n.malaptop == id); // tìm sản phẩm đã chọn theo id
+            GioHang sanpham = lstGioHang.Find(n => n.madienthoai == id); // tìm sản phẩm đã chọn theo id
             if (sanpham == null)
             {
                 sanpham = new GioHang(id);
@@ -101,10 +101,10 @@ namespace Shop.Controllers
         public ActionResult XoaGiohang(int id)// xóa sản phẩm theo id
         {
             List<GioHang> lstGiohang = Laygiohang();
-            GioHang sanpham = lstGiohang.SingleOrDefault(n => n.malaptop == id);
+            GioHang sanpham = lstGiohang.SingleOrDefault(n => n.madienthoai == id);
             if (sanpham != null)
             {
-                lstGiohang.RemoveAll(n => n.malaptop == id);
+                lstGiohang.RemoveAll(n => n.madienthoai == id);
                 Notification.set_flash("Xóa mặt hàng thành công!", "success");
                 return RedirectToAction("GioHang");
             }
@@ -113,7 +113,7 @@ namespace Shop.Controllers
         public ActionResult CapnhatGiohang(int id, FormCollection collection)// cập nhật giỏ hàng theo id và form có số lượng
         {
             List<GioHang> lstGiohang = Laygiohang();
-            GioHang sanpham = lstGiohang.SingleOrDefault(n => n.malaptop == id);
+            GioHang sanpham = lstGiohang.SingleOrDefault(n => n.madienthoai == id);
             try
             {
                 if (sanpham != null)
@@ -169,7 +169,7 @@ namespace Shop.Controllers
         {
             DonHang dh = new DonHang();
             AspNetUser kh = (AspNetUser)Session["TaiKhoan"];// ép session về kh để lấy thông tin
-            Laptop lap = new Laptop(); // lấy
+            Dienthoai lap = new Dienthoai(); // lấy
             List<GioHang> gh = Laygiohang();// lấy giỏ hàng
             //var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["NgayGiao"]);//lấy ngày giao format lại
 
@@ -197,12 +197,12 @@ namespace Shop.Controllers
                 {
                     ChiTietDonHang ctdh = new ChiTietDonHang();
                     ctdh.madon = dh.madon;
-                    ctdh.malaptop = item.malaptop;
+                    ctdh.madienthoai = item.madienthoai;
                     ctdh.soluong = item.iSoluong;
                     ctdh.dongia = (decimal)item.giaban;
                     data.ChiTietDonHangs.InsertOnSubmit(ctdh);
                     // lấy số lượng tồn trừ đi
-                    lap = data.Laptops.FirstOrDefault(n => n.malaptop == item.malaptop);
+                    lap = data.Dienthoais.FirstOrDefault(n => n.madienthoai == item.madienthoai);
                     if(lap.soluongton > ctdh.soluong && lap.soluongton != null)
                     {
                         lap.soluongton = lap.soluongton - ctdh.soluong;
@@ -247,8 +247,8 @@ namespace Shop.Controllers
                     //var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
 
 
-                    new MailHelper().SendEmail(kh.Email, "Xác nhận đặt mua laptop tại iLaptop", content);
-                    new MailHelper().SendEmail("ilaptoppro@gmail.com", "Xác nhận đặt mua laptop tại iLaptop", content);
+                    new MailHelper().SendEmail(kh.Email, "Xác nhận đặt mua dienthoai tại iDienthoai", content);
+                    new MailHelper().SendEmail("idienthoaipro@gmail.com", "Xác nhận đặt mua dienthoai tại iDienthoai", content);
 
                     //End
                 }
@@ -307,7 +307,7 @@ namespace Shop.Controllers
         {
             DonHang dh = new DonHang();
             AspNetUser kh = (AspNetUser)Session["TaiKhoan"];// ép session về kh để lấy thông tin
-            Laptop s = new Laptop();
+            Dienthoai s = new Dienthoai();
             List<GioHang> gh = Laygiohang();// lấy giỏ hàng
                                             // var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["NgayGiao"]);//lấy ngày giao format lại
 
@@ -332,10 +332,10 @@ namespace Shop.Controllers
             //{
             //    ChiTietDonHang ctdh = new ChiTietDonHang();
             //    ctdh.madon = dh.madon;
-            //    ctdh.malaptop = item.malaptop;
+            //    ctdh.madienthoai = item.madienthoai;
             //    ctdh.soluong = item.iSoluong;
             //    ctdh.dongia = (decimal)item.giaban;
-            //    s = data.Laptops.Single(n => n.malaptop == item.malaptop);
+            //    s = data.Dienthoais.Single(n => n.madienthoai == item.madienthoai);
             //    data.SubmitChanges();
             //    data.ChiTietDonHangs.InsertOnSubmit(ctdh);
             //}
@@ -360,8 +360,8 @@ namespace Shop.Controllers
             //var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
 
 
-            //new MailHelper().SendEmail(kh.Email, "Xác nhận đặt mua laptop tại iLaptop", content);
-            //new MailHelper().SendEmail(toEmail, "Xác nhận đặt mua laptop tại iLaptop", content);
+            //new MailHelper().SendEmail(kh.Email, "Xác nhận đặt mua dienthoai tại iDienthoai", content);
+            //new MailHelper().SendEmail(toEmail, "Xác nhận đặt mua dienthoai tại iDienthoai", content);
 
             //End
 
@@ -375,7 +375,7 @@ namespace Shop.Controllers
             string partnerCode = "MOMO5PB020220322";
             string accessKey = "imYC24phv0gYMFgA";
             string serectkey = "gZ2H5gyDOrVLQ0mnVJjPCWQ4a2lenHLN";
-            string orderInfo = "Thanh toán mua Laptop";
+            string orderInfo = "Thanh toán mua Dienthoai";
 
             //HTTPGET chỉ hiện thông báo người dùng
             string returnUrl = "https://localhost:44381/GioHang/ReturnUrl";
@@ -539,7 +539,7 @@ namespace Shop.Controllers
 
             DonHang dh = new DonHang();
             AspNetUser kh = (AspNetUser)Session["TaiKhoan"];// ép session về kh để lấy thông tin
-            Laptop s = new Laptop();
+            Dienthoai s = new Dienthoai();
             List<GioHang> gh = Laygiohang();
             //List<GioHang> gh = (List<GioHang>) Session["GioHang"];// lấy giỏ hàng
 
@@ -556,10 +556,10 @@ namespace Shop.Controllers
             {
                 ChiTietDonHang ctdh = new ChiTietDonHang();
                 ctdh.madon = dh.madon;
-                ctdh.malaptop = item.malaptop;
+                ctdh.madienthoai = item.madienthoai;
                 ctdh.soluong = item.iSoluong;
                 ctdh.dongia = (decimal)item.giaban;
-                s = data.Laptops.Single(n => n.malaptop == item.malaptop);
+                s = data.Dienthoais.Single(n => n.madienthoai == item.madienthoai);
                 data.SubmitChanges();
                 data.ChiTietDonHangs.InsertOnSubmit(ctdh);
             }
@@ -588,8 +588,8 @@ namespace Shop.Controllers
                     //var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
 
 
-                    new MailHelper().SendEmail(kh.Email, "Xác nhận đặt mua laptop tại iLaptop", content);
-                    new MailHelper().SendEmail("ilaptoppro@gmail.com", "Xác nhận đặt mua laptop tại iLaptop", content);
+                    new MailHelper().SendEmail(kh.Email, "Xác nhận đặt mua dienthoai tại iDienthoai", content);
+                    new MailHelper().SendEmail("idienthoaipro@gmail.com", "Xác nhận đặt mua dienthoai tại iDienthoai", content);
 
                     //End
                 }
@@ -616,7 +616,7 @@ namespace Shop.Controllers
         {
             DonHang dh = new DonHang();
             AspNetUser kh = (AspNetUser)Session["TaiKhoan"];// ép session về kh để lấy thông tin
-            Laptop s = new Laptop();
+            Dienthoai s = new Dienthoai();
             List<GioHang> gh = Laygiohang();// lấy giỏ hàng
 
             //string url = ConfigurationManager.AppSettings["Url"];
