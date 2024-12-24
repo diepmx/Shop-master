@@ -5227,7 +5227,7 @@
     <Content Include="Views\GioHang\DatHang.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\DonHangDaMua.cshtml" />
-    <Content Include="Views\Home\ListLaptopTheoHangId.cshtml" />
+    <Content Include="Views\Home\ListDienthoaiTheoHangId.cshtml" />
     <Content Include="Views\Home\ListLaptopTheoNhuCauById.cshtml" />
     <Content Include="Views\Home\ListLaptopTheoSearch.cshtml" />
     <Content Include="Views\Home\QuangCao.cshtml" />
@@ -5314,7 +5314,7 @@
     <Content Include="vendor\popper.js\umd\popper.js.flow" />
     <Content Include="Views\GioHang\ConfirmPaymentClient.cshtml" />
     <Content Include="Views\GioHang\XacnhanThanhToan_MoMo.cshtml" />
-    <Content Include="Views\Home\GetListAllLaptop.cshtml" />
+    <Content Include="Views\Home\GetListAllDienthoai.cshtml" />
     <Content Include="Views\GioHang\ThanhToanThatBai.cshtml" />
     <Content Include="Views\GioHang\BadRequestMoMo.cshtml" />
     <Content Include="Views\Site\Index.cshtml" />

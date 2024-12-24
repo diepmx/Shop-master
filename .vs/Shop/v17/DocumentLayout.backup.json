@@ -3,23 +3,35 @@
   "WorkspaceRootPath": "D:\\Shop-master\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|D:\\Shop-master\\shop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|D:\\Shop-master\\shop\\controllers\\managecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\controllers\\managecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\models\\mydata.dbml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|D:\\Shop-master\\shop\\models\\mydata.dbml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\models\\mydata.dbml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\models\\homemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|D:\\Shop-master\\shop\\models\\homemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\models\\homemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\models\\giohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|D:\\Shop-master\\shop\\models\\giohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\models\\giohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\models\\accountviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|D:\\Shop-master\\shop\\models\\accountviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\models\\accountviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -51,10 +63,6 @@
       "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|D:\\Shop-master\\shop\\controllers\\managecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\controllers\\managecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|D:\\Shop-master\\shop\\areas\\administrator\\controllers\\mainpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\areas\\administrator\\controllers\\mainpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -70,33 +78,33 @@
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Shop-master\\Shop\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Shop\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Shop-master\\Shop\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Shop\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAABEBAAAAAAAAAAAAAOYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-24T05:49:41.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "HomeModel.cs",
-              "DocumentMoniker": "D:\\Shop-master\\Shop\\Models\\HomeModel.cs",
-              "RelativeDocumentMoniker": "Shop\\Models\\HomeModel.cs",
-              "ToolTip": "D:\\Shop-master\\Shop\\Models\\HomeModel.cs",
-              "RelativeToolTip": "Shop\\Models\\HomeModel.cs",
-              "ViewState": "AgIAADYBAAAAAAAAAAApwGsAAAAoAAAAAAAAAA==",
+              "Title": "GioHangController.cs",
+              "DocumentMoniker": "D:\\Shop-master\\Shop\\Controllers\\GioHangController.cs",
+              "RelativeDocumentMoniker": "Shop\\Controllers\\GioHangController.cs",
+              "ToolTip": "D:\\Shop-master\\Shop\\Controllers\\GioHangController.cs",
+              "RelativeToolTip": "Shop\\Controllers\\GioHangController.cs",
+              "ViewState": "AgIAAKUCAAAAAAAAAAAswCcAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T05:32:53.927Z",
+              "WhenOpened": "2024-12-24T05:45:29.704Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GioHang.cs",
-              "DocumentMoniker": "D:\\Shop-master\\Shop\\Models\\GioHang.cs",
-              "RelativeDocumentMoniker": "Shop\\Models\\GioHang.cs",
-              "ToolTip": "D:\\Shop-master\\Shop\\Models\\GioHang.cs",
-              "RelativeToolTip": "Shop\\Models\\GioHang.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAYwCAAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T05:29:37.53Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "AccountViewModels.cs",
               "DocumentMoniker": "D:\\Shop-master\\Shop\\Models\\AccountViewModels.cs",
               "RelativeDocumentMoniker": "Shop\\Models\\AccountViewModels.cs",
@@ -104,12 +112,11 @@
               "RelativeToolTip": "Shop\\Models\\AccountViewModels.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T05:29:04.129Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-24T05:29:04.129Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "MyData.dbml",
               "DocumentMoniker": "D:\\Shop-master\\Shop\\Models\\MyData.dbml",
               "RelativeDocumentMoniker": "Shop\\Models\\MyData.dbml",
@@ -117,25 +124,61 @@
               "RelativeToolTip": "Shop\\Models\\MyData.dbml",
               "ViewState": "AgIAACEAAAAAAAAAAAAAAAEAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-12-23T08:45:23.945Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-23T08:45:23.945Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ManageController.cs",
+              "DocumentMoniker": "D:\\Shop-master\\Shop\\Controllers\\ManageController.cs",
+              "RelativeDocumentMoniker": "Shop\\Controllers\\ManageController.cs",
+              "ToolTip": "D:\\Shop-master\\Shop\\Controllers\\ManageController.cs",
+              "RelativeToolTip": "Shop\\Controllers\\ManageController.cs",
+              "ViewState": "AgIAAEgBAAAAAAAAAAAkwAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T07:12:19.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GioHang.cs",
+              "DocumentMoniker": "D:\\Shop-master\\Shop\\Models\\GioHang.cs",
+              "RelativeDocumentMoniker": "Shop\\Models\\GioHang.cs",
+              "ToolTip": "D:\\Shop-master\\Shop\\Models\\GioHang.cs",
+              "RelativeToolTip": "Shop\\Models\\GioHang.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwCAAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-24T05:29:37.53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomeModel.cs",
+              "DocumentMoniker": "D:\\Shop-master\\Shop\\Models\\HomeModel.cs",
+              "RelativeDocumentMoniker": "Shop\\Models\\HomeModel.cs",
+              "ToolTip": "D:\\Shop-master\\Shop\\Models\\HomeModel.cs",
+              "RelativeToolTip": "Shop\\Models\\HomeModel.cs",
+              "ViewState": "AgIAADYBAAAAAAAAAAApwGsAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-24T05:32:53.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AccountController.cs",
               "DocumentMoniker": "D:\\Shop-master\\Shop\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Shop\\Controllers\\AccountController.cs",
               "ToolTip": "D:\\Shop-master\\Shop\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Shop\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAswB8CAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAGQBAAAAAAAAAAAiwB8CAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-23T08:38:08.92Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "RouteConfig.cs",
               "DocumentMoniker": "D:\\Shop-master\\Shop\\App_Start\\RouteConfig.cs",
               "RelativeDocumentMoniker": "Shop\\App_Start\\RouteConfig.cs",
@@ -147,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "Startup.cs",
               "DocumentMoniker": "D:\\Shop-master\\Shop\\Startup.cs",
               "RelativeDocumentMoniker": "Shop\\Startup.cs",
@@ -159,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "packages.config",
               "DocumentMoniker": "D:\\Shop-master\\Shop\\packages.config",
               "RelativeDocumentMoniker": "Shop\\packages.config",
@@ -171,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "Web.config",
               "DocumentMoniker": "D:\\Shop-master\\Shop\\Views\\Web.config",
               "RelativeDocumentMoniker": "Shop\\Views\\Web.config",
@@ -183,7 +226,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Startup.Auth.cs",
               "DocumentMoniker": "D:\\Shop-master\\Shop\\App_Start\\Startup.Auth.cs",
               "RelativeDocumentMoniker": "Shop\\App_Start\\Startup.Auth.cs",
@@ -195,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "MainPageController.cs",
               "DocumentMoniker": "D:\\Shop-master\\Shop\\Areas\\Administrator\\Controllers\\MainPageController.cs",
               "RelativeDocumentMoniker": "Shop\\Areas\\Administrator\\Controllers\\MainPageController.cs",
@@ -207,7 +250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "IdentityConfig.cs",
               "DocumentMoniker": "D:\\Shop-master\\Shop\\App_Start\\IdentityConfig.cs",
               "RelativeDocumentMoniker": "Shop\\App_Start\\IdentityConfig.cs",
@@ -219,7 +262,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "Web.config",
               "DocumentMoniker": "D:\\Shop-master\\Shop\\Web.config",
               "RelativeDocumentMoniker": "Shop\\Web.config",
@@ -229,18 +272,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2024-12-23T06:47:54.821Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ManageController.cs",
-              "DocumentMoniker": "D:\\Shop-master\\Shop\\Controllers\\ManageController.cs",
-              "RelativeDocumentMoniker": "Shop\\Controllers\\ManageController.cs",
-              "ToolTip": "D:\\Shop-master\\Shop\\Controllers\\ManageController.cs",
-              "RelativeToolTip": "Shop\\Controllers\\ManageController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T07:12:19.802Z"
             }
           ]
         }

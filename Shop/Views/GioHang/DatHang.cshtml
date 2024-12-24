@@ -11,7 +11,7 @@
         <div class="container px-1 px-lg-1 my-1">
             <div class="text-center text-white">
                 <h1 class="display-4 fw-bolder">Đơn đặt hàng</h1>
-                <p class="lead fw-normal mb-0" style="color: #4cff00;">Cám ơn quý khách đã lựa chọn sản phẩm từ iLaptop! 🧡🧡🧡</p>
+                <p class="lead fw-normal mb-0" style="color: #4cff00;">Cám ơn quý khách đã lựa chọn sản phẩm từ 360 Store! 🧡🧡🧡</p>
                 <a class="btn text-white" style="background-color: orangered; margin-top: 10px;" href="@Url.Action("Index", "Home")"> <i class="fa fa-shopping-basket"></i> Mua thêm?</a>
             </div>
         </div>
@@ -36,10 +36,10 @@
     <table @*id="tblStocks"*@ id="tbl_exporttable_to_xls" class="table table-bordered tab" style="box-shadow: 5px 5px blue;">
         <tr style="background-color:green;color:white;">
             @*<th>
-                    @Html.DisplayNameFor(model => model.malaptop)
+                    @Html.DisplayNameFor(model => model.madienthoai)
                 </th>*@
             <th class="text-center" style="vertical-align:middle">
-                @Html.DisplayName("Laptop") <i class="fa fa-laptop"></i>
+                @Html.DisplayName("Dienthoai") <i class="fa fa-dienthoai"></i>
             </th>
             <th class="text-center" style="vertical-align:middle">
                 @Html.DisplayName("Ảnh sản phẩm") <i class="fa fa-image"></i>
@@ -59,15 +59,15 @@
         {
             <tr>
                 @*<td>
-                        @Html.DisplayFor(modelItem => item.malaptop)
+                        @Html.DisplayFor(modelItem => item.madienthoai)
                     </td>*@
                 <td class="text-center" style="vertical-align:middle">
-                    @Html.DisplayFor(modelItem => item.tenlaptop)
+                    @Html.DisplayFor(modelItem => item.tendienthoai)
                 </td>
                 <td class="text-center" style="vertical-align:middle">
                     <img src="/Data/images/@item.hinh" width="100" height="250" />
                 </td>
-                @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @id = item.malaptop }))
+                @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @id = item.madienthoai }))
                 {
                     <td class="text-center" style="vertical-align:middle">
                         @*@Html.DisplayFor(modelItem => item.giaban) VNĐ*@
@@ -87,7 +87,7 @@
         <tr style="font-weight: bold; text-align:right; color:red">
             <td colspan="7">
                 <div>
-                    <p>Số lượng Laptop: @ViewBag.Tongsoluong</p>
+                    <p>Số lượng Dienthoai: @ViewBag.Tongsoluong</p>
                     <p>Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</p>
                 </div>
             </td>

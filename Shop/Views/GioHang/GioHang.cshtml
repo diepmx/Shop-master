@@ -15,7 +15,7 @@
     if (Model.Count() == 0)
     {
         <script>
-        document.getElementById("root-cart").insertAdjacentHTML("afterbegin", '<div class="row"><div class="col-12 text-center"><img src="/Content/images/no-cart.png" alt="Alternate Text"> <a class="btn text-white" style="background-color: red" href="@Url.Action("Index", "Home")"> <i class="fa fa-laptop"></i> Mua hàng?</a></div></div>');
+        document.getElementById("root-cart").insertAdjacentHTML("afterbegin", '<div class="row"><div class="col-12 text-center"><img src="/Content/images/no-cart.png" alt="Alternate Text"> <a class="btn text-white" style="background-color: red" href="@Url.Action("Index", "Home")"> <i class="fa fa-dienthoai"></i> Mua hàng?</a></div></div>');
         </script>
     }
     else
@@ -27,7 +27,7 @@
             <div class="container px-1 px-lg-1 my-1">
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">Giỏ hàng</h1>
-                    <p class="lead fw-normal mb-0" style="color: #4cff00;">Cám ơn quý khách đã lựa chọn sản phẩm từ iLaptop! 🧡🧡🧡</p>
+                    <p class="lead fw-normal mb-0" style="color: #4cff00;">Cám ơn quý khách đã lựa chọn sản phẩm từ 360 Store! 🧡🧡🧡</p>
                 </div>
             </div>
         </header>
@@ -48,10 +48,10 @@
             <table class="table table-bordered tab">
                 <tr style="background-color:green;color:white;">
                     @*<th>
-                            @Html.DisplayNameFor(model => model.malaptop)
+                            @Html.DisplayNameFor(model => model.madienthoai)
                         </th>*@
                     <th class="text-center" style="vertical-align:middle">
-                        @Html.DisplayNameFor(model => model.tenlaptop) <i class="fa fa-laptop"></i>
+                        @Html.DisplayNameFor(model => model.tendienthoai) <i class="fa fa-dienthoai"></i>
                     </th>
                     <th class="text-center" style="vertical-align:middle">
                         @Html.DisplayNameFor(model => model.hinh) <i class="fa fa-image"></i>
@@ -80,12 +80,12 @@
                 {
                     <tr>
                         <td class="text-center" style="vertical-align:middle">
-                            @Html.DisplayFor(modelItem => item.tenlaptop)
+                            @Html.DisplayFor(modelItem => item.tendienthoai)
                         </td>
                         <td class="text-center" style="vertical-align:middle">
                             <img src="/Data/images/@item.hinh" width="100" height="250" />
                         </td>
-                        @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @id = item.malaptop }))
+                        @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @id = item.madienthoai }))
                         {
                             <td class="text-center" style="vertical-align:middle">
                                 @String.Format("{0:0,0}", item.giaban) VNĐ
@@ -99,25 +99,25 @@
                                 @String.Format("{0:0,0}", item.dThanhTien) VNĐ
                             </td>
                             <td class="text-center" style="vertical-align:middle">
-                                <a class="btn btn-warning" href="@Url.Action("Details", "Home", new { id = item.malaptop })"> <i class="fa fa-eye"></i> Chi tiết</a>  @*@Html.ActionLink("Xóa", "XoaGioHang", new { @id = item.malaptop })*@
+                                <a class="btn btn-warning" href="@Url.Action("Details", "Home", new { id = item.madienthoai })"> <i class="fa fa-eye"></i> Chi tiết</a>  @*@Html.ActionLink("Xóa", "XoaGioHang", new { @id = item.madienthoai })*@
 
                                 <!-- onclick="Swal.fire({ position: 'center', icon: 'success', title: 'Xóa thành công!', showConfirmButton: false });" -->
                             </td>
                             <td class="text-center" style="vertical-align:middle">
-                                <a class="btn btn-danger" href="@Url.Action("XoaGioHang", "GioHang", new { id = item.malaptop })"> <i class="fa fa-trash"></i> Xóa bỏ</a>
+                                <a class="btn btn-danger" href="@Url.Action("XoaGioHang", "GioHang", new { id = item.madienthoai })"> <i class="fa fa-trash"></i> Xóa bỏ</a>
                                 @*<input type="submit" value="✅ Cập nhập giỏ" class="btn btn-success" />*@
                             </td>
                         }
                     </tr>
                 }
                 <tr style="font-weight:bold; text-align:right; color:red">
-                    @*<td colspan="2"> Số loại Laptop: @ViewBag.Tomgsoluongsanpham</td>
-                        <td colspan="2"> Số lượng Laptop: @ViewBag.Tongsoluong</td>
+                    @*<td colspan="2"> Số loại Dienthoai: @ViewBag.Tomgsoluongsanpham</td>
+                        <td colspan="2"> Số lượng Dienthoai: @ViewBag.Tongsoluong</td>
                         <td colspan="4"> Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</td>*@
                     <td colspan="7">
                         <div>
-                            @*<p>Số loại Laptop: @ViewBag.Tomgsoluongsanpham</p>*@
-                            <p>Số lượng Laptop: @ViewBag.Tongsoluong</p>
+                            @*<p>Số loại Dienthoai: @ViewBag.Tomgsoluongsanpham</p>*@
+                            <p>Số lượng Dienthoai: @ViewBag.Tongsoluong</p>
                             <p>Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</p>
                         </div>
                     </td>

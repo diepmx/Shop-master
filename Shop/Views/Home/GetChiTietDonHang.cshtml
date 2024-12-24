@@ -18,10 +18,10 @@
                 <table @*id="tblStocks"*@ id="tbl_exporttable_to_xls" class="table table-bordered table-responsive-lg">
                     <tr>
                         @*<th>
-                                @Html.DisplayNameFor(model => model.malaptop)
+                                @Html.DisplayNameFor(model => model.madienthoai)
                             </th>*@
                         <th class="text-center" style="vertical-align:middle">
-                            @Html.DisplayName("Laptop") <i class="fa fa-laptop"></i>
+                            @Html.DisplayName("Điện thoại") <i class="fa fa-dienthoai"></i>
                         </th>
                         <th class="text-center" style="vertical-align:middle">
                             @Html.DisplayName("Hình minh họa") <i class="fa fa-image"></i>
@@ -41,13 +41,13 @@
                     {
                         <tr>
                             @*<td>
-                                    @Html.DisplayFor(modelItem => item.malaptop)
+                                    @Html.DisplayFor(modelItem => item.madienthoai)
                                 </td>*@
                             <td class="text-center" style="vertical-align:middle">
-                                @ctdh.Laptop.tenlaptop
+                                @ctdh.Dienthoai.tendienthoai
                             </td>
                             <td class="text-center" style="vertical-align:middle">
-                                <img src="/Data/images/@ctdh.Laptop.hinh" width="100" height="250" />
+                                <img src="/Data/images/@ctdh.Dienthoai.hinh" width="100" height="250" />
                             </td>
                             <td class="text-center" style="vertical-align:middle">
                                 @String.Format("{0:0,0}", ctdh.dongia) đ

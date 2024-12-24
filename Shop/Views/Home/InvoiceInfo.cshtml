@@ -66,13 +66,13 @@
                                             {
                                                 <tr>
                                                     @*<td>
-                                                            @Html.DisplayFor(modelItem => item.malaptop)
+                                                            @Html.DisplayFor(modelItem => item.madienthoai)
                                                         </td>*@
                                                     <td class="text-center" style="vertical-align:middle">
-                                                        @ctdh.Laptop.tenlaptop
+                                                        @ctdh.Dienthoai.tendienthoai
                                                     </td>
                                                     <td class="text-center" style="vertical-align:middle">
-                                                        <img src="/Data/images/@ctdh.Laptop.hinh" width="100" height="100" alt="No image" />
+                                                        <img src="/Data/images/@ctdh.Dienthoai.hinh" width="100" height="100" alt="No image" />
                                                     </td>
                                                     <td class="text-center" style="vertical-align:middle">
                                                         @String.Format("{0:0,0}", ctdh.dongia) đ
@@ -98,9 +98,9 @@
                                                         <tr>
                                                             @foreach (var y in ViewBag.productOrder)
                                                             {
-                                                                if (y.ID == c.malaptop)
+                                                                if (y.ID == c.madienthoai)
                                                                 {
-                                                                    <td> <img src="/Data/images/@y.hinh" alt="No image" width="70">@y.tenlaptop</td>
+                                                                    <td> <img src="/Data/images/@y.hinh" alt="No image" width="70">@y.tendienthoai</td>
                                                                 }
                                                             }
                                                             <td>    @String.Format("{0:0,0₫}", c.dongia)</td>

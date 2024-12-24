@@ -1,4 +1,4 @@
-﻿@model Shop.Models.Laptop
+﻿@model Shop.Models.Dienthoai
 
 @using Shop.Models
 @using Shop.Common
@@ -7,7 +7,7 @@
 
     HomeModel home = new HomeModel();
 
-    CommonFields.id = Model.malaptop;
+    CommonFields.id = Model.madienthoai;
 }
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -22,7 +22,7 @@
                     <div class="col-6 small mb-1 pull-left" style="color:red">Cập nhật: @Model.ngaycapnhat.GetValueOrDefault().ToString("dd/MM/yyyy")</div>
                     <div class="col-6 small mb-1 pull-right" style="color:#0094ff">@Model.Hang.tenhang - @Model.NhuCau.tennhucau</div>
                 </div>
-                <h1 class="display-5 fw-bolder">@Model.tenlaptop</h1>
+                <h1 class="display-5 fw-bolder">@Model.tendienthoai</h1>
                 <div class="fs-5 mb-5">
                     @*<span class="text-decoration-line-through">@Model.giaban</span>*@
                     <span>@String.Format("{0:0,0}", Model.giaban) đ </span>
@@ -39,18 +39,18 @@
                     <tbody>
                         <tr>
                             <th scope="row">1</th>
-                            <td>CPU</td>
-                            <td>@Model.cpu</td>
+                            <td>Camera</td>
+                            <td>@Model.camera</td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
-                            <td>GPU</td>
-                            <td>@Model.gpu</td>
+                            <td>Rom</td>
+                            <td>@Model.rom</td>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
-                            <td>Hardware</td>
-                            <td>@Model.hardware</td>
+                            <td>Hệ Điều Hành</td>
+                            <td>@Model.hedieuhanh</td>
                         </tr>
                         <tr>
                             <th scope="row">4</th>
@@ -71,14 +71,14 @@
                 </table>
                 <div class="d-flex">
                     @*<input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem;" />*@
-                    @*<a href="@Url.Action("ThemGioHang", "GioHang", new { @id = Model.malaptop, @strURL = Request.Url.ToString() })" class="btn btn-danger flex-shrink-0">*@
+                    @*<a href="@Url.Action("ThemGioHang", "GioHang", new { @id = Model.madienthoai, @strURL = Request.Url.ToString() })" class="btn btn-danger flex-shrink-0">*@
                     @if (Model.soluongton <= 0)
                     {
                         <button disabled class="btn btn-sm btn-secondary mua"><i class="fas fa-pause-circle me-2"></i>Hết hàng</button>
                     }
                     else
                     {
-                        <a href="@Url.Action("ThemGioHang", "GioHang", new { @id = Model.malaptop, @strURL = Request.Url.ToString() })" class="btn btn-sm btn-outline-warning mua"><i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ</a>
+                        <a href="@Url.Action("ThemGioHang", "GioHang", new { @id = Model.madienthoai, @strURL = Request.Url.ToString() })" class="btn btn-sm btn-outline-warning mua"><i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ</a>
                     }
                     <!-- onclick="Swal.fire({ position: 'center', icon: 'success', title: 'Đã thêm vào giỏ hàng!', showConfirmButton: false });" -->
                     @*<i class="fa fa-cart-plus me-1"></i>
@@ -115,7 +115,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in home.GetListMetaLaptopTheoLaptop(Model.malaptop))
+                            @foreach (var item in home.GetListMetaDienthoaiTheoDienthoai(Model.madienthoai))
                             {
                                 <tr>
                                     <td>@item.keymeta</td>
@@ -252,7 +252,7 @@
                                         <textarea name="noidung" class="form-control" placeholder="Thêm đánh giá..."></textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <p class="text-hide" name="malaptop">@Model.malaptop</p>
+                                        <p class="text-hide" name="madienthoai">@Model.madienthoai</p>
                                     </div>
                                     <div class="mb-3">
                                         <div class="d-flex ratings justify-content-end flex-row-reverse">
@@ -291,7 +291,7 @@
     <div class="container px-4 px-lg-5 mt-5">
         <h2 class="fw-bolder mb-4">Sản phẩm khác</h2>
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            @foreach (var item in home.GetListLaptop_OTHER())
+            @foreach (var item in home.GetListDienthoai_OTHER())
             {
                 <div class="col mb-5">
                     <div class="card h-100">
@@ -301,7 +301,7 @@
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">@item.tenlaptop</h5>
+                                <h5 class="fw-bolder">@item.tendienthoai</h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -316,7 +316,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-warning mt-auto" href="@Url.Action("Details","Home", new { id = item.malaptop, postName = StringHelpers.SeoLink(item.tenlaptop).ToLower() })"><i class="fa fa-eye"></i> Xem thêm</a></div>
+                            <div class="text-center"><a class="btn btn-warning mt-auto" href="@Url.Action("Details","Home", new { id = item.madienthoai, postName = StringHelpers.SeoLink(item.tendienthoai).ToLower() })"><i class="fa fa-eye"></i> Xem thêm</a></div>
                         </div>
                     </div>
                 </div>
