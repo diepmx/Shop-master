@@ -9,9 +9,9 @@ namespace Shop.Models
     public class GioHang
     {
         MyDataDataContext data = new MyDataDataContext();
-        public int malaptop { get; set; }
-        [Display(Name = "Tên Laptop")]
-        public string tenlaptop { get; set; }
+        public int madienthoai { get; set; }
+        [Display(Name = "Tên Điện thoại")]
+        public string tendienthoai { get; set; }
 
         [Display(Name = "Ảnh bìa")]
         public string hinh { get; set; }
@@ -29,11 +29,11 @@ namespace Shop.Models
 
         public GioHang(int id)// hàm khởi tạo giỏ hàng
         {
-            malaptop = id;
-            Laptop laptop = data.Laptops.Single(n => n.malaptop == malaptop);
-            tenlaptop = laptop.tenlaptop;
-            hinh = laptop.hinh;
-            giaban = double.Parse(laptop.giaban.ToString());
+            madienthoai = id;
+            Dienthoai dienthoai = data.Dienthoais.Single(n => n.madienthoai == madienthoai);
+            tendienthoai = dienthoai.tendienthoai;
+            hinh = dienthoai.hinh;
+            giaban = double.Parse(dienthoai.giaban.ToString());
             iSoluong = 1;
 
         }
