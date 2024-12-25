@@ -79,7 +79,7 @@ namespace Shop.Controllers
         {
             var hoten = collection["hoten"];
             var email = collection["email"];
-            var dienthoai = collection["dienthoai"];
+            var phone = collection["phone"];
             var website = collection["website"];
             var noidung = collection["noidung"];
             var captchaCode = collection["CaptchaCodeID"];
@@ -104,7 +104,7 @@ namespace Shop.Controllers
             {
                 lh.hoten = hoten;
                 lh.email = email;
-                lh.dienthoai = dienthoai;
+                lh.phone = phone;
                 lh.website = website;
                 lh.noidung = noidung;
                 lh.trangthai = true;

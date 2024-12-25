@@ -13,8 +13,8 @@
         border-right: 1px solid $border-color;
         @include transition(all 0.2s ease); 
 
-        @include screen-laptop-only {
-            width: $side-nav-width-laptop;
+        @include screen-dienthoai-only {
+            width: $side-nav-width-dienthoai;
         }
 
         @include screen-tablet {

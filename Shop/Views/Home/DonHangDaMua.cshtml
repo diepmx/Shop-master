@@ -19,7 +19,7 @@
         <div class="text-center text-white">
             <h1 class="display-4 fw-bolder">Đơn hàng đã mua của quý khách</h1>
             <p class="lead fw-normal mb-0" style="color: #4cff00;">Qúy khách có muốn mua thêm Điện thoại không! 💌💌💌</p>
-            <a style="background-color: red; margin: 10px;" class="btn text-white" href="@Url.Action("Index","Home")"><i class="fa fa-laptop-house"></i> Mua Laptop</a>
+            <a style="background-color: red; margin: 10px;" class="btn text-white" href="@Url.Action("Index","Home")"><i class="fa fa-dienthoai-house"></i> Mua Dienthoai</a>
         </div>
     </div>
 </header>
@@ -32,7 +32,7 @@
         }
         <div id="Grid">
             <div class="text-center">
-                <img src="~/Content/images/iLaptop.png" alt="Alternate Text" />
+                <img src="~/Content/images/iDienthoai.png" alt="Alternate Text" />
                 <p class="bold" style="font-weight: bold;">Chức mừng bạn đã đặt hàng thành công!</p>
                 <p class="italic">Chúng tôi sẽ tiến hành xử lý đơn hàng sớm nhất, bạn vui lòng chờ nhé!</p>
             </div>
@@ -135,7 +135,7 @@
                                             <tr>
                                                 
                                                 <th class="text-center" style="vertical-align:middle">
-                                                    @Html.DisplayName("Laptop") <i class="fa fa-laptop"></i>
+                                                    @Html.DisplayName("Dienthoai") <i class="fa fa-dienthoai"></i>
                                                 </th>
                                                 <th class="text-center" style="vertical-align:middle">
                                                     @Html.DisplayName("Hình minh họa") <i class="fa fa-image"></i>
@@ -157,10 +157,10 @@
                                                 <tr>
                                                     
                                                     <td class="text-center" style="vertical-align:middle">
-                                                        @ctdh.Laptop.tenlaptop
+                                                        @ctdh.Dienthoai.tendienthoai
                                                     </td>
                                                     <td class="text-center" style="vertical-align:middle">
-                                                        <img src="/Data/images/@ctdh.Laptop.hinh" width="100" height="250" />
+                                                        <img src="/Data/images/@ctdh.Dienthoai.hinh" width="100" height="250" />
                                                     </td>
                                                     <td class="text-center" style="vertical-align:middle">
                                                         @String.Format("{0:0,0}", ctdh.dongia) đ
@@ -230,7 +230,7 @@
 @*<script>
         $(function () {
             $("#btnSubmit").click(function () {
-                $("input[name='GridHtml']").val($("#Grid").html("<div class="text-center">< img src = "~/Content/images/iLaptop.png" alt = "Alternate Text" /><p class="bold" style="font-weight: bold;">Chức mừng bạn đã đặt hàng thành công!</p><p class="italic">Chúng tôi sẽ tiến hành xử lý đơn hàng sớm nhất, bạn vui lòng chờ nhé!</p></div >"));
+                $("input[name='GridHtml']").val($("#Grid").html("<div class="text-center">< img src = "~/Content/images/iDienthoai.png" alt = "Alternate Text" /><p class="bold" style="font-weight: bold;">Chức mừng bạn đã đặt hàng thành công!</p><p class="italic">Chúng tôi sẽ tiến hành xử lý đơn hàng sớm nhất, bạn vui lòng chờ nhé!</p></div >"));
             });
         });
     </script>*@

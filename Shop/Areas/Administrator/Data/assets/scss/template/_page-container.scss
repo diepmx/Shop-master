@@ -6,8 +6,8 @@
 		padding-left: 0px;
 	}
 
-	@include screen-laptop-only {
-		padding-left: $side-nav-width-laptop;
+	@include screen-dienthoai-only {
+		padding-left: $side-nav-width-dienthoai;
 	}
 
 	@include screen-tablet {

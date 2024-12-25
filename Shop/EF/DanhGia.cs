@@ -22,10 +22,10 @@ namespace Shop.EF
 
         public DateTime? ngaydanhgia { get; set; }
 
-        public int? malaptop { get; set; }
+        public int? madienthoai { get; set; }
 
         public bool? trangthai { get; set; }
 
-        public virtual Laptop Laptop { get; set; }
+        public virtual Dienthoai Dienthoai { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace Shop.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhuCau()
         {
-            Laptops = new HashSet<Laptop>();
+            Dienthoais = new HashSet<Dienthoai>();
         }
 
         [Key]
@@ -23,6 +23,6 @@ namespace Shop.EF
         public string tennhucau { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Laptop> Laptops { get; set; }
+        public virtual ICollection<Dienthoai> Dienthoais { get; set; }
     }
 }

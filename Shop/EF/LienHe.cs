@@ -20,7 +20,7 @@ namespace Shop.EF
         public string email { get; set; }
 
         [StringLength(50)]
-        public string dienthoai { get; set; }
+        public string phone { get; set; }
 
         [StringLength(100)]
         public string website { get; set; }

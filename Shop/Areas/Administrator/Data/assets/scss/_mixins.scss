@@ -10,22 +10,22 @@
     }
 }
 
-// usage : @include screen-laptop-above {...} 
-@mixin screen-laptop-above {
+// usage : @include screen-dienthoai-above {...} 
+@mixin screen-dienthoai-above {
     @media only screen and (min-width: 1440px) {
         @content;
     }
 }
 
-// usage : @include screen-laptop {...} 
-@mixin screen-laptop {
+// usage : @include screen-dienthoai {...} 
+@mixin screen-dienthoai {
     @media only screen and (max-width: 1440px) {
         @content;
     }
 }
 
-// usage : @include screen-laptop-only {...} 
-@mixin screen-laptop-only {
+// usage : @include screen-dienthoai-only {...} 
+@mixin screen-dienthoai-only {
     @media only screen and (min-width: 992px) and (max-width: 1440px)  {
         @content;
     }

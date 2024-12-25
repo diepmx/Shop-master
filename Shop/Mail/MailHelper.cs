@@ -13,7 +13,7 @@ namespace Shop.Mail
     {
         public void SendEmail(string address, string subject, string message)
         {
-            string email = "ilaptoppro@gmail.com";
+            string email = "idienthoaipro@gmail.com";
             string password = "vfgfrommcylmgloq";
 
             var loginInfo = new NetworkCredential(email, password);

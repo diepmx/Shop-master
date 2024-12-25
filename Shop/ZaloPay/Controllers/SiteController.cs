@@ -26,7 +26,7 @@ namespace Shop.ZaloPay.Controllers
             ////Lấy giỏ hàng để xử lý
             //DonHang dh = new DonHang();
             //AspNetUser kh = (AspNetUser)Session["TaiKhoan"];// ép session về kh để lấy thông tin
-            //Laptop s = new Laptop();
+            //Dienthoai s = new Dienthoai();
             //GioHangController ghCtrl = new GioHangController();
             //List<GioHang> gh = ghCtrl.Laygiohang();// lấy giỏ hàng
 

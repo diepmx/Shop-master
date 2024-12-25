@@ -2430,16 +2430,16 @@ readers do not read off random characters that represent icons */
 .fa-language:before {
   content: "\f1ab"; }
 
-.fa-laptop:before {
+.fa-dienthoai:before {
   content: "\f109"; }
 
-.fa-laptop-code:before {
+.fa-dienthoai-code:before {
   content: "\f5fc"; }
 
-.fa-laptop-house:before {
+.fa-dienthoai-house:before {
   content: "\e066"; }
 
-.fa-laptop-medical:before {
+.fa-dienthoai-medical:before {
   content: "\f812"; }
 
 .fa-laravel:before {

@@ -15,8 +15,8 @@
 		left: -$side-nav-width;
 	}
 
-	@include screen-laptop-only {
-        width: $side-nav-width-laptop;
+	@include screen-dienthoai-only {
+        width: $side-nav-width-dienthoai;
     }
 
 	.side-nav-inner {

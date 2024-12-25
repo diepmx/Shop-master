@@ -1432,13 +1432,13 @@
 .zmdi-keyboard:before {
   content: '\f2a4';
 }
-.zmdi-laptop-chromebook:before {
+.zmdi-dienthoai-chromebook:before {
   content: '\f2a5';
 }
-.zmdi-laptop-mac:before {
+.zmdi-dienthoai-mac:before {
   content: '\f2a6';
 }
-.zmdi-laptop:before {
+.zmdi-dienthoai:before {
   content: '\f2a7';
 }
 .zmdi-mic-off:before {
@@ -3763,13 +3763,13 @@
 .zmdi-keyboard:before {
   content: '\f2a4';
 }
-.zmdi-laptop-chromebook:before {
+.zmdi-dienthoai-chromebook:before {
   content: '\f2a5';
 }
-.zmdi-laptop-mac:before {
+.zmdi-dienthoai-mac:before {
   content: '\f2a6';
 }
-.zmdi-laptop:before {
+.zmdi-dienthoai:before {
   content: '\f2a7';
 }
 .zmdi-mic-off:before {

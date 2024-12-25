@@ -22,7 +22,7 @@ namespace Shop.Models
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ShopLaptop")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ShopDienthoai")]
 	public partial class MyDataDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -60,15 +60,15 @@ namespace Shop.Models
     partial void InsertHang(Hang instance);
     partial void UpdateHang(Hang instance);
     partial void DeleteHang(Hang instance);
-    partial void InsertLaptop(Laptop instance);
-    partial void UpdateLaptop(Laptop instance);
-    partial void DeleteLaptop(Laptop instance);
+    partial void InsertDienthoai(Dienthoai instance);
+    partial void UpdateDienthoai(Dienthoai instance);
+    partial void DeleteDienthoai(Dienthoai instance);
     partial void InsertLienHe(LienHe instance);
     partial void UpdateLienHe(LienHe instance);
     partial void DeleteLienHe(LienHe instance);
-    partial void InsertMetaLaptop(MetaLaptop instance);
-    partial void UpdateMetaLaptop(MetaLaptop instance);
-    partial void DeleteMetaLaptop(MetaLaptop instance);
+    partial void InsertMetaDienthoai(MetaDienthoai instance);
+    partial void UpdateMetaDienthoai(MetaDienthoai instance);
+    partial void DeleteMetaDienthoai(MetaDienthoai instance);
     partial void InsertNhuCau(NhuCau instance);
     partial void UpdateNhuCau(NhuCau instance);
     partial void DeleteNhuCau(NhuCau instance);
@@ -196,11 +196,11 @@ namespace Shop.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Laptop> Laptops
+		public System.Data.Linq.Table<Dienthoai> Dienthoais
 		{
 			get
 			{
-				return this.GetTable<Laptop>();
+				return this.GetTable<Dienthoai>();
 			}
 		}
 		
@@ -212,11 +212,11 @@ namespace Shop.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<MetaLaptop> MetaLaptops
+		public System.Data.Linq.Table<MetaDienthoai> MetaDienthoais
 		{
 			get
 			{
-				return this.GetTable<MetaLaptop>();
+				return this.GetTable<MetaDienthoai>();
 			}
 		}
 		
@@ -1648,13 +1648,13 @@ namespace Shop.Models
 		
 		private int _madon;
 		
-		private int _malaptop;
+		private int _madienthoai;
 		
 		private System.Nullable<int> _soluong;
 		
 		private System.Nullable<decimal> _dongia;
 		
-		private EntityRef<Laptop> _Laptop;
+		private EntityRef<Dienthoai> _Dienthoai;
 		
 		private EntityRef<DonHang> _DonHang;
 		
@@ -1664,8 +1664,8 @@ namespace Shop.Models
     partial void OnCreated();
     partial void OnmadonChanging(int value);
     partial void OnmadonChanged();
-    partial void OnmalaptopChanging(int value);
-    partial void OnmalaptopChanged();
+    partial void OnmadienthoaiChanging(int value);
+    partial void OnmadienthoaiChanged();
     partial void OnsoluongChanging(System.Nullable<int> value);
     partial void OnsoluongChanged();
     partial void OndongiaChanging(System.Nullable<decimal> value);
@@ -1674,7 +1674,7 @@ namespace Shop.Models
 		
 		public ChiTietDonHang()
 		{
-			this._Laptop = default(EntityRef<Laptop>);
+			this._Dienthoai = default(EntityRef<Dienthoai>);
 			this._DonHang = default(EntityRef<DonHang>);
 			OnCreated();
 		}
@@ -1703,26 +1703,26 @@ namespace Shop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_malaptop", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int malaptop
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_madienthoai", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int madienthoai
 		{
 			get
 			{
-				return this._malaptop;
+				return this._madienthoai;
 			}
 			set
 			{
-				if ((this._malaptop != value))
+				if ((this._madienthoai != value))
 				{
-					if (this._Laptop.HasLoadedOrAssignedValue)
+					if (this._Dienthoai.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnmalaptopChanging(value);
+					this.OnmadienthoaiChanging(value);
 					this.SendPropertyChanging();
-					this._malaptop = value;
-					this.SendPropertyChanged("malaptop");
-					this.OnmalaptopChanged();
+					this._madienthoai = value;
+					this.SendPropertyChanged("madienthoai");
+					this.OnmadienthoaiChanged();
 				}
 			}
 		}
@@ -1767,36 +1767,36 @@ namespace Shop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Laptop_ChiTietDonHang", Storage="_Laptop", ThisKey="malaptop", OtherKey="malaptop", IsForeignKey=true)]
-		public Laptop Laptop
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dienthoai_ChiTietDonHang", Storage="_Dienthoai", ThisKey="madienthoai", OtherKey="madienthoai", IsForeignKey=true)]
+		public Dienthoai Dienthoai
 		{
 			get
 			{
-				return this._Laptop.Entity;
+				return this._Dienthoai.Entity;
 			}
 			set
 			{
-				Laptop previousValue = this._Laptop.Entity;
+				Dienthoai previousValue = this._Dienthoai.Entity;
 				if (((previousValue != value) 
-							|| (this._Laptop.HasLoadedOrAssignedValue == false)))
+							|| (this._Dienthoai.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Laptop.Entity = null;
+						this._Dienthoai.Entity = null;
 						previousValue.ChiTietDonHangs.Remove(this);
 					}
-					this._Laptop.Entity = value;
+					this._Dienthoai.Entity = value;
 					if ((value != null))
 					{
 						value.ChiTietDonHangs.Add(this);
-						this._malaptop = value.malaptop;
+						this._madienthoai = value.madienthoai;
 					}
 					else
 					{
-						this._malaptop = default(int);
+						this._madienthoai = default(int);
 					}
-					this.SendPropertyChanged("Laptop");
+					this.SendPropertyChanged("Dienthoai");
 				}
 			}
 		}
@@ -2034,11 +2034,11 @@ namespace Shop.Models
 		
 		private System.Nullable<System.DateTime> _ngaydanhgia;
 		
-		private System.Nullable<int> _malaptop;
+		private System.Nullable<int> _madienthoai;
 		
 		private System.Nullable<bool> _trangthai;
 		
-		private EntityRef<Laptop> _Laptop;
+		private EntityRef<Dienthoai> _Dienthoai;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2054,15 +2054,15 @@ namespace Shop.Models
     partial void OnvoteChanged();
     partial void OnngaydanhgiaChanging(System.Nullable<System.DateTime> value);
     partial void OnngaydanhgiaChanged();
-    partial void OnmalaptopChanging(System.Nullable<int> value);
-    partial void OnmalaptopChanged();
+    partial void OnmadienthoaiChanging(System.Nullable<int> value);
+    partial void OnmadienthoaiChanged();
     partial void OntrangthaiChanging(System.Nullable<bool> value);
     partial void OntrangthaiChanged();
     #endregion
 		
 		public DanhGia()
 		{
-			this._Laptop = default(EntityRef<Laptop>);
+			this._Dienthoai = default(EntityRef<Dienthoai>);
 			OnCreated();
 		}
 		
@@ -2166,26 +2166,26 @@ namespace Shop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_malaptop", DbType="Int")]
-		public System.Nullable<int> malaptop
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_madienthoai", DbType="Int")]
+		public System.Nullable<int> madienthoai
 		{
 			get
 			{
-				return this._malaptop;
+				return this._madienthoai;
 			}
 			set
 			{
-				if ((this._malaptop != value))
+				if ((this._madienthoai != value))
 				{
-					if (this._Laptop.HasLoadedOrAssignedValue)
+					if (this._Dienthoai.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnmalaptopChanging(value);
+					this.OnmadienthoaiChanging(value);
 					this.SendPropertyChanging();
-					this._malaptop = value;
-					this.SendPropertyChanged("malaptop");
-					this.OnmalaptopChanged();
+					this._madienthoai = value;
+					this.SendPropertyChanged("madienthoai");
+					this.OnmadienthoaiChanged();
 				}
 			}
 		}
@@ -2210,36 +2210,36 @@ namespace Shop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Laptop_DanhGia", Storage="_Laptop", ThisKey="malaptop", OtherKey="malaptop", IsForeignKey=true)]
-		public Laptop Laptop
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dienthoai_DanhGia", Storage="_Dienthoai", ThisKey="madienthoai", OtherKey="madienthoai", IsForeignKey=true)]
+		public Dienthoai Dienthoai
 		{
 			get
 			{
-				return this._Laptop.Entity;
+				return this._Dienthoai.Entity;
 			}
 			set
 			{
-				Laptop previousValue = this._Laptop.Entity;
+				Dienthoai previousValue = this._Dienthoai.Entity;
 				if (((previousValue != value) 
-							|| (this._Laptop.HasLoadedOrAssignedValue == false)))
+							|| (this._Dienthoai.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Laptop.Entity = null;
+						this._Dienthoai.Entity = null;
 						previousValue.DanhGias.Remove(this);
 					}
-					this._Laptop.Entity = value;
+					this._Dienthoai.Entity = value;
 					if ((value != null))
 					{
 						value.DanhGias.Add(this);
-						this._malaptop = value.malaptop;
+						this._madienthoai = value.madienthoai;
 					}
 					else
 					{
-						this._malaptop = default(Nullable<int>);
+						this._madienthoai = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("Laptop");
+					this.SendPropertyChanged("Dienthoai");
 				}
 			}
 		}
@@ -2277,7 +2277,7 @@ namespace Shop.Models
 		
 		private string _hinh;
 		
-		private EntitySet<Laptop> _Laptops;
+		private EntitySet<Dienthoai> _Dienthoais;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2293,7 +2293,7 @@ namespace Shop.Models
 		
 		public Hang()
 		{
-			this._Laptops = new EntitySet<Laptop>(new Action<Laptop>(this.attach_Laptops), new Action<Laptop>(this.detach_Laptops));
+			this._Dienthoais = new EntitySet<Dienthoai>(new Action<Dienthoai>(this.attach_Dienthoais), new Action<Dienthoai>(this.detach_Dienthoais));
 			OnCreated();
 		}
 		
@@ -2357,16 +2357,16 @@ namespace Shop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Hang_Laptop", Storage="_Laptops", ThisKey="mahang", OtherKey="mahang")]
-		public EntitySet<Laptop> Laptops
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Hang_Dienthoai", Storage="_Dienthoais", ThisKey="mahang", OtherKey="mahang")]
+		public EntitySet<Dienthoai> Dienthoais
 		{
 			get
 			{
-				return this._Laptops;
+				return this._Dienthoais;
 			}
 			set
 			{
-				this._Laptops.Assign(value);
+				this._Dienthoais.Assign(value);
 			}
 		}
 		
@@ -2390,28 +2390,28 @@ namespace Shop.Models
 			}
 		}
 		
-		private void attach_Laptops(Laptop entity)
+		private void attach_Dienthoais(Dienthoai entity)
 		{
 			this.SendPropertyChanging();
 			entity.Hang = this;
 		}
 		
-		private void detach_Laptops(Laptop entity)
+		private void detach_Dienthoais(Dienthoai entity)
 		{
 			this.SendPropertyChanging();
 			entity.Hang = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Laptop")]
-	public partial class Laptop : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Dienthoai")]
+	public partial class Dienthoai : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _malaptop;
+		private int _madienthoai;
 		
-		private string _tenlaptop;
+		private string _tendienthoai;
 		
 		private System.Nullable<decimal> _giaban;
 		
@@ -2423,13 +2423,13 @@ namespace Shop.Models
 		
 		private System.Nullable<int> _manhucau;
 		
-		private string _cpu;
+		private string _camera;
 		
-		private string _gpu;
+		private string _rom;
 		
 		private string _ram;
 		
-		private string _hardware;
+		private string _hedieuhanh;
 		
 		private string _manhinh;
 		
@@ -2445,7 +2445,7 @@ namespace Shop.Models
 		
 		private EntitySet<DanhGia> _DanhGias;
 		
-		private EntitySet<MetaLaptop> _MetaLaptops;
+		private EntitySet<MetaDienthoai> _MetaDienthoais;
 		
 		private EntityRef<Hang> _Hang;
 		
@@ -2455,10 +2455,10 @@ namespace Shop.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnmalaptopChanging(int value);
-    partial void OnmalaptopChanged();
-    partial void OntenlaptopChanging(string value);
-    partial void OntenlaptopChanged();
+    partial void OnmadienthoaiChanging(int value);
+    partial void OnmadienthoaiChanged();
+    partial void OntendienthoaiChanging(string value);
+    partial void OntendienthoaiChanged();
     partial void OngiabanChanging(System.Nullable<decimal> value);
     partial void OngiabanChanged();
     partial void OnmotaChanging(string value);
@@ -2469,14 +2469,14 @@ namespace Shop.Models
     partial void OnmahangChanged();
     partial void OnmanhucauChanging(System.Nullable<int> value);
     partial void OnmanhucauChanged();
-    partial void OncpuChanging(string value);
-    partial void OncpuChanged();
-    partial void OngpuChanging(string value);
-    partial void OngpuChanged();
+    partial void OncameraChanging(string value);
+    partial void OncameraChanged();
+    partial void OnromChanging(string value);
+    partial void OnromChanged();
     partial void OnramChanging(string value);
     partial void OnramChanged();
-    partial void OnhardwareChanging(string value);
-    partial void OnhardwareChanged();
+    partial void OnhedieuhanhChanging(string value);
+    partial void OnhedieuhanhChanged();
     partial void OnmanhinhChanging(string value);
     partial void OnmanhinhChanged();
     partial void OnngaycapnhatChanging(System.Nullable<System.DateTime> value);
@@ -2489,52 +2489,52 @@ namespace Shop.Models
     partial void OntrangthaiChanged();
     #endregion
 		
-		public Laptop()
+		public Dienthoai()
 		{
 			this._ChiTietDonHangs = new EntitySet<ChiTietDonHang>(new Action<ChiTietDonHang>(this.attach_ChiTietDonHangs), new Action<ChiTietDonHang>(this.detach_ChiTietDonHangs));
 			this._DanhGias = new EntitySet<DanhGia>(new Action<DanhGia>(this.attach_DanhGias), new Action<DanhGia>(this.detach_DanhGias));
-			this._MetaLaptops = new EntitySet<MetaLaptop>(new Action<MetaLaptop>(this.attach_MetaLaptops), new Action<MetaLaptop>(this.detach_MetaLaptops));
+			this._MetaDienthoais = new EntitySet<MetaDienthoai>(new Action<MetaDienthoai>(this.attach_MetaDienthoais), new Action<MetaDienthoai>(this.detach_MetaDienthoais));
 			this._Hang = default(EntityRef<Hang>);
 			this._NhuCau = default(EntityRef<NhuCau>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_malaptop", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int malaptop
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_madienthoai", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int madienthoai
 		{
 			get
 			{
-				return this._malaptop;
+				return this._madienthoai;
 			}
 			set
 			{
-				if ((this._malaptop != value))
+				if ((this._madienthoai != value))
 				{
-					this.OnmalaptopChanging(value);
+					this.OnmadienthoaiChanging(value);
 					this.SendPropertyChanging();
-					this._malaptop = value;
-					this.SendPropertyChanged("malaptop");
-					this.OnmalaptopChanged();
+					this._madienthoai = value;
+					this.SendPropertyChanged("madienthoai");
+					this.OnmadienthoaiChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenlaptop", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string tenlaptop
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tendienthoai", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string tendienthoai
 		{
 			get
 			{
-				return this._tenlaptop;
+				return this._tendienthoai;
 			}
 			set
 			{
-				if ((this._tenlaptop != value))
+				if ((this._tendienthoai != value))
 				{
-					this.OntenlaptopChanging(value);
+					this.OntendienthoaiChanging(value);
 					this.SendPropertyChanging();
-					this._tenlaptop = value;
-					this.SendPropertyChanged("tenlaptop");
-					this.OntenlaptopChanged();
+					this._tendienthoai = value;
+					this.SendPropertyChanged("tendienthoai");
+					this.OntendienthoaiChanged();
 				}
 			}
 		}
@@ -2647,42 +2647,42 @@ namespace Shop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cpu", DbType="NVarChar(100)")]
-		public string cpu
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_camera", DbType="NVarChar(100)")]
+		public string camera
 		{
 			get
 			{
-				return this._cpu;
+				return this._camera;
 			}
 			set
 			{
-				if ((this._cpu != value))
+				if ((this._camera != value))
 				{
-					this.OncpuChanging(value);
+					this.OncameraChanging(value);
 					this.SendPropertyChanging();
-					this._cpu = value;
-					this.SendPropertyChanged("cpu");
-					this.OncpuChanged();
+					this._camera = value;
+					this.SendPropertyChanged("camera");
+					this.OncameraChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gpu", DbType="NVarChar(100)")]
-		public string gpu
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rom", DbType="NVarChar(100)")]
+		public string rom
 		{
 			get
 			{
-				return this._gpu;
+				return this._rom;
 			}
 			set
 			{
-				if ((this._gpu != value))
+				if ((this._rom != value))
 				{
-					this.OngpuChanging(value);
+					this.OnromChanging(value);
 					this.SendPropertyChanging();
-					this._gpu = value;
-					this.SendPropertyChanged("gpu");
-					this.OngpuChanged();
+					this._rom = value;
+					this.SendPropertyChanged("rom");
+					this.OnromChanged();
 				}
 			}
 		}
@@ -2707,22 +2707,22 @@ namespace Shop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hardware", DbType="NVarChar(100)")]
-		public string hardware
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hedieuhanh", DbType="NVarChar(100)")]
+		public string hedieuhanh
 		{
 			get
 			{
-				return this._hardware;
+				return this._hedieuhanh;
 			}
 			set
 			{
-				if ((this._hardware != value))
+				if ((this._hedieuhanh != value))
 				{
-					this.OnhardwareChanging(value);
+					this.OnhedieuhanhChanging(value);
 					this.SendPropertyChanging();
-					this._hardware = value;
-					this.SendPropertyChanged("hardware");
-					this.OnhardwareChanged();
+					this._hedieuhanh = value;
+					this.SendPropertyChanged("hedieuhanh");
+					this.OnhedieuhanhChanged();
 				}
 			}
 		}
@@ -2827,7 +2827,7 @@ namespace Shop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Laptop_ChiTietDonHang", Storage="_ChiTietDonHangs", ThisKey="malaptop", OtherKey="malaptop")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dienthoai_ChiTietDonHang", Storage="_ChiTietDonHangs", ThisKey="madienthoai", OtherKey="madienthoai")]
 		public EntitySet<ChiTietDonHang> ChiTietDonHangs
 		{
 			get
@@ -2840,7 +2840,7 @@ namespace Shop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Laptop_DanhGia", Storage="_DanhGias", ThisKey="malaptop", OtherKey="malaptop")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dienthoai_DanhGia", Storage="_DanhGias", ThisKey="madienthoai", OtherKey="madienthoai")]
 		public EntitySet<DanhGia> DanhGias
 		{
 			get
@@ -2853,20 +2853,20 @@ namespace Shop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Laptop_MetaLaptop", Storage="_MetaLaptops", ThisKey="malaptop", OtherKey="malaptop")]
-		public EntitySet<MetaLaptop> MetaLaptops
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dienthoai_MetaDienthoai", Storage="_MetaDienthoais", ThisKey="madienthoai", OtherKey="madienthoai")]
+		public EntitySet<MetaDienthoai> MetaDienthoais
 		{
 			get
 			{
-				return this._MetaLaptops;
+				return this._MetaDienthoais;
 			}
 			set
 			{
-				this._MetaLaptops.Assign(value);
+				this._MetaDienthoais.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Hang_Laptop", Storage="_Hang", ThisKey="mahang", OtherKey="mahang", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Hang_Dienthoai", Storage="_Hang", ThisKey="mahang", OtherKey="mahang", IsForeignKey=true)]
 		public Hang Hang
 		{
 			get
@@ -2883,12 +2883,12 @@ namespace Shop.Models
 					if ((previousValue != null))
 					{
 						this._Hang.Entity = null;
-						previousValue.Laptops.Remove(this);
+						previousValue.Dienthoais.Remove(this);
 					}
 					this._Hang.Entity = value;
 					if ((value != null))
 					{
-						value.Laptops.Add(this);
+						value.Dienthoais.Add(this);
 						this._mahang = value.mahang;
 					}
 					else
@@ -2900,7 +2900,7 @@ namespace Shop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NhuCau_Laptop", Storage="_NhuCau", ThisKey="manhucau", OtherKey="manhucau", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NhuCau_Dienthoai", Storage="_NhuCau", ThisKey="manhucau", OtherKey="manhucau", IsForeignKey=true)]
 		public NhuCau NhuCau
 		{
 			get
@@ -2917,12 +2917,12 @@ namespace Shop.Models
 					if ((previousValue != null))
 					{
 						this._NhuCau.Entity = null;
-						previousValue.Laptops.Remove(this);
+						previousValue.Dienthoais.Remove(this);
 					}
 					this._NhuCau.Entity = value;
 					if ((value != null))
 					{
-						value.Laptops.Add(this);
+						value.Dienthoais.Add(this);
 						this._manhucau = value.manhucau;
 					}
 					else
@@ -2957,37 +2957,37 @@ namespace Shop.Models
 		private void attach_ChiTietDonHangs(ChiTietDonHang entity)
 		{
 			this.SendPropertyChanging();
-			entity.Laptop = this;
+			entity.Dienthoai = this;
 		}
 		
 		private void detach_ChiTietDonHangs(ChiTietDonHang entity)
 		{
 			this.SendPropertyChanging();
-			entity.Laptop = null;
+			entity.Dienthoai = null;
 		}
 		
 		private void attach_DanhGias(DanhGia entity)
 		{
 			this.SendPropertyChanging();
-			entity.Laptop = this;
+			entity.Dienthoai = this;
 		}
 		
 		private void detach_DanhGias(DanhGia entity)
 		{
 			this.SendPropertyChanging();
-			entity.Laptop = null;
+			entity.Dienthoai = null;
 		}
 		
-		private void attach_MetaLaptops(MetaLaptop entity)
+		private void attach_MetaDienthoais(MetaDienthoai entity)
 		{
 			this.SendPropertyChanging();
-			entity.Laptop = this;
+			entity.Dienthoai = this;
 		}
 		
-		private void detach_MetaLaptops(MetaLaptop entity)
+		private void detach_MetaDienthoais(MetaDienthoai entity)
 		{
 			this.SendPropertyChanging();
-			entity.Laptop = null;
+			entity.Dienthoai = null;
 		}
 	}
 	
@@ -3003,7 +3003,7 @@ namespace Shop.Models
 		
 		private string _email;
 		
-		private string _dienthoai;
+		private string _phone;
 		
 		private string _website;
 		
@@ -3021,8 +3021,8 @@ namespace Shop.Models
     partial void OnhotenChanged();
     partial void OnemailChanging(string value);
     partial void OnemailChanged();
-    partial void OndienthoaiChanging(string value);
-    partial void OndienthoaiChanged();
+    partial void OnphoneChanging(string value);
+    partial void OnphoneChanged();
     partial void OnwebsiteChanging(string value);
     partial void OnwebsiteChanged();
     partial void OnnoidungChanging(string value);
@@ -3096,22 +3096,22 @@ namespace Shop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dienthoai", DbType="VarChar(50)")]
-		public string dienthoai
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", DbType="VarChar(50)")]
+		public string phone
 		{
 			get
 			{
-				return this._dienthoai;
+				return this._phone;
 			}
 			set
 			{
-				if ((this._dienthoai != value))
+				if ((this._phone != value))
 				{
-					this.OndienthoaiChanging(value);
+					this.OnphoneChanging(value);
 					this.SendPropertyChanging();
-					this._dienthoai = value;
-					this.SendPropertyChanged("dienthoai");
-					this.OndienthoaiChanged();
+					this._phone = value;
+					this.SendPropertyChanged("phone");
+					this.OnphoneChanged();
 				}
 			}
 		}
@@ -3197,8 +3197,8 @@ namespace Shop.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MetaLaptop")]
-	public partial class MetaLaptop : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MetaDienthoai")]
+	public partial class MetaDienthoai : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -3209,9 +3209,9 @@ namespace Shop.Models
 		
 		private string _valuemeta;
 		
-		private System.Nullable<int> _malaptop;
+		private System.Nullable<int> _madienthoai;
 		
-		private EntityRef<Laptop> _Laptop;
+		private EntityRef<Dienthoai> _Dienthoai;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3223,13 +3223,13 @@ namespace Shop.Models
     partial void OnkeymetaChanged();
     partial void OnvaluemetaChanging(string value);
     partial void OnvaluemetaChanged();
-    partial void OnmalaptopChanging(System.Nullable<int> value);
-    partial void OnmalaptopChanged();
+    partial void OnmadienthoaiChanging(System.Nullable<int> value);
+    partial void OnmadienthoaiChanged();
     #endregion
 		
-		public MetaLaptop()
+		public MetaDienthoai()
 		{
-			this._Laptop = default(EntityRef<Laptop>);
+			this._Dienthoai = default(EntityRef<Dienthoai>);
 			OnCreated();
 		}
 		
@@ -3293,60 +3293,60 @@ namespace Shop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_malaptop", DbType="Int")]
-		public System.Nullable<int> malaptop
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_madienthoai", DbType="Int")]
+		public System.Nullable<int> madienthoai
 		{
 			get
 			{
-				return this._malaptop;
+				return this._madienthoai;
 			}
 			set
 			{
-				if ((this._malaptop != value))
+				if ((this._madienthoai != value))
 				{
-					if (this._Laptop.HasLoadedOrAssignedValue)
+					if (this._Dienthoai.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnmalaptopChanging(value);
+					this.OnmadienthoaiChanging(value);
 					this.SendPropertyChanging();
-					this._malaptop = value;
-					this.SendPropertyChanged("malaptop");
-					this.OnmalaptopChanged();
+					this._madienthoai = value;
+					this.SendPropertyChanged("madienthoai");
+					this.OnmadienthoaiChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Laptop_MetaLaptop", Storage="_Laptop", ThisKey="malaptop", OtherKey="malaptop", IsForeignKey=true)]
-		public Laptop Laptop
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dienthoai_MetaDienthoai", Storage="_Dienthoai", ThisKey="madienthoai", OtherKey="madienthoai", IsForeignKey=true)]
+		public Dienthoai Dienthoai
 		{
 			get
 			{
-				return this._Laptop.Entity;
+				return this._Dienthoai.Entity;
 			}
 			set
 			{
-				Laptop previousValue = this._Laptop.Entity;
+				Dienthoai previousValue = this._Dienthoai.Entity;
 				if (((previousValue != value) 
-							|| (this._Laptop.HasLoadedOrAssignedValue == false)))
+							|| (this._Dienthoai.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Laptop.Entity = null;
-						previousValue.MetaLaptops.Remove(this);
+						this._Dienthoai.Entity = null;
+						previousValue.MetaDienthoais.Remove(this);
 					}
-					this._Laptop.Entity = value;
+					this._Dienthoai.Entity = value;
 					if ((value != null))
 					{
-						value.MetaLaptops.Add(this);
-						this._malaptop = value.malaptop;
+						value.MetaDienthoais.Add(this);
+						this._madienthoai = value.madienthoai;
 					}
 					else
 					{
-						this._malaptop = default(Nullable<int>);
+						this._madienthoai = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("Laptop");
+					this.SendPropertyChanged("Dienthoai");
 				}
 			}
 		}
@@ -3382,7 +3382,7 @@ namespace Shop.Models
 		
 		private string _tennhucau;
 		
-		private EntitySet<Laptop> _Laptops;
+		private EntitySet<Dienthoai> _Dienthoais;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3396,7 +3396,7 @@ namespace Shop.Models
 		
 		public NhuCau()
 		{
-			this._Laptops = new EntitySet<Laptop>(new Action<Laptop>(this.attach_Laptops), new Action<Laptop>(this.detach_Laptops));
+			this._Dienthoais = new EntitySet<Dienthoai>(new Action<Dienthoai>(this.attach_Dienthoais), new Action<Dienthoai>(this.detach_Dienthoais));
 			OnCreated();
 		}
 		
@@ -3440,16 +3440,16 @@ namespace Shop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NhuCau_Laptop", Storage="_Laptops", ThisKey="manhucau", OtherKey="manhucau")]
-		public EntitySet<Laptop> Laptops
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NhuCau_Dienthoai", Storage="_Dienthoais", ThisKey="manhucau", OtherKey="manhucau")]
+		public EntitySet<Dienthoai> Dienthoais
 		{
 			get
 			{
-				return this._Laptops;
+				return this._Dienthoais;
 			}
 			set
 			{
-				this._Laptops.Assign(value);
+				this._Dienthoais.Assign(value);
 			}
 		}
 		
@@ -3473,13 +3473,13 @@ namespace Shop.Models
 			}
 		}
 		
-		private void attach_Laptops(Laptop entity)
+		private void attach_Dienthoais(Dienthoai entity)
 		{
 			this.SendPropertyChanging();
 			entity.NhuCau = this;
 		}
 		
-		private void detach_Laptops(Laptop entity)
+		private void detach_Dienthoais(Dienthoai entity)
 		{
 			this.SendPropertyChanging();
 			entity.NhuCau = null;

@@ -24,9 +24,9 @@ namespace Shop.EF
         public virtual DbSet<DanhGia> DanhGias { get; set; }
         public virtual DbSet<DonHang> DonHangs { get; set; }
         public virtual DbSet<Hang> Hangs { get; set; }
-        public virtual DbSet<Laptop> Laptops { get; set; }
+        public virtual DbSet<Dienthoai> Dienthoais { get; set; }
         public virtual DbSet<LienHe> LienHes { get; set; }
-        public virtual DbSet<MetaLaptop> MetaLaptops { get; set; }
+        public virtual DbSet<MetaDienthoai> MetaDienthoais { get; set; }
         public virtual DbSet<NhuCau> NhuCaus { get; set; }
         public virtual DbSet<QuangCao> QuangCaos { get; set; }
         public virtual DbSet<TinTuc> TinTucs { get; set; }
@@ -88,17 +88,17 @@ namespace Shop.EF
                 .Property(e => e.hinh)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Laptop>()
+            modelBuilder.Entity<Dienthoai>()
                 .Property(e => e.giaban)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<Laptop>()
+            modelBuilder.Entity<Dienthoai>()
                 .Property(e => e.hinh)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Laptop>()
+            modelBuilder.Entity<Dienthoai>()
                 .HasMany(e => e.ChiTietDonHangs)
-                .WithRequired(e => e.Laptop)
+                .WithRequired(e => e.Dienthoai)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<LienHe>()
@@ -106,7 +106,7 @@ namespace Shop.EF
                 .IsUnicode(false);
 
             modelBuilder.Entity<LienHe>()
-                .Property(e => e.dienthoai)
+                .Property(e => e.phone)
                 .IsUnicode(false);
 
             modelBuilder.Entity<QuangCao>()

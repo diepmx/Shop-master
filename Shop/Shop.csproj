@@ -337,10 +337,7 @@
     <Compile Include="Areas\Administrator\Data\excel\ReadExcel.cs" />
     <Compile Include="Areas\Administrator\Data\message\CheckSlug.cs" />
     <Compile Include="Areas\Administrator\Data\message\ModelNotification.cs" />
-    <Compile Include="Areas\Administrator\Data\message\ModelThongbao.cs" />
     <Compile Include="Areas\Administrator\Data\message\Notification.cs" />
-    <Compile Include="Areas\Administrator\Data\message\XMessage.cs" />
-    <Compile Include="Areas\Administrator\Data\message\XString.cs" />
     <Compile Include="Common\CommonFields.cs" />
     <Compile Include="Common\StringHelpers.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -362,9 +359,9 @@
     <Compile Include="EF\DataModel.cs" />
     <Compile Include="EF\DonHang.cs" />
     <Compile Include="EF\Hang.cs" />
-    <Compile Include="EF\Laptop.cs" />
+    <Compile Include="EF\Dienthoai.cs" />
     <Compile Include="EF\LienHe.cs" />
-    <Compile Include="EF\MetaLaptop.cs" />
+    <Compile Include="EF\MetaDienthoai.cs" />
     <Compile Include="EF\NhuCau.cs" />
     <Compile Include="EF\QuangCao.cs" />
     <Compile Include="EF\TinTuc.cs" />

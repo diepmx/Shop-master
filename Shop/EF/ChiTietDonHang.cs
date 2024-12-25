@@ -17,7 +17,7 @@ namespace Shop.EF
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int malaptop { get; set; }
+        public int madienthoai { get; set; }
 
         public int? soluong { get; set; }
 
@@ -25,6 +25,6 @@ namespace Shop.EF
 
         public virtual DonHang DonHang { get; set; }
 
-        public virtual Laptop Laptop { get; set; }
+        public virtual Dienthoai Dienthoai { get; set; }
     }
 }

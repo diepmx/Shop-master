@@ -204,10 +204,10 @@
 .lnr-tablet:before {
 	content: "\e83b";
 }
-.lnr-laptop:before {
+.lnr-dienthoai:before {
 	content: "\e83c";
 }
-.lnr-laptop-phone:before {
+.lnr-dienthoai-phone:before {
 	content: "\e83d";
 }
 .lnr-power-switch:before {
