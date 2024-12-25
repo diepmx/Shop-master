@@ -5228,8 +5228,8 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\DonHangDaMua.cshtml" />
     <Content Include="Views\Home\ListDienthoaiTheoHangId.cshtml" />
-    <Content Include="Views\Home\ListLaptopTheoNhuCauById.cshtml" />
-    <Content Include="Views\Home\ListLaptopTheoSearch.cshtml" />
+    <Content Include="Views\Home\ListDienthoaiTheoNhuCauById.cshtml" />
+    <Content Include="Views\Home\ListDienthoaiTheoSearch.cshtml" />
     <Content Include="Views\Home\QuangCao.cshtml" />
     <Content Include="Views\Home\NhanXet.cshtml" />
     <Content Include="Views\Home\Comment.cshtml" />

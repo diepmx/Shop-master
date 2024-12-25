@@ -11,7 +11,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>iLaptop - Laptop mọi nhà</title>
+    <title>360 Store - Smartphone mọi nhà</title>
 
     <link href="//fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700" rel="stylesheet">
@@ -100,11 +100,11 @@
             animation: blink 0.7s infinite alternate;
         }
 
-        .laptopzoom {
+        .dienthoaizoom {
             transition: transform .2s;
         }
 
-            .laptopzoom:hover {
+            .dienthoaizoom:hover {
                 transform: scale(1.2);
                 z-index: 100;
             }
@@ -281,11 +281,11 @@
                         <div class="row">
                             <div class="col-lg-auto">
                                 <div class="site-logo text-center text-lg-left">
-                                    <a href="@Url.Action("Index","Home")">iLaptop</a>
+                                    <a href="@Url.Action("Index","Home")">iDienthoai</a>
                                 </div>
                             </div>
                             <div class="col-lg-5 mx-auto mt-4 mt-lg-0">
-                                @using (Html.BeginForm("ListLaptopTheoSearch", "Home"))
+                                @using (Html.BeginForm("ListDienthoaiTheoSearch", "Home"))
                                 {
                                     <div class="form-group">
                                         <div class="input-group text-center">
@@ -320,11 +320,11 @@
                                             <a class="nav-link" href="@Url.Action("Index","Home")"><i class="fa fa-home"></i> Trang chủ <span class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="electronics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-arrow-circle-right"></i> Hãng Laptop</a>
+                                            <a class="nav-link dropdown-toggle" href="#" id="electronics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-arrow-circle-right"></i> Hãng Dienthoai</a>
                                             <div class="dropdown-menu neonBack" aria-labelledby="electronics">
                                                 @foreach (var item in home.GetListHang())
                                                 {
-                                                    <a class="dropdown-item laptopzoom" href="@Url.Action("ListLaptopTheoHangId","Home", new { id = item.mahang})">@item.tenhang</a>
+                                                    <a class="dropdown-item dienthoaizoom" href="@Url.Action("ListDienthoaiTheoHangId","Home", new { id = item.mahang})">@item.tenhang</a>
                                                 }
 
                                             </div>
@@ -334,7 +334,7 @@
                                             <div class="dropdown-menu neonBack" aria-labelledby="fashion">
                                                 @foreach (var item in home.GetListNhuCau())
                                                 {
-                                                    <a class="dropdown-item laptopzoom" href="@Url.Action("ListLaptopTheoNhuCauById","Home", new { id = item.manhucau})">@item.tennhucau</a>
+                                                    <a class="dropdown-item dienthoaizoom" href="@Url.Action("ListDienthoaiTheoNhuCauById","Home", new { id = item.manhucau})">@item.tennhucau</a>
                                                 }
                                             </div>
                                         </li>
@@ -343,7 +343,7 @@
                                             <div class="dropdown-menu neonBack" aria-labelledby="books">
                                                 @foreach (var item in home.GetListChuDe())
                                                 {
-                                                    <a class="dropdown-item laptopzoom" href="@Url.Action("ListBaiVietTheoChuDeId","Home", new { id = item.machude})">@item.tenchude</a>
+                                                    <a class="dropdown-item dienthoaizoom" href="@Url.Action("ListBaiVietTheoChuDeId","Home", new { id = item.machude})">@item.tenchude</a>
                                                 }
                                             </div>
                                         </li>
@@ -383,13 +383,13 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="footer-logo">
-                                            <a href="index.html">iLaptop</a>
+                                            <a href="index.html">iDienthoai</a>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <address>
-                                            Quận 1<br>
-                                            Tp. HCM, Việt Nam
+                                            Thanh Xuân<br>
+                                            Tp. Hà Nội, Việt Nam
                                         </address>
                                     </div>
                                     <div class="col-12">
@@ -405,10 +405,10 @@
                             <div class="col-lg-3 col-sm-8 text-center text-sm-left mb-sm-0 mb-3">
                                 <div class="row">
                                     <div class="col-12 text-uppercase">
-                                        <h4>Về iLaptop</h4>
+                                        <h4>Về 360 Store</h4>
                                     </div>
                                     <div class="col-12 text-justify">
-                                        <p>iLaptop - chuyên bán lẻ sỉ laptop uy tín cả nước. Chúng ta có nhiều mẫu mã hãng nhu cầu sử dụng đáp ứng được đầy đủ yêu cầu sử dụng của quý khách. Khách được nhân viên chăm sóc tư vấn sản phẩm 24/7.</p>
+                                        <p>360 Store - chuyên bán lẻ sỉ điện thoại uy tín cả nước. Chúng ta có nhiều mẫu mã hãng nhu cầu sử dụng đáp ứng được đầy đủ yêu cầu sử dụng của quý khách. Khách được nhân viên chăm sóc tư vấn sản phẩm 24/7.</p>
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <img src="~/Content/images/dang-ky-bo-cong-thuong.png" alt="dang-ky-bo-cong-thuong" class="text-center">
@@ -525,23 +525,23 @@
 
         <div class='phonering-alo-ph-circle-fill'></div>
 
-        <a class='pps-btn-img hidden_lg' href='tel:0365204529' title='Liên hệ'>
+        <a class='pps-btn-img hidden_lg' href='tel:0981484579' title='Liên hệ'>
 
             <div class='phonering-alo-ph-img-circle'>
 
             </div>
 
-            <div class='label-phone'>0365204529</div>
+            <div class='label-phone'>0981484579</div>
 
         </a>
 
-        <a class='pps-btn-img hidden_mobile btn-call' href='tel:0365204529;' title='Liên hệ'>
+        <a class='pps-btn-img hidden_mobile btn-call' href='tel:0981484579;' title='Liên hệ'>
 
             <div class='phonering-alo-ph-img-circle'>
 
             </div>
 
-            <div class='label-phone'>0365204529</div>
+            <div class='label-phone'>0981484579</div>
 
         </a>
 
@@ -550,7 +550,7 @@
     <!-- Tìm kiếm VIP-->
     <!-- Button trigger modal -->
     <div class="sticky-sidebar active">
-        <div class="banner laptopzoom">
+        <div class="banner dienthoaizoom">
             <a href="" style="border: none;background-color: white;" data-bs-toggle="modal" data-bs-target="#staticBackdropSearch">
                 <img src="~/Content/images/search-product.png" alt="Tìm kiếm VIP" width="79" height="79" />
             </a>
@@ -562,10 +562,10 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
             <div class="modal-content" style="height: auto;">
                 <div class="modal-header" style="background-color: red; color: white;">
-                    <h5 class="modal-title" id="staticBackdropLabel">Thống kê Laptop</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Thống kê Điẹn thoại</h5>
                     <div style="margin-left: 300px;">
                         <div class="col-lg mx-auto mt-4 mt-lg-0 text-center">
-                            @using (Html.BeginForm("ListLaptopTheoSearch", "Home"))
+                            @using (Html.BeginForm("ListDienthoaiTheoSearch", "Home"))
                             {
                                 <div class="form-group">
                                     <div class="input-group text-center">
@@ -595,11 +595,11 @@
                                                 <a class="nav-link" href="@Url.Action("Index","Home")"><i class="fa fa-home"></i> Trang chủ</a>
                                             </li>
                                             <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="#" id="electronics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-arrow-circle-right"></i> Hãng Laptop</a>
+                                                <a class="nav-link dropdown-toggle" href="#" id="electronics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-arrow-circle-right"></i> Hãng Dienthoai</a>
                                                 <div class="dropdown-menu neonBack" aria-labelledby="electronics">
                                                     @foreach (var item in home.GetListHang())
                                                     {
-                                                        <a class="dropdown-item laptopzoom" href="@Url.Action("ListLaptopTheoHangId","Home", new { id = item.mahang})">@item.tenhang</a>
+                                                        <a class="dropdown-item dienthoaizoom" href="@Url.Action("ListDienthoaiTheoHangId","Home", new { id = item.mahang})">@item.tenhang</a>
                                                     }
 
                                                 </div>
@@ -609,7 +609,7 @@
                                                 <div class="dropdown-menu neonBack" aria-labelledby="fashion">
                                                     @foreach (var item in home.GetListNhuCau())
                                                     {
-                                                        <a class="dropdown-item laptopzoom" href="@Url.Action("ListLaptopTheoNhuCauById","Home", new { id = item.manhucau})">@item.tennhucau</a>
+                                                        <a class="dropdown-item dienthoaizoom" href="@Url.Action("ListDienthoaiTheoNhuCauById","Home", new { id = item.manhucau})">@item.tennhucau</a>
                                                     }
                                                 </div>
                                             </li>
@@ -618,7 +618,7 @@
                                                 <div class="dropdown-menu neonBack" aria-labelledby="books">
                                                     @foreach (var item in home.GetListChuDe())
                                                     {
-                                                        <a class="dropdown-item laptopzoom" href="@Url.Action("ListBaiVietTheoChuDeId","Home", new { id = item.machude})">@item.tenchude</a>
+                                                        <a class="dropdown-item dienthoaizoom" href="@Url.Action("ListBaiVietTheoChuDeId","Home", new { id = item.machude})">@item.tenchude</a>
                                                     }
                                                 </div>
                                             </li>
@@ -631,28 +631,28 @@
                     </div>
                     <div class="row">
                         <div class="col-md" style="background-color: #EAF2FF;color: blue; font-weight: bold; border-radius: 12px;padding: 18px;margin:18px;">
-                            <p style="font-weight: bold; color: red;font-size: 2rem;"> @home.DemLaptopMoiNhat() <img src="~/Content/images/login-moi-nhat.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Laptop mới nhập <i class="fa fa-eye"></i>
+                            <p style="font-weight: bold; color: red;font-size: 2rem;"> @home.DemDienthoaiMoiNhat() <img src="~/Content/images/login-moi-nhat.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Dienthoai mới nhập <i class="fa fa-eye"></i>
                         </div>
                         <div class="col-md" style="background-color: #e3fce2;color: green;font-weight: bold; border-radius: 12px;padding: 18px;margin:18px;">
-                            <p style="font-weight: bold; color: red;font-size: 2rem;"> @home.DemLaptopGiaRe() <img src="~/Content/images/laptop-gia-re.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Laptop giá rẻ (<= 15tr) <i class="fa fa-eye"></i>
+                            <p style="font-weight: bold; color: red;font-size: 2rem;"> @home.DemDienthoaiGiaRe() <img src="~/Content/images/dienthoai-gia-re.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Dienthoai giá rẻ (<= 15tr) <i class="fa fa-eye"></i>
                         </div>
                         <div class="col-md" style="background-color: #b8f1f7;color: blue; font-weight: bold; border-radius: 12px;padding: 18px;margin:18px;">
-                            <p style="font-weight: bold; color: red;font-size: 2rem;">2 <img src="~/Content/images/laptop-ban-chay.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Laptop bán chạy <i class="fa fa-eye"></i>
+                            <p style="font-weight: bold; color: red;font-size: 2rem;">2 <img src="~/Content/images/dienthoai-ban-chay.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Dienthoai bán chạy <i class="fa fa-eye"></i>
                         </div>
                         <div class="col-md" style="background-color: #fcfcde;color: green;font-weight: bold; border-radius: 12px;padding: 18px;margin:18px;">
-                            <p style="font-weight: bold; color: red;font-size: 2rem;">3 <img src="~/Content/images/laptop-comment.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Đánh giá nhiều <i class="fa fa-eye"></i>
+                            <p style="font-weight: bold; color: red;font-size: 2rem;">3 <img src="~/Content/images/dienthoai-comment.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Đánh giá nhiều <i class="fa fa-eye"></i>
                         </div>
                         <div class="col-md" style="background-color: #fce5fa;color: blue;font-weight: bold; border-radius: 12px;padding: 18px;margin:18px;">
-                            <p style="font-weight: bold; color: red;font-size: 2rem;"> @home.DemLaptopGiaCao() <img src="~/Content/images/laptop-gia-max.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Laptop giá cao (>= 30tr) <i class="fa fa-eye"></i>
+                            <p style="font-weight: bold; color: red;font-size: 2rem;"> @home.DemDienthoaiGiaCao() <img src="~/Content/images/dienthoai-gia-max.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Dienthoai giá cao (>= 30tr) <i class="fa fa-eye"></i>
                         </div>
                         <div class="col-md" style="background-color: #fbf1e8;color: green;font-weight: bold; border-radius: 12px;padding: 18px;margin:18px;">
-                            <p style="font-weight: bold; color: red;font-size: 2rem;">7  <img src="~/Content/images/laptop-web-traffic.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Cấu hình khủng <i class="fa fa-eye"></i>
+                            <p style="font-weight: bold; color: red;font-size: 2rem;">7  <img src="~/Content/images/dienthoai-web-traffic.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Cấu hình khủng <i class="fa fa-eye"></i>
                         </div>
 
                     </div>
                     <!-- Đang fix -->
                     @*<div class="row" style="background-color: #dee6fb;font-weight: bold; border-radius: 12px;padding: 18px;margin:18px;">
-                        @using (Html.BeginForm("ListLaptopTheoSearch", "Home"))
+                        @using (Html.BeginForm("ListDienthoaiTheoSearch", "Home"))
                         {
                             <div class="row">
                                 <div class="col-md" style="color: deepskyblue;">
