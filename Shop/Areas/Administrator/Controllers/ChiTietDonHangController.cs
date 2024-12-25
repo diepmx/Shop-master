@@ -23,7 +23,7 @@ namespace Shop.Areas.Administrator.Controllers
             }
             else
             {
-                var chiTietDonHangs = db.ChiTietDonHangs.Include(c => c.DonHang).Include(c => c.Laptop);
+                var chiTietDonHangs = db.ChiTietDonHangs.Include(c => c.DonHang).Include(c => c.Dienthoai);
                 return View(chiTietDonHangs.ToList());
             }
         }
@@ -60,7 +60,7 @@ namespace Shop.Areas.Administrator.Controllers
             else
             {
                 ViewBag.madon = new SelectList(db.DonHangs, "madon", "makh");
-                ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop");
+                ViewBag.madienthoai = new SelectList(db.Dienthoais, "madienthoai", "tendienthoai");
                 return View();
             }
         }
@@ -70,7 +70,7 @@ namespace Shop.Areas.Administrator.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "madon,malaptop,soluong,dongia")] ChiTietDonHang chiTietDonHang)
+        public ActionResult Create([Bind(Include = "madon,madienthoai,soluong,dongia")] ChiTietDonHang chiTietDonHang)
         {
             if (Session["taikhoanadmin"] == null)
             {
@@ -86,7 +86,7 @@ namespace Shop.Areas.Administrator.Controllers
                 }
 
                 ViewBag.madon = new SelectList(db.DonHangs, "madon", "makh", chiTietDonHang.madon);
-                ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop", chiTietDonHang.malaptop);
+                ViewBag.madienthoai = new SelectList(db.Dienthoais, "madienthoai", "tendienthoai", chiTietDonHang.madienthoai);
                 return View(chiTietDonHang);
             }
         }
@@ -110,7 +110,7 @@ namespace Shop.Areas.Administrator.Controllers
                     return HttpNotFound();
                 }
                 ViewBag.madon = new SelectList(db.DonHangs, "madon", "makh", chiTietDonHang.madon);
-                ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop", chiTietDonHang.malaptop);
+                ViewBag.madienthoai = new SelectList(db.Dienthoais, "madienthoai", "tendienthoai", chiTietDonHang.madienthoai);
                 return View(chiTietDonHang);
             }
         }
@@ -120,7 +120,7 @@ namespace Shop.Areas.Administrator.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "madon,malaptop,soluong,dongia")] ChiTietDonHang chiTietDonHang)
+        public ActionResult Edit([Bind(Include = "madon,madienthoai,soluong,dongia")] ChiTietDonHang chiTietDonHang)
         {
             if (Session["taikhoanadmin"] == null)
             {
@@ -135,7 +135,7 @@ namespace Shop.Areas.Administrator.Controllers
                     return RedirectToAction("Index");
                 }
                 ViewBag.madon = new SelectList(db.DonHangs, "madon", "makh", chiTietDonHang.madon);
-                ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop", chiTietDonHang.malaptop);
+                ViewBag.madienthoai = new SelectList(db.Dienthoais, "madienthoai", "tendienthoai", chiTietDonHang.madienthoai);
                 return View(chiTietDonHang);
             }
         }

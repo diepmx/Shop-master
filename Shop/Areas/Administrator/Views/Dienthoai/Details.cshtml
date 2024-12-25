@@ -1,0 +1,142 @@
+﻿@model Shop.EF.Dienthoai
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_LayoutAdministrator.cshtml";
+}
+@Html.Partial("_MessageAlert")
+<div class="container container-fluid">
+    <div class="p-5" style="background-color: white">
+        <h2>Chi tiết thông tin Dienthoai</h2>
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayName("Thương hiệu")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Hang.tenhang)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Nhu cầu sử dụng")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NhuCau.tennhucau)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Tên điện thoại")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.tendienthoai)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Giá bán")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.giaban)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Mô tả")
+                </dt>
+
+                <dd>
+                    @Html.Raw(Model.mota.ToString())
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Ảnh minh họa")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.hinh)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Camera")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.camera)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Rom")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.rom)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("RAM")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ram)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Hệ điều hành")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.hedieuhanh)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Màn hình")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.manhinh)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Ngày cập nhật")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ngaycapnhat)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Số lượng tồn")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.soluongton)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("PIN điện thoại")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.pin)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Trạng thái")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.trangthai)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Sửa", "Edit", new { id = Model.madienthoai }) |
+            @Html.ActionLink("Quay lại", "Index", "Dienthoai")
+        </p>
+    </div>
+</div>

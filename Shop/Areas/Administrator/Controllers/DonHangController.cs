@@ -61,7 +61,7 @@ namespace Shop.Areas.Administrator.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.orderDetails = db.ChiTietDonHangs.Where(m => m.madon == id).ToList();
-            ViewBag.productOrder = db.Laptops.ToList();
+            ViewBag.productOrder = db.Dienthoais.ToList();
             return View(donHang);
         }
 
@@ -286,8 +286,8 @@ namespace Shop.Areas.Administrator.Controllers
                 donHang.tinhtrang = "1";
                 /*try //cập nhật lại số lượng tồn khi đơn hàng đã hủy
                 {
-                    Laptop lap = new Laptop(); // tạo biến Laptop lưu tạm thời
-                    List<Laptop> listLap = new List<Laptop>(); //lấy ra danh sách Laptop cần cập nhật lại số lượng tồn
+                    Dienthoai lap = new Dienthoai(); // tạo biến Dienthoai lưu tạm thời
+                    List<Dienthoai> listLap = new List<Dienthoai>(); //lấy ra danh sách Dienthoai cần cập nhật lại số lượng tồn
                     ChiTietDonHang ct = new ChiTietDonHang(); //lấy ra chi tiết đơn hàng
                     List<ChiTietDonHang> listCT = new List<ChiTietDonHang>(); // lấy ra danh sách chi tiết cửa đơn hàng có mã đơn bằng id
                     listCT = db.ChiTietDonHangs.Where(n => n.madon == id).ToList();
@@ -297,7 +297,7 @@ namespace Shop.Areas.Administrator.Controllers
                         {
                             foreach (var itemLap in listLap)
                             {
-                                if (itemCT.malaptop == itemLap.malaptop)
+                                if (itemCT.madienthoai == itemLap.madienthoai)
                                 {
                                     lap = itemLap;
                                     lap.soluongton = lap.soluongton + itemCT.soluong;
@@ -342,8 +342,8 @@ namespace Shop.Areas.Administrator.Controllers
                 donHang.tinhtrang = "0";
                 /*try //cập nhật lại số lượng tồn khi đơn hàng đã khôi phục
                 {
-                    Laptop lap = new Laptop(); // tạo biến Laptop luu tạm thời
-                    List<Laptop> listLap = new List<Laptop>(); //lấy ra danh sách Laptop cần cập nhật lại số lượng tồn
+                    Dienthoai lap = new Dienthoai(); // tạo biến Dienthoai luu tạm thời
+                    List<Dienthoai> listLap = new List<Dienthoai>(); //lấy ra danh sách Dienthoai cần cập nhật lại số lượng tồn
                     ChiTietDonHang ct = new ChiTietDonHang(); //lấy ra chi tiết đơn hàng
                     List<ChiTietDonHang> listCT = new List<ChiTietDonHang>(); // lấy ra danh sách chi tiết cửa đơn hàng có mã đơn bằng id
                     listCT = db.ChiTietDonHangs.Where(n => n.madon == donHang.madon).ToList();
@@ -353,7 +353,7 @@ namespace Shop.Areas.Administrator.Controllers
                         {
                             foreach (var itemLap in listLap)
                             {
-                                if (itemCT.malaptop == itemLap.malaptop)
+                                if (itemCT.madienthoai == itemLap.madienthoai)
                                 {
                                     lap = itemLap;
                                     lap.soluongton = lap.soluongton - itemCT.soluong;

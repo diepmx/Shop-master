@@ -24,7 +24,7 @@ namespace Shop.Areas.Administrator.Controllers
             }
             else
             {
-                var danhGias = db.DanhGias.Include(d => d.Laptop);
+                var danhGias = db.DanhGias.Include(d => d.Dienthoai);
                 return View(danhGias.ToList());
             }
         }
@@ -62,7 +62,7 @@ namespace Shop.Areas.Administrator.Controllers
             }
             else
             {
-                ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop");
+                ViewBag.madienthoai = new SelectList(db.Dienthoais, "madienthoai", "tendienthoai");
                 return View();
             }
         }
@@ -72,7 +72,7 @@ namespace Shop.Areas.Administrator.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "madanhgia,ten,noidung,vote,ngaydanhgia,malaptop,trangthai")] DanhGia danhGia)
+        public ActionResult Create([Bind(Include = "madanhgia,ten,noidung,vote,ngaydanhgia,madienthoai,trangthai")] DanhGia danhGia)
         {
             if (Session["taikhoanadmin"] == null)
             {
@@ -84,11 +84,11 @@ namespace Shop.Areas.Administrator.Controllers
                 {
                     db.DanhGias.Add(danhGia);
                     db.SaveChanges();
-                    Notification.set_flash("Thêm mới đánh giá Laptop thành công !", "success");
+                    Notification.set_flash("Thêm mới đánh giá điện thoại thành công !", "success");
                     return RedirectToAction("Index");
                 }
 
-                ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop", danhGia.malaptop);
+                ViewBag.madienthoai = new SelectList(db.Dienthoais, "madienthoai", "tendienthoai", danhGia.madienthoai);
                 return View(danhGia);
             }
         }
@@ -113,7 +113,7 @@ namespace Shop.Areas.Administrator.Controllers
                     Notification.set_flash("Không tìm thấy Đánh giá !", "warning");
                     return HttpNotFound();
                 }
-                ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop", danhGia.malaptop);
+                ViewBag.madienthoai = new SelectList(db.Dienthoais, "madienthoai", "tendienthoai", danhGia.madienthoai);
                 return View(danhGia);
             }
         }
@@ -123,7 +123,7 @@ namespace Shop.Areas.Administrator.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "madanhgia,ten,noidung,vote,ngaydanhgia,malaptop,trangthai")] DanhGia danhGia)
+        public ActionResult Edit([Bind(Include = "madanhgia,ten,noidung,vote,ngaydanhgia,madienthoai,trangthai")] DanhGia danhGia)
         {
             if (Session["taikhoanadmin"] == null)
             {
@@ -135,10 +135,10 @@ namespace Shop.Areas.Administrator.Controllers
                 {
                     db.Entry(danhGia).State = EntityState.Modified;
                     db.SaveChanges();
-                    Notification.set_flash("Cập nhật đánh giá Laptop thành công !", "success");
+                    Notification.set_flash("Cập nhật đánh giá điện thoại thành công !", "success");
                     return RedirectToAction("Index");
                 }
-                ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop", danhGia.malaptop);
+                ViewBag.madienthoai = new SelectList(db.Dienthoais, "madienthoai", "tendienthoai", danhGia.madienthoai);
                 return View(danhGia);
             }
         }
@@ -181,7 +181,7 @@ namespace Shop.Areas.Administrator.Controllers
                 DanhGia danhGia = db.DanhGias.Find(id);
                 db.DanhGias.Remove(danhGia);
                 db.SaveChanges();
-                Notification.set_flash("Xóa Laptop thành công !", "success");
+                Notification.set_flash("Xóa điện thoại thành công !", "success");
                 return RedirectToAction("Index");
             }
         }

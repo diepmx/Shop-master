@@ -48,10 +48,10 @@ namespace Shop
                 defaults: new { controller = "Home", action = "PostDetails", id = UrlParameter.Optional, postName = UrlParameter.Optional }
             );
 
-            // Chi tiết laptop
+            // Chi tiết dienthoai
             routes.MapRoute(
-                name: "Laptop Details",
-                url: "laptop/{id}/{postName}",
+                name: "Điện Thoại Details",
+                url: "dienthoai/{id}/{postName}",
                 defaults: new { controller = "Home", action = "Details", id = UrlParameter.Optional, postName = UrlParameter.Optional }
             );
 
