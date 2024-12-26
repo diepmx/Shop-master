@@ -253,10 +253,10 @@
                             <div class="col-auto me-auto">
                                 <ul class="top-nav">
                                     <li>
-                                        <a href="tel:+0365204529"><i class="fa fa-phone-square me-2"></i>0365204529</a>
+                                        <a href="tel:+0981484579"><i class="fa fa-phone-square me-2"></i>098148459</a>
                                     </li>
                                     <li>
-                                        <a href="mailto:huynh.it.24@gmail.com"><i class="fa fa-envelope me-2"></i>huynh.it.24@gmail.com</a>
+                                        <a href="mailto:diepdiep0901@gmail.com"><i class="fa fa-envelope me-2"></i>diepdiep0901@gmail.com</a>
                                     </li>
                                 </ul>
                             </div>
@@ -281,7 +281,7 @@
                         <div class="row">
                             <div class="col-lg-auto">
                                 <div class="site-logo text-center text-lg-left">
-                                    <a href="@Url.Action("Index","Home")">iDienthoai</a>
+                                    <a href="@Url.Action("Index","Home")">360 Store</a>
                                 </div>
                             </div>
                             <div class="col-lg-5 mx-auto mt-4 mt-lg-0">
@@ -320,7 +320,7 @@
                                             <a class="nav-link" href="@Url.Action("Index","Home")"><i class="fa fa-home"></i> Trang chủ <span class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="electronics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-arrow-circle-right"></i> Hãng Dienthoai</a>
+                                            <a class="nav-link dropdown-toggle" href="#" id="electronics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-arrow-circle-right"></i> Hãng điện thoại</a>
                                             <div class="dropdown-menu neonBack" aria-labelledby="electronics">
                                                 @foreach (var item in home.GetListHang())
                                                 {
@@ -383,7 +383,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="footer-logo">
-                                            <a href="index.html">iDienthoai</a>
+                                            <a href="index.html">360 Store</a>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -562,7 +562,7 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
             <div class="modal-content" style="height: auto;">
                 <div class="modal-header" style="background-color: red; color: white;">
-                    <h5 class="modal-title" id="staticBackdropLabel">Thống kê Điẹn thoại</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Thống kê điện thoại</h5>
                     <div style="margin-left: 300px;">
                         <div class="col-lg mx-auto mt-4 mt-lg-0 text-center">
                             @using (Html.BeginForm("ListDienthoaiTheoSearch", "Home"))
@@ -595,7 +595,7 @@
                                                 <a class="nav-link" href="@Url.Action("Index","Home")"><i class="fa fa-home"></i> Trang chủ</a>
                                             </li>
                                             <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="#" id="electronics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-arrow-circle-right"></i> Hãng Dienthoai</a>
+                                                <a class="nav-link dropdown-toggle" href="#" id="electronics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-arrow-circle-right"></i> Hãng điện thoại</a>
                                                 <div class="dropdown-menu neonBack" aria-labelledby="electronics">
                                                     @foreach (var item in home.GetListHang())
                                                     {
@@ -631,19 +631,19 @@
                     </div>
                     <div class="row">
                         <div class="col-md" style="background-color: #EAF2FF;color: blue; font-weight: bold; border-radius: 12px;padding: 18px;margin:18px;">
-                            <p style="font-weight: bold; color: red;font-size: 2rem;"> @home.DemDienthoaiMoiNhat() <img src="~/Content/images/login-moi-nhat.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Dienthoai mới nhập <i class="fa fa-eye"></i>
+                            <p style="font-weight: bold; color: red;font-size: 2rem;"> @home.DemDienthoaiMoiNhat() <img src="~/Content/images/login-moi-nhat.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Điện thoại mới nhập <i class="fa fa-eye"></i>
                         </div>
                         <div class="col-md" style="background-color: #e3fce2;color: green;font-weight: bold; border-radius: 12px;padding: 18px;margin:18px;">
-                            <p style="font-weight: bold; color: red;font-size: 2rem;"> @home.DemDienthoaiGiaRe() <img src="~/Content/images/dienthoai-gia-re.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Dienthoai giá rẻ (<= 15tr) <i class="fa fa-eye"></i>
+                            <p style="font-weight: bold; color: red;font-size: 2rem;"> @home.DemDienthoaiGiaRe() <img src="~/Content/images/dienthoai-gia-re.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Điện thoại giá rẻ (<= 15tr) <i class="fa fa-eye"></i>
                         </div>
                         <div class="col-md" style="background-color: #b8f1f7;color: blue; font-weight: bold; border-radius: 12px;padding: 18px;margin:18px;">
-                            <p style="font-weight: bold; color: red;font-size: 2rem;">2 <img src="~/Content/images/dienthoai-ban-chay.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Dienthoai bán chạy <i class="fa fa-eye"></i>
+                            <p style="font-weight: bold; color: red;font-size: 2rem;">2 <img src="~/Content/images/dienthoai-ban-chay.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Điện thoại bán chạy <i class="fa fa-eye"></i>
                         </div>
                         <div class="col-md" style="background-color: #fcfcde;color: green;font-weight: bold; border-radius: 12px;padding: 18px;margin:18px;">
                             <p style="font-weight: bold; color: red;font-size: 2rem;">3 <img src="~/Content/images/dienthoai-comment.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Đánh giá nhiều <i class="fa fa-eye"></i>
                         </div>
                         <div class="col-md" style="background-color: #fce5fa;color: blue;font-weight: bold; border-radius: 12px;padding: 18px;margin:18px;">
-                            <p style="font-weight: bold; color: red;font-size: 2rem;"> @home.DemDienthoaiGiaCao() <img src="~/Content/images/dienthoai-gia-max.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Dienthoai giá cao (>= 30tr) <i class="fa fa-eye"></i>
+                            <p style="font-weight: bold; color: red;font-size: 2rem;"> @home.DemDienthoaiGiaCao() <img src="~/Content/images/dienthoai-gia-max.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Điện thoại giá cao (>= 30tr) <i class="fa fa-eye"></i>
                         </div>
                         <div class="col-md" style="background-color: #fbf1e8;color: green;font-weight: bold; border-radius: 12px;padding: 18px;margin:18px;">
                             <p style="font-weight: bold; color: red;font-size: 2rem;">7  <img src="~/Content/images/dienthoai-web-traffic.png" alt="Alternate Text" height="60" width="60" style="margin-left:80px;" /></p>Cấu hình khủng <i class="fa fa-eye"></i>
