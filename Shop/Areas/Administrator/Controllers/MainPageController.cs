@@ -21,7 +21,7 @@ namespace Shop.Areas.Administrator.Controllers
     {
         // GET: Administrator/MainPage
         //DataModel db = new DataModel();
-       /* MyDataDataContext db = new MyDataDataContext();
+       MyDataDataContext db = new MyDataDataContext();
 
         private ApplicationDbContext db2 = new ApplicationDbContext();
 
@@ -37,7 +37,7 @@ namespace Shop.Areas.Administrator.Controllers
             {
                 _signInManager = value;
             }
-        }*/
+        }
 
         // GET: Admin/adm_MainPage
         public ActionResult Index() // đang dùng
@@ -60,7 +60,7 @@ namespace Shop.Areas.Administrator.Controllers
         }
 
         //----------------------------Login Admin-----------------------------
-        /*public bool AuthAdmin()
+        public bool AuthAdmin()
         {
             var user = db.AspNetUsers.FirstOrDefault(u => u.UserName == User.Identity.Name);
             if (user == null)
@@ -71,11 +71,11 @@ namespace Shop.Areas.Administrator.Controllers
             if (userExist.RoleId != "1")
                 return false;
             return true;
-        }*/
+        }
 
         //---------------------------------------------------------------------
 
-        /*[HttpGet]
+        [HttpGet]
         public ActionResult Login()
         {
             return View();
@@ -138,20 +138,20 @@ namespace Shop.Areas.Administrator.Controllers
                 }
             }
             return View();
-        }*/
+        }
 
         #region LoginAdmin tạm thời không dùng nữa
         //
         // GET: /Account/Login
-        /*[AllowAnonymous]
+        [AllowAnonymous]
         public ActionResult LoginAdmin()
         {
             return View();
-        }*/
+        }
 
         //
         // POST: /Account/Login
-        /*[HttpPost]
+        [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> LoginAdmin(LoginViewModel model)
@@ -181,7 +181,7 @@ namespace Shop.Areas.Administrator.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
-        }*/
+        }
         #endregion
 
         public ActionResult Logout()// không dùng đến
