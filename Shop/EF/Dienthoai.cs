@@ -37,7 +37,10 @@ namespace Shop.EF
         public int? manhucau { get; set; }
 
         [StringLength(100)]
-        public string camera { get; set; }
+        public string cpu { get; set; }
+
+        [StringLength(100)]
+        public string gpu { get; set; }
 
         [StringLength(100)]
         public string rom { get; set; }

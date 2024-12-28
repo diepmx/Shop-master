@@ -2423,9 +2423,11 @@ namespace Shop.Models
 		
 		private System.Nullable<int> _manhucau;
 		
-		private string _camera;
-		
-		private string _rom;
+		private string _cpu;
+
+        private string _gpu;
+
+        private string _rom;
 		
 		private string _ram;
 		
@@ -2469,8 +2471,10 @@ namespace Shop.Models
     partial void OnmahangChanged();
     partial void OnmanhucauChanging(System.Nullable<int> value);
     partial void OnmanhucauChanged();
-    partial void OncameraChanging(string value);
-    partial void OncameraChanged();
+    partial void OncpuChanging(string value);
+    partial void OncpuChanged();
+	partial void OngpuChanging(string value);
+    partial void OngpuChanged();
     partial void OnromChanging(string value);
     partial void OnromChanged();
     partial void OnramChanging(string value);
@@ -2647,27 +2651,47 @@ namespace Shop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_camera", DbType="NVarChar(100)")]
-		public string camera
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cpu", DbType="NVarChar(100)")]
+		public string cpu
 		{
 			get
 			{
-				return this._camera;
+				return this._cpu;
 			}
 			set
 			{
-				if ((this._camera != value))
+				if ((this._cpu != value))
 				{
-					this.OncameraChanging(value);
+					this.OncpuChanging(value);
 					this.SendPropertyChanging();
-					this._camera = value;
+					this._cpu = value;
 					this.SendPropertyChanged("camera");
-					this.OncameraChanged();
+					this.OncpuChanged();
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rom", DbType="NVarChar(100)")]
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_gpu", DbType = "NVarChar(100)")]
+        public string gpu
+        {
+            get
+            {
+                return this._gpu;
+            }
+            set
+            {
+                if ((this._gpu != value))
+                {
+                    this.OngpuChanging(value);
+                    this.SendPropertyChanging();
+                    this._gpu = value;
+                    this.SendPropertyChanged("camera");
+                    this.OngpuChanged();
+                }
+            }
+        }
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rom", DbType="NVarChar(100)")]
 		public string rom
 		{
 			get

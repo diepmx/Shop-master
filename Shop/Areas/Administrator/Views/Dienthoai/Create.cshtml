@@ -133,10 +133,18 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.Label("Camera", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.Label("Cpu", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.camera, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.camera, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.cpu, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.cpu, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Gpu", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.gpu, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.gpu, "", new { @class = "text-danger" })
                     </div>
                 </div>
 

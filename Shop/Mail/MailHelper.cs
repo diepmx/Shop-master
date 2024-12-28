@@ -13,12 +13,13 @@ namespace Shop.Mail
     {
         public void SendEmail(string address, string subject, string message)
         {
-            string email = "idienthoaipro@gmail.com";
-            string password = "vfgfrommcylmgloq";
+            // Đọc thông tin đăng nhập từ biến môi trường
+            string email = Environment.GetEnvironmentVariable("diepdiep181223@gmail.com");
+            string password = Environment.GetEnvironmentVariable("0981484579aB");
 
             var loginInfo = new NetworkCredential(email, password);
             var msg = new MailMessage();
-            var smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            var smtpClient = new SmtpClient("smtp.gmail.com", 465);
 
             msg.From = new MailAddress(email);
             msg.To.Add(new MailAddress(address));
@@ -29,7 +30,15 @@ namespace Shop.Mail
             smtpClient.EnableSsl = true;
             smtpClient.UseDefaultCredentials = false;
             smtpClient.Credentials = loginInfo;
-            smtpClient.Send(msg);
+
+            try
+            {
+                smtpClient.Send(msg);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught while sending the email: {0}", ex.ToString());
+            }
         }
     }
 }

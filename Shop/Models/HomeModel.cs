@@ -34,7 +34,7 @@ namespace Shop.Models
                                                 && (n.ngaycapnhat.GetValueOrDefault() <= DateTime.Today)).OrderByDescending(n => n.ngaycapnhat).Take(8).ToList();
             return list;
         }
-        public List<Dienthoai> GetListDienthoai_TOPSELLING()// lấy ra danh sách Dienthoai giả rẻ hơn 15tr
+        public List<Dienthoai> GetListDienthoai_TOPSELLING()// lấy ra danh sách Dienthoai giá rẻ hơn 15tr
         {
             List<Dienthoai> list = data.Dienthoais.Where(n => n.trangthai == true && n.giaban <= 15000000).Take(8).ToList();
             return list;

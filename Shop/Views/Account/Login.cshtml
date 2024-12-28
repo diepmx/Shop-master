@@ -4,17 +4,18 @@
     ViewBag.Title = "Đăng nhập";
 }
 @Html.Partial("_Nofit")
-<header class="py-5" style="background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(200,9,121,1) 35%, rgba(0,212,255,1) 100%); max-width: 1200px; margin-left: auto; margin-right: auto;">
+<header class="py-5" style="background: linear-gradient(90deg, rgba(35, 37, 38, 1) 0%, rgba(65, 67, 69, 1) 50%, rgba(35, 37, 38, 1) 100%); max-width: 1200px; margin-left: auto; margin-right: auto;">
     <div class="container px-1 px-lg-1 my-1">
         <div class="text-center text-white">
             <h1 class="display-4 fw-bolder">@ViewBag.Title</h1>
-            <p class="lead fw-normal mb-0" style="color: #4cff00;">360 Store - website bán điện thoại uy tín giá tốt chuyên nghiệp! 😍😍😍</p>
+            <p class="lead fw-normal mb-0" style="color: #ECECEC;">Chào mừng đến với 360 Store - Nơi mua sắm điện thoại uy tín!</p>
         </div>
     </div>
 </header>
+
 <div class="container-fluid" style="max-width: 1200px; margin-left: auto; margin-right: auto;">
     <div class="row card-body">
-        <div class="col-lg-4 col-md-6 col-sm-8 mx-auto bg-white py-4 mb-4 formDiv-orange" style="margin-top: 20px;">
+        <div class="col-lg-4 col-md-6 col-sm-8 mx-auto bg-white py-4 mb-4" style="margin-top: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
             <section id="loginForm">
                 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
@@ -41,29 +42,18 @@
                         <div class="col-md-offset-2 col-md-12">
                             <div class="checkbox">
                                 @Html.CheckBoxFor(m => m.RememberMe)
-                                @*@Html.LabelFor(m => m.RememberMe)*@
-                                Ghi nhớ?
+                                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox-inline" }) Ghi nhớ?
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-2 col-md-12 text-center pull-left">
+                        <div class="col-md-12 text-center">
                             <input type="submit" value="Đăng nhập" class="btn btn-danger" />
-                        </div>
-                        <div class="col-md-2 col-md-12 text-center pull-right" style="margin-top:8px;">
-                            <p>
-                                @*@Html.ActionLink("Đăng ký tài khoản mới", "Register", "Account", new { @class = "btn btn-outline-warning" })*@
-                                <a class="btn btn-outline-primary" href="@Url.Action("Register", "Account")"><i class="fa fa-sign-in-alt"></i> Đăng ký tài khoản mới</a>
-                            </p>
+                            <a class="btn btn-outline-primary" href="@Url.Action("Register", "Account")" style="margin-top: 8px;">
+                                <i class="fa fa-sign-in-alt"></i> Đăng ký tài khoản mới
+                            </a>
                         </div>
                     </div>
-                    @* <p>
-                            @Html.ActionLink("Đăng ký tài khoản mới", "Register","Account",new { @class = "btn btn-outline-warning"})
-                        </p>*@
-                    @* Enable this once you have account confirmation enabled for password reset functionality
-                        <p>
-                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                        </p>*@
                 }
             </section>
             <section id="socialLoginForm">
@@ -72,6 +62,7 @@
         </div>
     </div>
 </div>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

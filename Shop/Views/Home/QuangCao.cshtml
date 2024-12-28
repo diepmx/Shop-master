@@ -19,94 +19,84 @@
         <div class="text-center text-white">
             <h1 class="display-4 fw-bolder">Liên hệ đặt quảng cáo</h1>
             <p class="lead fw-normal mb-0" style="color: #4cff00;">Khách hàng vui lòng liên hệ trước khi gửi thông tin quảng cáo! 💌💌💌</p>
-            <a style="background-color: #ea0bca; margin: 10px;" class="btn text-white" href="@Url.Action("Contact","Home")"><i class="fa fa-mail-bulk"></i> Liên hệ trước</a>
+            <a class="btn text-white" href="@Url.Action("Contact","Home")" style="background-color: #ea0bca; margin: 10px;">
+                <i class="fa fa-mail-bulk"></i> Liên hệ trước
+            </a>
         </div>
     </div>
 </header>
 <div class="container-fluid">
-    <div class="row card-body">
-        <div class="col-lg-4 col-md-6 col-sm-8 mx-auto bg-white py-4 mb-4 formDiv-blue" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-8 mx-auto bg-light py-4 px-4 rounded shadow-lg" style="margin-top: 20px;">
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
 
-                <div class="form-horizontal">
+                <h3 class="text-center mb-4" style="font-weight: 700; color: #333;">Thông tin đặt quảng cáo</h3>
 
-                    <div class="form-group">
-                        <h4 class="text-center">Vui lòng điền thông tin liên hệ quảng cáo để được tư vấn!</h4>
-                    </div>
+                <!-- Tên quảng cáo -->
+                <div class="form-group mb-3">
+                    @Html.Label("Tên quảng cáo", htmlAttributes: new { @class = "form-label fw-bold" })
+                    @Html.EditorFor(model => model.tenqc, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập tên quảng cáo" } })
+                    @Html.ValidationMessageFor(model => model.tenqc, "", new { @class = "text-danger small" })
+                </div>
 
-                    <!--Tắt ValidationSummary -->
-                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @Html.Label("Tên quảng cáo", htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.tenqc, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.tenqc, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                <!-- Tên công ty -->
+                <div class="form-group mb-3">
+                    @Html.Label("Tên công ty", htmlAttributes: new { @class = "form-label fw-bold" })
+                    @Html.EditorFor(model => model.tencongty, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập tên công ty" } })
+                    @Html.ValidationMessageFor(model => model.tencongty, "", new { @class = "text-danger small" })
+                </div>
 
-                    <div class="form-group">
-                        @Html.Label("Tên công ty", htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.tencongty, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.tencongty, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                <!-- Hình nền -->
+                <div class="form-group mb-3">
+                    @Html.Label("Hình nền", htmlAttributes: new { @class = "form-label fw-bold" })
+                    @Html.EditorFor(model => model.hinhnen, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập URL hình nền" } })
+                    @Html.ValidationMessageFor(model => model.hinhnen, "", new { @class = "text-danger small" })
+                </div>
 
-                    <div class="form-group">
-                        @Html.Label("Hình", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.hinhnen, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.hinhnen, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                <!-- Link -->
+                <div class="form-group mb-3">
+                    @Html.Label("Link", htmlAttributes: new { @class = "form-label fw-bold" })
+                    @Html.EditorFor(model => model.link, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập URL liên kết" } })
+                    @Html.ValidationMessageFor(model => model.link, "", new { @class = "text-danger small" })
+                </div>
 
-                    <div class="form-group">
-                        @Html.Label("Link", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.link, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.link, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                <!-- Ngày bắt đầu -->
+                <div class="form-group mb-3">
+                    @Html.Label("Ngày bắt đầu", htmlAttributes: new { @class = "form-label fw-bold" })
+                    <input type="date" name="ngaybatdau" class="form-control" />
+                </div>
 
-                    <div class="form-group">
-                        @Html.Label("Ngày bắt đầu", htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-12">
-                            @*@Html.EditorFor(model => model.ngaybatdau, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.ngaybatdau, "", new { @class = "text-danger" })*@
-                            <input type="date" name="ngaybatdau" class="form-control col-md-6" />
-                        </div>
-                    </div>
+                <!-- Ngày đến hạn -->
+                <div class="form-group mb-3">
+                    @Html.Label("Ngày đến hạn", htmlAttributes: new { @class = "form-label fw-bold" })
+                    <input type="date" name="ngayhethan" class="form-control" />
+                </div>
 
-                    <div class="form-group">
-                        @Html.Label("Ngày đến hạn", htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-12">
-                            @*@Html.EditorFor(model => model.ngayhethan, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.ngayhethan, "", new { @class = "text-danger" })*@
-                            <input type="date" name="ngayhethan" class="form-control col-md-6" />
-                        </div>
+                <!-- Captcha -->
+                <div class="form-group mb-3">
+                    @Html.Label("Captcha", htmlAttributes: new { @class = "form-label fw-bold" })
+                    <div>
+                        @Html.Captcha(quangcaoCaptcha)
+                        @Html.TextBox("CaptchaCodeAD", null, new { @class = "form-control mt-2", placeholder = "Nhập mã xác thực" })
                     </div>
+                </div>
 
-                    <div class="form-group" style="margin-top: 10px;">
-                        <div class="col-md-offset-2 col-md-12">
-                            @Html.Captcha(quangcaoCaptcha)
-                            @Html.TextBox("CaptchaCodeAD")
-                        </div>
-                    </div>
-
-                    <div class="form-group" style="margin-top: 10px;">
-                        <div class="col-md-offset-2 col-md-12 text-center">
-                            <input type="submit" value="✅ Xác nhận" class="btn btn-warning" />
-                        </div>
-                    </div>
+                <!-- Nút xác nhận -->
+                <div class="text-center">
+                    <input type="submit" value="✅ Xác nhận" class="btn btn-warning px-4 py-2" />
                 </div>
             }
         </div>
     </div>
+
+    <!-- Link về trang chủ -->
     <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-8 mx-auto bg-white py-4 mb-4">
-            <a class="btn btn-success" href="@Url.Action("Index","Home")"><i class="fa fa-home"></i> Về trang chủ</a>
+        <div class="col-lg-4 col-md-6 col-sm-8 mx-auto text-center mt-3">
+            <a class="btn btn-success" href="@Url.Action("Index","Home")">
+                <i class="fa fa-home"></i> Về trang chủ
+            </a>
         </div>
     </div>
 </div>

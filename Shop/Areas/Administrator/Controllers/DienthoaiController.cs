@@ -80,7 +80,7 @@ namespace Shop.Areas.Administrator.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "madienthoai,tendienthoai,giaban,mota,hinh,mahang,manhucau,camera,rom,ram,hedieuhanh,manhinh,ngaycapnhat,soluongton,pin,trangthai")] Dienthoai dienthoai)
+        public ActionResult Create([Bind(Include = "madienthoai,tendienthoai,giaban,mota,hinh,mahang,manhucau,cpu,gpu,rom,ram,hedieuhanh,manhinh,ngaycapnhat,soluongton,pin,trangthai")] Dienthoai dienthoai)
         {
             if (Session["taikhoanadmin"] == null)
             {
@@ -154,7 +154,7 @@ namespace Shop.Areas.Administrator.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "madienthoai,tendienthoai,giaban,mota,hinh,mahang,manhucau,camera,rom,ram,hedieuhanh,manhinh,ngaycapnhat,soluongton,pin,trangthai")] Dienthoai dienthoai)
+        public ActionResult Edit([Bind(Include = "madienthoai,tendienthoai,giaban,mota,hinh,mahang,manhucau,cpu,gpu,rom,ram,hedieuhanh,manhinh,ngaycapnhat,soluongton,pin,trangthai")] Dienthoai dienthoai)
         {
             if (Session["taikhoanadmin"] == null)
             {
@@ -392,7 +392,8 @@ namespace Shop.Areas.Administrator.Controllers
                                 sqlBulkCopy.ColumnMappings.Add("hinh", "hinh");
                                 sqlBulkCopy.ColumnMappings.Add("mahang", "mahang");
                                 sqlBulkCopy.ColumnMappings.Add("manhucau", "manhucau");
-                                sqlBulkCopy.ColumnMappings.Add("camera", "camera");
+                                sqlBulkCopy.ColumnMappings.Add("cpu", "cpu");
+                                sqlBulkCopy.ColumnMappings.Add("gpu", "gpu");
                                 sqlBulkCopy.ColumnMappings.Add("rom", "rom");
                                 sqlBulkCopy.ColumnMappings.Add("ram", "ram");
                                 sqlBulkCopy.ColumnMappings.Add("hedieuhanh", "hedieuhanh");

@@ -117,7 +117,8 @@
       <Column Name="hinh" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
       <Column Name="mahang" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="manhucau" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="camera" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="cpu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="gpu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="rom" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="ram" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="hedieuhanh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />

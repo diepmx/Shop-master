@@ -80,8 +80,12 @@
                                             @Html.DisplayName("Hình")
                                         </th>*@
                                         <th class="text-center" style="vertical-align:middle">
-                                            @*@Html.DisplayNameFor(model => model.camera)*@
-                                            @Html.DisplayName("Camera")
+                                            @*@Html.DisplayNameFor(model => model.cpu)*@
+                                            @Html.DisplayName("Cpu")
+                                        </th>
+                                        <th class="text-center" style="vertical-align:middle">
+                                            @*@Html.DisplayNameFor(model => model.gpu)*@
+                                            @Html.DisplayName("Gpu")
                                         </th>
                                         <th class="text-center" style="vertical-align:middle">
                                             @*@Html.DisplayNameFor(model => model.rom)*@
@@ -141,17 +145,20 @@
                                                 <p> @item.giaban.GetValueOrDefault().ToString("#,##") đ</p>
                                             </td>
                                             @*<td class="text-center" style="vertical-align:middle">
-                                                @Html.DisplayFor(modelItem => item.mota)
-                                            </td>*@
+            @Html.DisplayFor(modelItem => item.mota)
+        </td>*@
                                             <td class="text-center" style="vertical-align:middle">
                                                 @*@Html.DisplayFor(modelItem => item.hinh)*@
                                                 <div>
-                                                    <img @*class="fancybox-image"*@ src="/Data/images/@Html.DisplayFor(modelItem => item.hinh)" alt="No image" width="100" height="100"/>
+                                                    <img @*class="fancybox-image"*@ src="/Data/images/@Html.DisplayFor(modelItem => item.hinh)" alt="No image" width="100" height="100" />
                                                 </div>
 
                                             </td>
                                             <td class="text-center" style="vertical-align:middle">
-                                                @Html.DisplayFor(modelItem => item.camera)
+                                                @Html.DisplayFor(modelItem => item.cpu)
+                                            </td>
+                                            <td class="text-center" style="vertical-align:middle">
+                                                @Html.DisplayFor(modelItem => item.gpu)
                                             </td>
                                             <td class="text-center" style="vertical-align:middle">
                                                 @Html.DisplayFor(modelItem => item.rom)
@@ -178,7 +185,7 @@
                                                 @*@Html.DisplayFor(modelItem => item.trangthai)*@
                                                 @if (item.trangthai == true)
                                                 {
-                                                    <p class="neoncss" @*style="background-color: seagreen; color: white; padding: 3px; border-radius: 8px;"*@ > Đang bán</p>
+                                                    <p class="neoncss" @*style="background-color: seagreen; color: white; padding: 3px; border-radius: 8px;"*@> Đang bán</p>
                                                 }
                                                 else
                                                 {
@@ -187,8 +194,8 @@
                                             </td>
                                             <td class="text-center" style="vertical-align: middle; min-width: 100px;">
                                                 @*@Html.ActionLink("Edit", "Edit", new { id = item.madienthoai }) |
-                                                    @Html.ActionLink("Details", "Details", new { id = item.madienthoai }) |
-                                                    @Html.ActionLink("Delete", "Delete", new { id = item.madienthoai })*@
+            @Html.ActionLink("Details", "Details", new { id = item.madienthoai }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.madienthoai })*@
                                                 <a style="margin-right:5px;" href="@Url.Action("Edit","Dienthoai", new { id = item.madienthoai })"><img style="width:20px;height:20px;" src="~/Areas/Administrator/Data/images/edit-crud.png" data-bs-toggle="tooltip" data-bs-placement="top" title="Sửa" /></a>
                                                 <a style="margin-left:5px;margin-right:5px;" href="@Url.Action("Details","Dienthoai", new { id = item.madienthoai })"><img style="width:20px;height:20px;" src="~/Areas/Administrator/Data/images/eye.png" data-bs-toggle="tooltip" data-bs-placement="top" title="Xem" /></a>
                                                 <a style="margin-left:5px;" href="@Url.Action("Delete","Dienthoai", new { id = item.madienthoai })"><img style="width:20px;height:20px;" src="~/Areas/Administrator/Data/images/trash-crud.png" data-bs-toggle="tooltip" data-bs-placement="top" title="Xóa" /></a>
