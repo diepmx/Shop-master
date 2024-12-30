@@ -29,7 +29,7 @@
 @Html.Partial("_MessageAlert")
 <div class="container-sm container-fluid">
     <div class="p-5" style="background-color: white">
-        <h2>Thêm mới Dienthoai</h2>
+        <h2>Thêm mới điện thoại</h2>
 
         @using (Html.BeginForm())
         {
@@ -38,7 +38,7 @@
             <div class="form-horizontal">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
-                    @Html.Label("Tên Dienthoai", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.Label("Tên điện thoại", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.tendienthoai, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.tendienthoai, "", new { @class = "text-danger" })
@@ -67,7 +67,7 @@
                         @Html.TextBoxFor(model => model.hinh, new { htmlAttributes = new { @class = "form-control" }, id = "txtImage", placeholder = "dienthoai-(1).png" })
                         <a style="font-weight: bold;background-color: greenyellow; color: #085e49; padding: 8px; margin: 16px;" id="btnSelectImage" href="#"> <i class="fa fa-image"></i> Chọn ảnh</a>
                         @Html.ValidationMessageFor(model => model.hinh, "", new { @class = "text-danger" })
-                        <img id="imgSelectImage" src="/Data/images/dienthoai-(1).png" alt="No image" height="200" width="200" />
+                        <img id="imgSelectImage" src="/Data/images/13368169.png" alt="No image" height="200" width="200" />
                     </div>
                 </div>
 
@@ -117,7 +117,7 @@
                     }*@
 
                 <div class="form-group">
-                    @Html.Label("Hãng sản xuất", "mahang", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.Label("Hãng sản xuất", "Mã hãng", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.DropDownList("mahang", null, htmlAttributes: new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.mahang, "", new { @class = "text-danger" })
@@ -125,7 +125,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.Label("Nhu cầu sử dụng", "manhucau", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.Label("Nhu cầu sử dụng", "Mã nhu cầu", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.DropDownList("manhucau", null, htmlAttributes: new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.manhucau, "", new { @class = "text-danger" })

@@ -247,8 +247,8 @@ namespace Shop.Controllers
                     //var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
 
 
-                    new MailHelper().SendEmail(kh.Email, "Xác nhận đặt mua dienthoai tại iDienthoai", content);
-                    new MailHelper().SendEmail("idienthoaipro@gmail.com", "Xác nhận đặt mua dienthoai tại iDienthoai", content);
+                    new MailHelper().SendEmail(kh.Email, "Xác nhận đặt mua điện thoại tại 360 Store", content);
+                    new MailHelper().SendEmail("diepdiep0901@gmail.com", "Xác nhận đặt mua điện thoại tại 360 Store", content);
 
                     //End
                 }
@@ -372,10 +372,10 @@ namespace Shop.Controllers
 
             //request params need to request to MoMo system
             string endpoint = "https://test-payment.momo.vn/gw_payment/transactionProcessor";
-            string partnerCode = "MOMO5PB020220322";
-            string accessKey = "imYC24phv0gYMFgA";
-            string serectkey = "gZ2H5gyDOrVLQ0mnVJjPCWQ4a2lenHLN";
-            string orderInfo = "Thanh toán mua Dienthoai";
+            string partnerCode = "MOMO";
+            string accessKey = "F8BBA842ECF85";
+            string serectkey = "K951B6PE1waDMi640xX08PD3vg6EkVlz";
+            string orderInfo = "Thanh toán mua điện thoại";
 
             //HTTPGET chỉ hiện thông báo người dùng
             string returnUrl = "https://localhost:44381/GioHang/ReturnUrl";
@@ -588,8 +588,8 @@ namespace Shop.Controllers
                     //var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
 
 
-                    new MailHelper().SendEmail(kh.Email, "Xác nhận đặt mua dienthoai tại iDienthoai", content);
-                    new MailHelper().SendEmail("idienthoaipro@gmail.com", "Xác nhận đặt mua dienthoai tại iDienthoai", content);
+                    new MailHelper().SendEmail(kh.Email, "Xác nhận đặt mua điện thoại tại 360 Store", content);
+                    new MailHelper().SendEmail("diepdiep0901@gmail.com", "Xác nhận đặt mua điện thoại tại 360 Store", content);
 
                     //End
                 }
