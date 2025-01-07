@@ -151,7 +151,7 @@ namespace Shop.Controllers
         {
             if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
             {
-                ViewBag.thongbao = "Bạn phải đăng nhập tài khoản khách mua hàng!";
+                ViewBag.thongbao = "Bạn phải đăng nhập tài khoản để mua hàng!";
                 return RedirectToAction("Login", "Account");
             }
             if (Session["GioHang"] == null)
@@ -222,12 +222,12 @@ namespace Shop.Controllers
 
             //Gửi mail tới khác dùng
 
-            /*string detail = "";
+            string detail = "";
 
             foreach (var item in gh)
             {
                 detail += "Tài khoản:  " + kh.Email.ToString() + "------" + "Mật khẩu:  " + kh.PasswordHash + "=======================";
-            }*/
+            }
 
             string content = System.IO.File.ReadAllText(Server.MapPath("~/Content/template/neworder.html"));
 
@@ -244,7 +244,7 @@ namespace Shop.Controllers
                 var checkedMail = data.AspNetUserLogins.Where(n => n.UserId == kh.Id);
                 if (checkedMail != null)
                 {
-                    //var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
+                    var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
 
 
                     new MailHelper().SendEmail(kh.Email, "Xác nhận đặt mua điện thoại tại 360 Store", content);
@@ -371,17 +371,17 @@ namespace Shop.Controllers
 
 
             //request params need to request to MoMo system
-            string endpoint = "https://test-payment.momo.vn/gw_payment/transactionProcessor";
-            string partnerCode = "MOMO";
-            string accessKey = "F8BBA842ECF85";
-            string serectkey = "K951B6PE1waDMi640xX08PD3vg6EkVlz";
+            string endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
+            string partnerCode = "MOMONPMB20210629";
+            string accessKey = "Q2XhhSdgpKUlQ4Ky";
+            string serectkey = "k6B53GQKSjktZGJBK2MyrDa7w9S6RyCf";
             string orderInfo = "Thanh toán mua điện thoại";
 
             //HTTPGET chỉ hiện thông báo người dùng
-            string returnUrl = "https://localhost:44381/GioHang/ReturnUrl";
+            string returnUrl = "https://fc21-210-245-52-144.ngrok-free.app/GioHang/ReturnUrl";
 
             //HTTPPOST cập nhật database https://localhost:44381/GioHang/NotifyUrl
-            string notifyurl = "https://localhost:44381/GioHang/NotifyUrl"; //lưu ý: notifyurl không được sử dụng localhost, có thể sử dụng ngrok để public localhost trong quá trình test
+            string notifyurl = "https://fc21-210-245-52-144.ngrok-free.app/GioHang/NotifyUrl"; //lưu ý: notifyurl không được sử dụng localhost, có thể sử dụng ngrok để public localhost trong quá trình test
 
             string amount = gh.Sum(p => p.dThanhTien).ToString();
             string orderid = DateTime.Now.Ticks.ToString();
@@ -428,9 +428,19 @@ namespace Shop.Controllers
             };
 
             string responseFromMomo = PaymentRequest.sendPaymentRequest(endpoint, message.ToString());
+            Console.WriteLine(responseFromMomo);
+            if (string.IsNullOrWhiteSpace(responseFromMomo) || responseFromMomo.TrimStart().StartsWith("{") == false)
+            {
+                throw new Exception("Invalid response from Momo API: " + responseFromMomo);
+            }
+            System.Diagnostics.Debug.WriteLine("MoMo Response: " + responseFromMomo);
 
             JObject jmessage = JObject.Parse(responseFromMomo);
-
+            if (jmessage["payUrl"] == null || string.IsNullOrEmpty(jmessage["payUrl"].ToString()))
+            {
+                Notification.set_flash("Không nhận được URL thanh toán từ MoMo!", "danger");
+                return RedirectToAction("GioHang"); // Hoặc xử lý lỗi khác
+            }
             return Redirect(jmessage.GetValue("payUrl").ToString());
         }
 
@@ -444,7 +454,7 @@ namespace Shop.Controllers
             param = Server.UrlDecode(param);
             MoMoSecurity crypto = new MoMoSecurity();
             //string secretkey = ConfigurationManager.AppSettings["serectkey"].ToString();
-            string secretkey = "gZ2H5gyDOrVLQ0mnVJjPCWQ4a2lenHLN";
+            string secretkey = "K951B6PE1waDMi640xX08PD3vg6EkVlz";
             string signature = crypto.signSHA256(param, secretkey);
             if (signature != Request["signature"].ToString())
             {
@@ -483,7 +493,7 @@ namespace Shop.Controllers
 
             param = Server.UrlDecode(param);
             MoMoSecurity crypto = new MoMoSecurity();
-            string secretkey = "gZ2H5gyDOrVLQ0mnVJjPCWQ4a2lenHLN";
+            string secretkey = "K951B6PE1waDMi640xX08PD3vg6EkVlz";
             string signature = crypto.signSHA256(param, secretkey);
             //Không được phép cập nhật trạng thái đơn hàng vào Database khi đang chờ thanh toán
             //Trạng thái đơn kích nút thanh toán - Đang chờ thanh toán
@@ -509,7 +519,7 @@ namespace Shop.Controllers
             param = Server.UrlDecode(param);
             MoMoSecurity crypto = new MoMoSecurity();
             //string secretkey = ConfigurationManager.AppSettings["serectkey"].ToString();
-            string secretkey = "gZ2H5gyDOrVLQ0mnVJjPCWQ4a2lenHLN";
+            string secretkey = "K951B6PE1waDMi640xX08PD3vg6EkVlz";
             string signature = crypto.signSHA256(param, secretkey);
             if (signature != Request["signature"].ToString())
             {
@@ -528,6 +538,7 @@ namespace Shop.Controllers
 
         public ActionResult ConfirmPaymentClient()
         {
+
             //hiển thị thông báo cho người dùng
             return View();
         }

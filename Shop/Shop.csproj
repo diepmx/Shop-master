@@ -347,6 +347,7 @@
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PaymentController .cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ZaloController.cs" />
     <Compile Include="EF\AspNetRole.cs" />
@@ -390,11 +391,16 @@
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MomoRequest.cs" />
+    <Compile Include="Models\MomoResponse.cs" />
     <Compile Include="Models\MyData.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MyData.dbml</DependentUpon>
     </Compile>
+    <Compile Include="MomoHelper.cs" />
+    <Compile Include="MoMo\ConfigHelper.cs" />
+    <Compile Include="MoMo\MomoHelper.cs" />
     <Compile Include="MoMo\MoMoSecurity.cs" />
     <Compile Include="MoMo\PaymentRequest.cs" />
     <Compile Include="NganLuong\nganluonAPI\APICheckoutV3.cs" />
