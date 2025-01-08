@@ -9,73 +9,104 @@
     Random random = new Random(DateTime.Now.Millisecond);
     QuangCao randomItem = home.GetListQuangCao().ToList().ElementAt(random.Next(0, home.GetListQuangCao().Count));
 }
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0&appId=377559880155077&autoLogAppEvents=1" nonce="4WpvGoo4"></script>
-<header class="py-5" style="background-image: url(/Content/images/iStock-blog-it.jpg);">
-    <div class="container px-1 px-lg-1 my-1">
-        <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Blog</h1>
-            <p class="lead fw-normal mb-0" style="color: #4cff00;">Chia thông tin thủ thuật hay! 😍😍😍</p>
-        </div>
-    </div>
-</header>
-<div class="container" style="margin-top: 16px">
 
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    body, h1, h2, h3, h4, p, a {
+        font-family: 'Nunito', sans-serif;
+    }
+
+    header {
+        background: linear-gradient(135deg, #6e8efb, #a777e3);
+        color: white;
+        padding: 60px 0;
+    }
+
+    .btn {
+        border-radius: 20px;
+        transition: all 0.3s;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+    .well {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .card-header {
+        background-color: #4b79a1;
+        color: white;
+    }
+
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+
+    footer.footer {
+        background-color: #4b79a1;
+        color: white;
+        padding: 20px 0;
+    }
+</style>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0" nonce="YOUR_NONCE_HERE"></script>
+
+<header class="text-center">
+    <h1 class="display-4 fw-bolder">Blog</h1>
+    <p class="lead fw-normal">Chia thông tin thủ thuật hay! 😍😍😍</p>
+</header>
+
+<div class="container my-5">
     <div class="row">
         <div class="col-lg-8">
-
-            <!-- the actual blog post: title/author/date/content -->
-            <h1>@Model.tieude</h1>
+            <h1 class="fw-bold">@Model.tieude</h1>
             <p class="lead">
-                Đăng bởi <a style="background-color: orangered" class="btn text-white" href="@Url.Action("Index","Home")"><i class="fa fa-dienthoai"></i> iDienthoai</a>  |  <span class="glyphicon glyphicon-time"></span> Ngày cập nhật: @Model.ngaycapnhat.GetValueOrDefault().ToString("dd/MM/yyyy")
+                Đăng bởi <a class="btn btn-danger text-white" href="@Url.Action("Index","Home")">
+                    <i class="fa fa-home"></i> 360 Store
+                </a>  |
+                <i class="fa fa-clock-o"></i> Ngày cập nhật: @Model.ngaycapnhat.GetValueOrDefault().ToString("dd/MM/yyyy")
             </p>
             <hr>
-            <img src="/Data/images/@Model.hinhnen" class="img-responsive">
+            <img src="/Data/images/@Model.hinhnen" class="img-fluid rounded">
             <hr>
-            <div>
-                @Html.Raw(Model.noidung.ToString())
-            </div>
+            <article>@Html.Raw(Model.noidung)</article>
             <hr>
-
         </div>
 
         <div class="col-lg-4">
-            <!--<div class="panel-body">
-        <h4>Tìm kiếm bài viết</h4>
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Tìm kiếm bài viết...">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                    <span class="glyphicon glyphicon-search"></span>
-                </button>
-            </span>
-        </div>-->
-            <!-- /input-group -->
-            <!--</div>-->
-            <!-- /well -->
-            <div class="well" style="margin-top: 16px;">
-                <h4>Chủ đề</h4>
-                <div class="row">
-                    <div class="col-lg-6">
-
-                        @foreach (var item in home.GetListChuDe())
-                        {
-                            <a style="background-color: #0eebd7; margin: 4px;" class="btn text-white" href="@Url.Action("ListBaiVietTheoChuDeId","Home", new { id = item.machude})"><i class="fa fa-podcast"></i> @item.tenchude</a>
-                        }
-
-                    </div>
+            <div class="well">
+                <h4 class="card-header">Chủ đề</h4>
+                <div class="card-body">
+                    @foreach (var item in home.GetListChuDe())
+                    {
+                        <a class="btn btn-info text-white my-2" href="@Url.Action("ListBaiVietTheoChuDeId","Home", new { id = item.machude})">
+                            @item.tenchude
+                        </a>
+                    }
                 </div>
             </div>
-            <div style="margin-top: 20px;" class="fb-page" data-href="https://www.facebook.com/IDienthoai-102788879063090/" data-tabs="timeline" data-width="450" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/IDienthoai-102788879063090/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/IDienthoai-102788879063090/">IDienthoai</a></blockquote></div>
-        </div>
-    </div>
-    <footer>
-        <div class="row" style="margin-bottom:10px;">
-            <div class="col-lg-12">
-                <a href="@randomItem.link"><img src="/Data/images/@randomItem.hinhnen" alt="Alternate Text" /></a>
+            <div class="fb-page" data-href="https://www.facebook.com/mai.xuan.iep" data-tabs="timeline" data-width="" data-height="100" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/mai.xuan.iep" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/mai.xuan.iep">360 Store</a>
+                </blockquote>
             </div>
         </div>
-    </footer>
-
+    </div>
 </div>
 
+<footer class="footer text-center">
+    <div class="container">
+        <a href="@randomItem.link">
+            <img src="/Data/images/@randomItem.hinhnen" alt="Promotional Material" class="img-fluid rounded" />
+        </a>
+    </div>
+</footer>

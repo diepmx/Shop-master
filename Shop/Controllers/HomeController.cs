@@ -219,18 +219,29 @@ namespace Shop.Controllers
             
             return RedirectToAction("Index", "Home");
         }
-        
+
         /*public ActionResult Details(int id)
         {
             var dienthoai = data.Dienthoais.Where(n => n.madienthoai == id).FirstOrDefault();
             return View(dienthoai);
         }*/
         //dùng cho SEO
-        public ActionResult Details(int id, string postName)
+        public ActionResult Details(int? id, string postName)
         {
-            var dienthoai = data.Dienthoais.Where(n => n.madienthoai == id).FirstOrDefault();
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Index"); // Hoặc trả về một trang lỗi
+            }
+
+            var dienthoai = data.Dienthoais.FirstOrDefault(n => n.madienthoai == id.Value);
+            if (dienthoai == null)
+            {
+                return HttpNotFound(); // Trả về lỗi 404 nếu không tìm thấy sản phẩm
+            }
+
             return View(dienthoai);
         }
+
 
         public ActionResult PostDetails(int? id, string postName)
         {
