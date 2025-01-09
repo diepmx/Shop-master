@@ -168,101 +168,39 @@ namespace Shop.Controllers
         public ActionResult DatHang(FormCollection collection)
         {
             DonHang dh = new DonHang();
-            AspNetUser kh = (AspNetUser)Session["TaiKhoan"];// ép session về kh để lấy thông tin
-            Dienthoai lap = new Dienthoai(); // lấy
-            List<GioHang> gh = Laygiohang();// lấy giỏ hàng
-            //var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["NgayGiao"]);//lấy ngày giao format lại
+            AspNetUser kh = (AspNetUser)Session["TaiKhoan"];
+            List<GioHang> gh = Laygiohang();
 
+            // Thiết lập thông tin đơn hàng
             dh.makh = kh.Id;
             dh.ngaydat = DateTime.Now;
-            //dh.ngaygiao = DateTime.Now;
             dh.giaohang = null;
             dh.thanhtoan = false;
             dh.tinhtrang = '0';
-            /*if ((bool)Session["thanhtoan"] == true)
-            {
-                dh.thanhtoan = true;
-            }
-            else
-            {
-                dh.thanhtoan = false;
-            }*/
-
 
             data.DonHangs.InsertOnSubmit(dh);
             data.SubmitChanges();
-            try
-            {
-                foreach (var item in gh)
-                {
-                    ChiTietDonHang ctdh = new ChiTietDonHang();
-                    ctdh.madon = dh.madon;
-                    ctdh.madienthoai = item.madienthoai;
-                    ctdh.soluong = item.iSoluong;
-                    ctdh.dongia = (decimal)item.giaban;
-                    data.ChiTietDonHangs.InsertOnSubmit(ctdh);
-                    // lấy số lượng tồn trừ đi
-                    lap = data.Dienthoais.FirstOrDefault(n => n.madienthoai == item.madienthoai);
-                    if(lap.soluongton > ctdh.soluong && lap.soluongton != null)
-                    {
-                        lap.soluongton = lap.soluongton - ctdh.soluong;
-                    }               
-                    data.SubmitChanges();
-                }
 
-                data.SubmitChanges();
-            }
-            catch (Exception)
-            {
-                Notification.set_flash("Lỗi cập nhật dữ liệu!", "danger");
-                return RedirectToAction("Index", "Home");
-            }
-            
-            
-
-            //Gửi mail tới khác dùng
-
-            string detail = "";
-
+            // Lưu chi tiết đơn hàng
             foreach (var item in gh)
             {
-                detail += "Tài khoản:  " + kh.Email.ToString() + "------" + "Mật khẩu:  " + kh.PasswordHash + "=======================";
+                ChiTietDonHang ctdh = new ChiTietDonHang();
+                ctdh.madon = dh.madon;
+                ctdh.madienthoai = item.madienthoai;
+                ctdh.soluong = item.iSoluong;
+                ctdh.dongia = (decimal)item.giaban;
+                data.ChiTietDonHangs.InsertOnSubmit(ctdh);
             }
+            data.SubmitChanges();
 
-            string content = System.IO.File.ReadAllText(Server.MapPath("~/Content/template/neworder.html"));
-
-            //var total = gh.Sum(n => n.giaban);
-            var total = TongTien();
-            content = content.Replace("{CustomerName}", kh.hoten);
-            content = content.Replace("{Phone}", kh.PhoneNumber);
-            content = content.Replace("{Email}", kh.Email);
-            content = content.Replace("{Total}", total.ToString());
-
-            try
-            {
-                //kiểm tra xem email đã xác thực Login hay chưa bởi Google Facebook
-                var checkedMail = data.AspNetUserLogins.Where(n => n.UserId == kh.Id);
-                if (checkedMail != null)
-                {
-                    var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
-
-
-                    new MailHelper().SendEmail(kh.Email, "Xác nhận đặt mua điện thoại tại 360 Store", content);
-                    new MailHelper().SendEmail("diepdiep0901@gmail.com", "Xác nhận đặt mua điện thoại tại 360 Store", content);
-
-                    //End
-                }
-            }
-            catch (Exception)
-            {
-                Notification.set_flash("Lỗi kết nối tới máy chủ STMP Google!", "warning");
-                return RedirectToAction("Index", "Home");
-            }
-            
-            Notification.set_flash("Bạn đã đặt hàng thành công!", "success");
+            // Xóa giỏ hàng sau khi đặt hàng
             Session["GioHang"] = null;
+
+            // Thông báo thành công và chuyển hướng
+            Notification.set_flash("Bạn đã đặt hàng thành công!", "success");
             return RedirectToAction("XacnhanDonhang", "GioHang");
         }
+
         public ActionResult XacnhanDonhang()//xác nhận đơn mạng
         {
             return View();
@@ -309,80 +247,18 @@ namespace Shop.Controllers
             AspNetUser kh = (AspNetUser)Session["TaiKhoan"];// ép session về kh để lấy thông tin
             Dienthoai s = new Dienthoai();
             List<GioHang> gh = Laygiohang();// lấy giỏ hàng
-                                            // var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["NgayGiao"]);//lấy ngày giao format lại
-
-            //dh.makh = kh.Id;
-            //dh.ngaydat = DateTime.Now;
-            //dh.ngaygiao = DateTime.Now;
-            //dh.giaohang = false;
-            //dh.thanhtoan = true;
-            /*if ((bool)Session["thanhtoan"] == true)
-            {
-                dh.thanhtoan = true;
-            }
-            else
-            {
-                dh.thanhtoan = false;
-            }*/
-
-
-            //data.DonHangs.InsertOnSubmit(dh);
-            //data.SubmitChanges();
-            //foreach (var item in gh)
-            //{
-            //    ChiTietDonHang ctdh = new ChiTietDonHang();
-            //    ctdh.madon = dh.madon;
-            //    ctdh.madienthoai = item.madienthoai;
-            //    ctdh.soluong = item.iSoluong;
-            //    ctdh.dongia = (decimal)item.giaban;
-            //    s = data.Dienthoais.Single(n => n.madienthoai == item.madienthoai);
-            //    data.SubmitChanges();
-            //    data.ChiTietDonHangs.InsertOnSubmit(ctdh);
-            //}
-
-            //Gửi mail tới khác dùng
-
-            /*string detail = "";
-
-            foreach (var item in gh)
-            {
-                detail += "Tài khoản:  " + kh.Email.ToString() + "------" + "Mật khẩu:  " + kh.PasswordHash + "=======================";
-            }*/
-
-            //string content = System.IO.File.ReadAllText(Server.MapPath("~/Content/template/neworder.html"));
-
-            //var total = gh.Sum(n => n.giaban);
-            //content = content.Replace("{CustomerName}", kh.hoten);
-            //content = content.Replace("{Phone}", kh.PhoneNumber);
-            //content = content.Replace("{Email}", kh.Email);
-            //content = content.Replace("{Total}", total.ToString());
-
-            //var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
-
-
-            //new MailHelper().SendEmail(kh.Email, "Xác nhận đặt mua dienthoai tại iDienthoai", content);
-            //new MailHelper().SendEmail(toEmail, "Xác nhận đặt mua dienthoai tại iDienthoai", content);
-
-            //End
-
-            //data.SubmitChanges();
-            //Session["GioHang"] = null;
-            //return RedirectToAction("XacnhanDonhang", "GioHang");
-
-
-            //request params need to request to MoMo system
-            string endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
-            string partnerCode = "MOMONPMB20210629";
-            string accessKey = "Q2XhhSdgpKUlQ4Ky";
-            string serectkey = "k6B53GQKSjktZGJBK2MyrDa7w9S6RyCf";
+              //request params need to request to MoMo system
+            string endpoint = "https://test-payment.momo.vn/gw_payment/transactionProcessor";
+            string partnerCode = "MOMO";
+            string accessKey = "F8BBA842ECF85";
+            string secretKey = "K951B6PE1waDMi640xX08PD3vg6EkVlz";
             string orderInfo = "Thanh toán mua điện thoại";
 
             //HTTPGET chỉ hiện thông báo người dùng
-            string returnUrl = "https://fc21-210-245-52-144.ngrok-free.app/GioHang/ReturnUrl";
+            string returnUrl = "https://localhost:44382/GioHang/ReturnUrl";
 
-            //HTTPPOST cập nhật database https://localhost:44381/GioHang/NotifyUrl
-            string notifyurl = "https://fc21-210-245-52-144.ngrok-free.app/GioHang/NotifyUrl"; //lưu ý: notifyurl không được sử dụng localhost, có thể sử dụng ngrok để public localhost trong quá trình test
-
+            //HTTPPOST cập nhật database 
+            string notifyurl = "https://localhost:44382/GioHang/NotifyUrl"; 
             string amount = gh.Sum(p => p.dThanhTien).ToString();
             string orderid = DateTime.Now.Ticks.ToString();
             string requestId = DateTime.Now.Ticks.ToString();
@@ -409,7 +285,7 @@ namespace Shop.Controllers
 
             MoMoSecurity crypto = new MoMoSecurity();
             //sign signature SHA256
-            string signature = crypto.signSHA256(rawHash, serectkey);
+            string signature = crypto.signSHA256(rawHash, secretKey);
 
             //build body json request
             JObject message = new JObject
@@ -428,19 +304,9 @@ namespace Shop.Controllers
             };
 
             string responseFromMomo = PaymentRequest.sendPaymentRequest(endpoint, message.ToString());
-            Console.WriteLine(responseFromMomo);
-            if (string.IsNullOrWhiteSpace(responseFromMomo) || responseFromMomo.TrimStart().StartsWith("{") == false)
-            {
-                throw new Exception("Invalid response from Momo API: " + responseFromMomo);
-            }
-            System.Diagnostics.Debug.WriteLine("MoMo Response: " + responseFromMomo);
 
             JObject jmessage = JObject.Parse(responseFromMomo);
-            if (jmessage["payUrl"] == null || string.IsNullOrEmpty(jmessage["payUrl"].ToString()))
-            {
-                Notification.set_flash("Không nhận được URL thanh toán từ MoMo!", "danger");
-                return RedirectToAction("GioHang"); // Hoặc xử lý lỗi khác
-            }
+
             return Redirect(jmessage.GetValue("payUrl").ToString());
         }
 
@@ -453,7 +319,7 @@ namespace Shop.Controllers
             string param = Request.QueryString.ToString().Substring(0, Request.QueryString.ToString().IndexOf("signature") - 1);
             param = Server.UrlDecode(param);
             MoMoSecurity crypto = new MoMoSecurity();
-            //string secretkey = ConfigurationManager.AppSettings["serectkey"].ToString();
+            //string serectkey = ConfigurationManager.AppSettings["serectkey"].ToString();
             string secretkey = "K951B6PE1waDMi640xX08PD3vg6EkVlz";
             string signature = crypto.signSHA256(param, secretkey);
             if (signature != Request["signature"].ToString())
@@ -471,8 +337,9 @@ namespace Shop.Controllers
             }
             else
             {
-                ViewBag.message = "Thanh toán thất bại!";
-                return RedirectToAction("ThanhToanThatBai","GioHang");
+                string errorCode = Request.QueryString["errorCode"];
+                ViewBag.message = "Thanh toán thất bại! Mã lỗi: " + errorCode;
+                return RedirectToAction("ThanhToanThatBai", "GioHang");
             }
         }
 
@@ -518,7 +385,7 @@ namespace Shop.Controllers
             string param = Request.QueryString.ToString().Substring(0, Request.QueryString.ToString().IndexOf("signature") - 1);
             param = Server.UrlDecode(param);
             MoMoSecurity crypto = new MoMoSecurity();
-            //string secretkey = ConfigurationManager.AppSettings["serectkey"].ToString();
+            //string serectkey = ConfigurationManager.AppSettings["serectkey"].ToString();
             string secretkey = "K951B6PE1waDMi640xX08PD3vg6EkVlz";
             string signature = crypto.signSHA256(param, secretkey);
             if (signature != Request["signature"].ToString())
@@ -543,26 +410,21 @@ namespace Shop.Controllers
             return View();
         }
 
-        //[HttpPost]
-        public void SavePayment()// Lưu đơn hàng vào database
+        public void SavePayment() // Lưu đơn hàng vào database
         {
-            //cập nhật dữ liệu vào db
-
             DonHang dh = new DonHang();
-            AspNetUser kh = (AspNetUser)Session["TaiKhoan"];// ép session về kh để lấy thông tin
-            Dienthoai s = new Dienthoai();
+            AspNetUser kh = (AspNetUser)Session["TaiKhoan"]; // ép session về kh để lấy thông tin
             List<GioHang> gh = Laygiohang();
-            //List<GioHang> gh = (List<GioHang>) Session["GioHang"];// lấy giỏ hàng
 
             dh.makh = kh.Id;
             dh.ngaydat = DateTime.Now;
-            //dh.ngaygiao = DateTime.Now;
             dh.giaohang = null;
             dh.thanhtoan = true;
             dh.tinhtrang = '0';
 
             data.DonHangs.InsertOnSubmit(dh);
             data.SubmitChanges();
+
             foreach (var item in gh)
             {
                 ChiTietDonHang ctdh = new ChiTietDonHang();
@@ -570,50 +432,27 @@ namespace Shop.Controllers
                 ctdh.madienthoai = item.madienthoai;
                 ctdh.soluong = item.iSoluong;
                 ctdh.dongia = (decimal)item.giaban;
-                s = data.Dienthoais.Single(n => n.madienthoai == item.madienthoai);
-                data.SubmitChanges();
+
+                Dienthoai s = data.Dienthoais.Single(n => n.madienthoai == item.madienthoai); // Lấy sản phẩm để cập nhật số lượng tồn
+                if (s.soluongton >= ctdh.soluong)
+                {
+                    s.soluongton -= ctdh.soluong; // Cập nhật số lượng tồn
+                }
+                else
+                {
+                    // Xử lý trường hợp không đủ hàng, ví dụ: thông báo cho người dùng, không tiếp tục giao dịch
+                    Notification.set_flash("Không đủ số lượng sản phẩm trong kho!", "warning");
+                    return; // Thoát khỏi phương thức nếu không đủ số lượng
+                }
+
                 data.ChiTietDonHangs.InsertOnSubmit(ctdh);
             }
 
             data.SubmitChanges();
             Notification.set_flash("Bạn đã thanh toán thành công!", "success");
-
-
-            string content = System.IO.File.ReadAllText(Server.MapPath("~/Content/template/neworder.html"));
-
-            //var total = gh.Sum(n => n.giaban);
-            var total = TongTien();
-            content = content.Replace("{CustomerName}", kh.hoten);
-            content = content.Replace("{Phone}", kh.PhoneNumber);
-            content = content.Replace("{Email}", kh.Email);
-            //content = content.Replace("{NgayDat}", dh.ngaydat.ToString());
-            content = content.Replace("{Total}", total.ToString(""));
-           /* content = content.Replace("{ThanhToan}", dh.thanhtoan == true ? "Đã thanh toán" : "Chưa thanh toán");
-            content = content.Replace("{GiaoHang}", dh.giaohang == true ? "Đã giao hàng" : (dh.giaohang == false ? "Đang giao hàng" : "Chưa giao hàng"));*/
-            try
-            {
-                //kiểm tra xem email đã xác thực Login hay chưa bởi Google Facebook
-                var checkedMail = data.AspNetUserLogins.Where(n => n.UserId == kh.Id);
-                if (checkedMail != null)
-                {
-                    //var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
-
-
-                    new MailHelper().SendEmail(kh.Email, "Xác nhận đặt mua điện thoại tại 360 Store", content);
-                    new MailHelper().SendEmail("diepdiep0901@gmail.com", "Xác nhận đặt mua điện thoại tại 360 Store", content);
-
-                    //End
-                }
-            }
-            catch (Exception)
-            {
-                Notification.set_flash("Lỗi kết nối tới máy chủ STMP Google!", "warning");
-                RedirectToAction("Index", "Home");
-                return;
-            }
-
             Session["GioHang"] = null;
         }
+
 
         /* ZaloPay Test*/
 

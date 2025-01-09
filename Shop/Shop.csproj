@@ -179,6 +179,9 @@
     <Reference Include="RBush, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RBush.4.0.0\lib\net47\RBush.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=112.1.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.112.1.0\lib\net48\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
       <HintPath>..\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
     </Reference>
@@ -347,7 +350,6 @@
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PaymentController .cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ZaloController.cs" />
     <Compile Include="EF\AspNetRole.cs" />
@@ -391,16 +393,11 @@
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MomoRequest.cs" />
-    <Compile Include="Models\MomoResponse.cs" />
     <Compile Include="Models\MyData.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MyData.dbml</DependentUpon>
     </Compile>
-    <Compile Include="MomoHelper.cs" />
-    <Compile Include="MoMo\ConfigHelper.cs" />
-    <Compile Include="MoMo\MomoHelper.cs" />
     <Compile Include="MoMo\MoMoSecurity.cs" />
     <Compile Include="MoMo\PaymentRequest.cs" />
     <Compile Include="NganLuong\nganluonAPI\APICheckoutV3.cs" />
@@ -5385,7 +5382,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54243</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44381/</IISUrl>
+          <IISUrl>https://localhost:44382/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

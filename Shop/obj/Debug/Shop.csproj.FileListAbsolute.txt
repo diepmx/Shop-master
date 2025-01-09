@@ -334,3 +334,5 @@ D:\Shop-master\Shop\obj\Debug\Shop.csproj.CoreCompileInputs.cache
 D:\Shop-master\Shop\obj\Debug\Shop.csproj.Up2Date
 D:\Shop-master\Shop\obj\Debug\Shop.dll
 D:\Shop-master\Shop\obj\Debug\Shop.pdb
+D:\Shop-master\Shop\bin\RestSharp.dll
+D:\Shop-master\Shop\bin\RestSharp.xml

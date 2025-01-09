@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using System.Data.Entity.Core.Metadata.Edm;
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(Shop.Startup))]
