@@ -55,8 +55,8 @@ namespace Shop
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "691222622111036",
-               appSecret: "b13f77837530a8025c785ddfb7f5078c");
+               appId: "635648315655541",
+               appSecret: "77a03a0c0bbcea62db3c7d750717f327");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {

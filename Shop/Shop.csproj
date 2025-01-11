@@ -351,7 +351,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
-    <Compile Include="Controllers\ZaloController.cs" />
     <Compile Include="EF\AspNetRole.cs" />
     <Compile Include="EF\AspNetUser.cs" />
     <Compile Include="EF\AspNetUserClaim.cs" />
@@ -398,39 +397,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyData.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrderInfo.cs" />
+    <Compile Include="Models\PaypalConfiguration.cs" />
     <Compile Include="MoMo\MoMoSecurity.cs" />
     <Compile Include="MoMo\PaymentRequest.cs" />
     <Compile Include="NganLuong\nganluonAPI\APICheckoutV3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ZaloPay\Controllers\CallbackController.cs" />
-    <Compile Include="ZaloPay\Controllers\GatewayController.cs" />
-    <Compile Include="ZaloPay\Controllers\HistoryController.cs" />
-    <Compile Include="ZaloPay\Controllers\QuickPayController.cs" />
-    <Compile Include="ZaloPay\Controllers\RedirectController.cs" />
-    <Compile Include="ZaloPay\Controllers\RefundController.cs" />
-    <Compile Include="ZaloPay\Controllers\SiteController.cs" />
-    <Compile Include="ZaloPay\Controllers\SubscribeController.cs" />
-    <Compile Include="VnPay\Others\PayCompare.cs" />
-    <Compile Include="VnPay\Others\PayLib.cs" />
-    <Compile Include="VnPay\Others\Util.cs" />
-    <Compile Include="ZaloPay\Crypto\HmacHelper.cs" />
-    <Compile Include="ZaloPay\Crypto\RSAHelper.cs" />
-    <Compile Include="ZaloPay\DAL\ZaloPayDemoContext.cs" />
-    <Compile Include="ZaloPay\Extension\Extension.cs" />
-    <Compile Include="ZaloPay\HttpHelper.cs" />
-    <Compile Include="ZaloPay\Models\BankDTO.cs" />
-    <Compile Include="ZaloPay\Models\CallbackRequest.cs" />
-    <Compile Include="ZaloPay\Models\Order.cs" />
-    <Compile Include="ZaloPay\Models\OrderData.cs" />
-    <Compile Include="ZaloPay\Models\Refund.cs" />
-    <Compile Include="ZaloPay\Models\RefundData.cs" />
-    <Compile Include="ZaloPay\NgrokHelper.cs" />
-    <Compile Include="ZaloPay\QRCodeHelper.cs" />
-    <Compile Include="ZaloPay\Util.cs" />
-    <Compile Include="ZaloPay\Utils\Storage.cs" />
-    <Compile Include="ZaloPay\ZaloPayHelper.cs" />
-    <Compile Include="ZaloPay\ZaloPayMacGenerator.cs" />
+    <Compile Include="VnPay\VnPayLibrary.cs" />
+    <Compile Include="Zalo\HmacHelper.cs" />
+    <Compile Include="Zalo\HttpHelper.cs" />
+    <Compile Include="Zalo\RSAHelper.cs" />
+    <Compile Include="Zalo\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administrator\Data\assets\css\app.min.css" />
@@ -5382,7 +5360,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54243</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44382/</IISUrl>
+          <IISUrl>https://localhost:44381/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

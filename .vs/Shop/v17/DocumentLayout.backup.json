@@ -3,23 +3,36 @@
   "WorkspaceRootPath": "D:\\Shop-master\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\momo\\paymentrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\momo\\paymentrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\app_start\\startup.auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\app_start\\startup.auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\views\\giohang\\dathang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\zalo\\hmachelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\zalo\\hmachelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|D:\\Shop-master\\shop\\views\\giohang\\dathang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\views\\giohang\\dathang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\diepd\\Downloads\\Shop-master\\Shop-master\\Shop\\MoMo\\PaymentRequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\zalo\\httphelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\zalo\\httphelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\zalo\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\zalo\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|d:\\shop-master\\shop\\zalo\\rsahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08A0A65-7562-467A-8C6D-DE63769B23F2}|Shop\\Shop.csproj|solutionrelative:shop\\zalo\\rsahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,38 +41,122 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 84,
-          "SelectedChildIndex": 1,
+          "DockedHeight": 55,
+          "SelectedChildIndex": 5,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Utils.cs",
+              "DocumentMoniker": "D:\\Shop-master\\Shop\\Zalo\\Utils.cs",
+              "RelativeDocumentMoniker": "Shop\\Zalo\\Utils.cs",
+              "ToolTip": "D:\\Shop-master\\Shop\\Zalo\\Utils.cs",
+              "RelativeToolTip": "Shop\\Zalo\\Utils.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T21:17:21.763Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
+              "Title": "RSAHelper.cs",
+              "DocumentMoniker": "D:\\Shop-master\\Shop\\Zalo\\RSAHelper.cs",
+              "RelativeDocumentMoniker": "Shop\\Zalo\\RSAHelper.cs",
+              "ToolTip": "D:\\Shop-master\\Shop\\Zalo\\RSAHelper.cs",
+              "RelativeToolTip": "Shop\\Zalo\\RSAHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T21:17:15.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HttpHelper.cs",
+              "DocumentMoniker": "D:\\Shop-master\\Shop\\Zalo\\HttpHelper.cs",
+              "RelativeDocumentMoniker": "Shop\\Zalo\\HttpHelper.cs",
+              "ToolTip": "D:\\Shop-master\\Shop\\Zalo\\HttpHelper.cs",
+              "RelativeToolTip": "Shop\\Zalo\\HttpHelper.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAwCsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T21:17:05.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HmacHelper.cs",
+              "DocumentMoniker": "D:\\Shop-master\\Shop\\Zalo\\HmacHelper.cs",
+              "RelativeDocumentMoniker": "Shop\\Zalo\\HmacHelper.cs",
+              "ToolTip": "D:\\Shop-master\\Shop\\Zalo\\HmacHelper.cs",
+              "RelativeToolTip": "Shop\\Zalo\\HmacHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T21:16:56.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "GioHangController.cs",
               "DocumentMoniker": "D:\\Shop-master\\Shop\\Controllers\\GioHangController.cs",
               "RelativeDocumentMoniker": "Shop\\Controllers\\GioHangController.cs",
               "ToolTip": "D:\\Shop-master\\Shop\\Controllers\\GioHangController.cs",
               "RelativeToolTip": "Shop\\Controllers\\GioHangController.cs",
-              "ViewState": "AgIAAGkBAAAAAAAAAAApwHoBAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAMQBAAAAAAAAAAAnwMcBAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-09T17:51:21.363Z",
+              "WhenOpened": "2025-01-10T20:26:35.794Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PaymentRequest.cs",
-              "DocumentMoniker": "D:\\Shop-master\\Shop\\MoMo\\PaymentRequest.cs",
-              "RelativeDocumentMoniker": "Shop\\MoMo\\PaymentRequest.cs",
-              "ToolTip": "D:\\Shop-master\\Shop\\MoMo\\PaymentRequest.cs",
-              "RelativeToolTip": "Shop\\MoMo\\PaymentRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-09T17:28:07.685Z",
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\Shop-master\\Shop\\Web.config",
+              "RelativeDocumentMoniker": "Shop\\Web.config",
+              "ToolTip": "D:\\Shop-master\\Shop\\Web.config",
+              "RelativeToolTip": "Shop\\Web.config",
+              "ViewState": "AgIAADoAAAAAAAAAAADgvz0AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-01-10T17:16:22.623Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DatHang.cshtml",
+              "DocumentMoniker": "D:\\Shop-master\\Shop\\Views\\GioHang\\DatHang.cshtml",
+              "RelativeDocumentMoniker": "Shop\\Views\\GioHang\\DatHang.cshtml",
+              "ToolTip": "D:\\Shop-master\\Shop\\Views\\GioHang\\DatHang.cshtml",
+              "RelativeToolTip": "Shop\\Views\\GioHang\\DatHang.cshtml",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAIwJEAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-09T17:28:35.272Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 113,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Startup.Auth.cs",
+              "DocumentMoniker": "D:\\Shop-master\\Shop\\App_Start\\Startup.Auth.cs",
+              "RelativeDocumentMoniker": "Shop\\App_Start\\Startup.Auth.cs",
+              "ToolTip": "D:\\Shop-master\\Shop\\App_Start\\Startup.Auth.cs",
+              "RelativeToolTip": "Shop\\App_Start\\Startup.Auth.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAQwEEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T23:04:32.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Bookmark",
@@ -68,43 +165,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Web.config",
-              "DocumentMoniker": "D:\\Shop-master\\Shop\\Web.config",
-              "RelativeDocumentMoniker": "Shop\\Web.config",
-              "ToolTip": "D:\\Shop-master\\Shop\\Web.config",
-              "RelativeToolTip": "Shop\\Web.config",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-01-09T17:47:16.551Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DatHang.cshtml",
-              "DocumentMoniker": "D:\\Shop-master\\Shop\\Views\\GioHang\\DatHang.cshtml",
-              "RelativeDocumentMoniker": "Shop\\Views\\GioHang\\DatHang.cshtml",
-              "ToolTip": "D:\\Shop-master\\Shop\\Views\\GioHang\\DatHang.cshtml",
-              "RelativeToolTip": "Shop\\Views\\GioHang\\DatHang.cshtml",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAAAIcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-09T17:28:35.272Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PaymentRequest.cs",
-              "DocumentMoniker": "C:\\Users\\diepd\\Downloads\\Shop-master\\Shop-master\\Shop\\MoMo\\PaymentRequest.cs",
-              "ToolTip": "C:\\Users\\diepd\\Downloads\\Shop-master\\Shop-master\\Shop\\MoMo\\PaymentRequest.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAwwD8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-09T17:27:23.994Z",
-              "EditorCaption": ""
             }
           ]
         }
