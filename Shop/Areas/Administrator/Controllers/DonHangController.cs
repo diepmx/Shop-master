@@ -106,6 +106,7 @@ namespace Shop.Areas.Administrator.Controllers
         // POST: Administrator/DonHang/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Tạo đơn hàng mới và cập nhật số lượng tồn kho
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "madon,thanhtoan,giaohang,ngaydat,ngaygiao,makh,tinhtrang")] DonHang donHang)
@@ -133,6 +134,35 @@ namespace Shop.Areas.Administrator.Controllers
                         Notification.set_flash("Ngày giao phải sau ngày đặt hàng!", "danger");
                         return RedirectToAction("Index");
                     }
+
+                    // Cập nhật số lượng tồn kho khi đơn hàng mới được tạo
+                    try
+                    {
+                        var chiTietDonHangs = db.ChiTietDonHangs.Where(ct => ct.madon == donHang.madon).ToList();
+                        foreach (var chiTiet in chiTietDonHangs)
+                        {
+                            Dienthoai dienthoai = db.Dienthoais.Find(chiTiet.madienthoai);
+                            if (dienthoai != null)
+                            {
+                                if (dienthoai.soluongton >= chiTiet.soluong)
+                                {
+                                    dienthoai.soluongton -= chiTiet.soluong; // Giảm số lượng tồn kho
+                                }
+                                else
+                                {
+                                    Notification.set_flash("Không đủ số lượng sản phẩm trong kho!", "danger");
+                                    return RedirectToAction("Index");
+                                }
+                            }
+                        }
+                        db.SaveChanges();
+                    }
+                    catch (Exception)
+                    {
+                        Notification.set_flash("Lỗi cập nhật số lượng tồn khi tạo đơn hàng!", "danger");
+                        return RedirectToAction("Index");
+                    }
+
                     db.DonHangs.Add(donHang);
                     db.SaveChanges();
                     Notification.set_flash("Thêm mới đơn hàng thành công !", "success");
@@ -143,6 +173,7 @@ namespace Shop.Areas.Administrator.Controllers
                 return View(donHang);
             }
         }
+
 
         // GET: Administrator/DonHang/Edit/5
         public ActionResult Edit(int? id)
@@ -264,6 +295,7 @@ namespace Shop.Areas.Administrator.Controllers
         //cập nhật hủy đơn && khôi phục đơn
 
         //Hủy đơn hàng
+        // Hủy đơn hàng và cập nhật số lượng tồn
         public ActionResult DelTrash(int? id)
         {
             if (Session["taikhoanadmin"] == null)
@@ -283,43 +315,39 @@ namespace Shop.Areas.Administrator.Controllers
                     Notification.set_flash("Không tìm thấy đơn hàng !", "warning");
                     return HttpNotFound();
                 }
-                donHang.tinhtrang = "1";
-                /*try //cập nhật lại số lượng tồn khi đơn hàng đã hủy
+
+                // Cập nhật trạng thái đơn hàng và số lượng tồn kho
+                donHang.tinhtrang = "1"; // Trạng thái "1" nghĩa là đã hủy
+
+                // Cập nhật lại số lượng tồn kho của các sản phẩm trong đơn hàng
+                try
                 {
-                    Dienthoai lap = new Dienthoai(); // tạo biến Dienthoai lưu tạm thời
-                    List<Dienthoai> listLap = new List<Dienthoai>(); //lấy ra danh sách Dienthoai cần cập nhật lại số lượng tồn
-                    ChiTietDonHang ct = new ChiTietDonHang(); //lấy ra chi tiết đơn hàng
-                    List<ChiTietDonHang> listCT = new List<ChiTietDonHang>(); // lấy ra danh sách chi tiết cửa đơn hàng có mã đơn bằng id
-                    listCT = db.ChiTietDonHangs.Where(n => n.madon == id).ToList();
-                    if(listCT != null)
+                    var chiTietDonHangs = db.ChiTietDonHangs.Where(ct => ct.madon == id).ToList();
+                    foreach (var chiTiet in chiTietDonHangs)
                     {
-                        foreach (var itemCT in listCT)
+                        Dienthoai dienthoai = db.Dienthoais.Find(chiTiet.madienthoai);
+                        if (dienthoai != null)
                         {
-                            foreach (var itemLap in listLap)
-                            {
-                                if (itemCT.madienthoai == itemLap.madienthoai)
-                                {
-                                    lap = itemLap;
-                                    lap.soluongton = lap.soluongton + itemCT.soluong;
-                                    db.SaveChanges();
-                                    break;
-                                }
-                            }
+                            dienthoai.soluongton += chiTiet.soluong; // Tăng lại số lượng tồn
                         }
                     }
+                    db.SaveChanges();
                 }
                 catch (Exception)
                 {
-                    Notification.set_flash("Lỗi cập nhật Số lượng tồn!", "danger");
+                    Notification.set_flash("Lỗi cập nhật số lượng tồn khi hủy đơn!", "danger");
                     return RedirectToAction("Index");
-                }*/
+                }
+
                 db.SaveChanges();
                 Notification.set_flash("Đã hủy thành công đơn hàng!", "success");
                 return RedirectToAction("Index");
-            }  
+            }
         }
 
+
         //Hủy đơn hàng
+        // Khôi phục đơn hàng và cập nhật lại số lượng tồn kho
         public ActionResult UndoTrash(int? id)
         {
             if (Session["taikhoanadmin"] == null)
@@ -339,41 +367,36 @@ namespace Shop.Areas.Administrator.Controllers
                     Notification.set_flash("Không tìm thấy đơn hàng !", "warning");
                     return HttpNotFound();
                 }
-                donHang.tinhtrang = "0";
-                /*try //cập nhật lại số lượng tồn khi đơn hàng đã khôi phục
+
+                // Cập nhật trạng thái đơn hàng và số lượng tồn kho
+                donHang.tinhtrang = "0"; // Trạng thái "0" nghĩa là khôi phục lại đơn hàng
+
+                // Cập nhật lại số lượng tồn kho của các sản phẩm trong đơn hàng
+                try
                 {
-                    Dienthoai lap = new Dienthoai(); // tạo biến Dienthoai luu tạm thời
-                    List<Dienthoai> listLap = new List<Dienthoai>(); //lấy ra danh sách Dienthoai cần cập nhật lại số lượng tồn
-                    ChiTietDonHang ct = new ChiTietDonHang(); //lấy ra chi tiết đơn hàng
-                    List<ChiTietDonHang> listCT = new List<ChiTietDonHang>(); // lấy ra danh sách chi tiết cửa đơn hàng có mã đơn bằng id
-                    listCT = db.ChiTietDonHangs.Where(n => n.madon == donHang.madon).ToList();
-                    if (listCT != null)
+                    var chiTietDonHangs = db.ChiTietDonHangs.Where(ct => ct.madon == id).ToList();
+                    foreach (var chiTiet in chiTietDonHangs)
                     {
-                        foreach (var itemCT in listCT)
+                        Dienthoai dienthoai = db.Dienthoais.Find(chiTiet.madienthoai);
+                        if (dienthoai != null)
                         {
-                            foreach (var itemLap in listLap)
-                            {
-                                if (itemCT.madienthoai == itemLap.madienthoai)
-                                {
-                                    lap = itemLap;
-                                    lap.soluongton = lap.soluongton - itemCT.soluong;
-                                    db.SaveChanges();
-                                    break;
-                                }
-                            }
+                            dienthoai.soluongton -= chiTiet.soluong; // Giảm lại số lượng tồn
                         }
                     }
+                    db.SaveChanges();
                 }
                 catch (Exception)
                 {
-                    Notification.set_flash("Lỗi cập nhật Số lượng tồn!", "danger");
+                    Notification.set_flash("Lỗi cập nhật số lượng tồn khi khôi phục đơn!", "danger");
                     return RedirectToAction("Index");
-                }*/
+                }
+
                 db.SaveChanges();
                 Notification.set_flash("Khôi phục thành công đơn hàng!", "success");
                 return RedirectToAction("Index");
             }
         }
+
 
         public ActionResult UpdateNgayGiao(int? id)
         {

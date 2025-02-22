@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Shop.Models.GioHang>
+
+@{
+    ViewBag.Title = "Giỏ Hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@Html.Partial("_Nofit")
+
+<div id="root-cart" class="cart-container">
+    @{
+        if (Model.Count() == 0)
+        {
+            <div class="empty-cart text-center">
+                <img src="/Content/images/no-cart.png" alt="Không có sản phẩm trong giỏ hàng">
+                <a class="btn btn-primary mt-3" href="@Url.Action("Index", "Home")"><i class="fa fa-shopping-cart"></i> Mua Hàng</a>
+            </div>
+        }
+        else
+        {
+            <header class="py-5" style="background: #f5f5f5;">
+                <div class="container text-center">
+                    <h1 class="display-4 fw-bolder">Giỏ Hàng</h1>
+                    <p class="lead fw-normal text-secondary">Cám ơn quý khách đã lựa chọn sản phẩm từ 360 Store!</p>
+                </div>
+            </header>
+
+            <div class="container mt-4 mb-4">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr style="background-color: #007bff; color: white;">
+                                <th class="text-center">Tên Sản Phẩm</th>
+                                <th class="text-center">Hình Ảnh</th>
+                                <th class="text-center">Giá Bán</th>
+                                <th class="text-center">Số Lượng</th>
+                                <th class="text-center">Thành Tiền</th>
+                                <th colspan="2" class="text-center">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="text-center">@Html.DisplayFor(modelItem => item.tendienthoai)</td>
+                                    <td class="text-center"><img src="/Data/images/@item.hinh" style="width: 100px; height: auto;"></td>
+                                    <td class="text-center">@String.Format("{0:0,0}", item.giaban) VNĐ</td>
+                                    <td class="text-center">
+                                        @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { id = item.madienthoai }))
+                                        {
+                                            <input type="number" min="1" max="50" step="1" name="txtSolg" value="@item.iSoluong" class="form-control text-center" onchange="this.form.submit()" style="font-weight: bold" />
+                                        }
+                                    </td>
+                                    <td class="text-center">@String.Format("{0:0,0}", item.dThanhTien) VNĐ</td>
+                                    <td class="text-center"><a class="btn btn-info" href="@Url.Action("Details", "Home", new { id = item.madienthoai })"><i class="fa fa-eye"></i> Chi tiết</a></td>
+                                    <td class="text-center"><a class="btn btn-danger" href="@Url.Action("XoaGioHang", "GioHang", new { id = item.madienthoai })"><i class="fa fa-trash"></i> Xóa</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="container text-right">
+                <p class="text-muted">Tổng số lượng: @ViewBag.Tongsoluong</p>
+                <p class="text-primary fw-bold">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</p>
+                <a class="btn btn-outline-danger" href="@Url.Action("XoaTatCaGioHang", "GioHang")"><i class="fa fa-trash-alt"></i> Xóa Giỏ Hàng</a>
+                <a class="btn btn-outline-secondary" href="@Url.Action("Index", "Home")"><i class="fa fa-arrow-left"></i> Tiếp tục Mua Hàng</a>
+                <a class="btn btn-primary" href="@Url.Action("Dathang", "GioHang")"><i class="fa fa-credit-card"></i> Thanh Toán Đặt Hàng</a>
+            </div>
+        }
+    }
+

@@ -1,0 +1,112 @@
+﻿@model Shop.Models.TinTuc
+@using Shop.Models
+
+@{
+    ViewBag.Title = "PostDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    HomeModel home = new HomeModel();
+    Random random = new Random(DateTime.Now.Millisecond);
+    QuangCao randomItem = home.GetListQuangCao().ToList().ElementAt(random.Next(0, home.GetListQuangCao().Count));
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    body, h1, h2, h3, h4, p, a {
+        font-family: 'Nunito', sans-serif;
+    }
+
+    header {
+        background: linear-gradient(135deg, #6e8efb, #a777e3);
+        color: white;
+        padding: 60px 0;
+    }
+
+    .btn {
+        border-radius: 20px;
+        transition: all 0.3s;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+    .well {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .card-header {
+        background-color: #4b79a1;
+        color: white;
+    }
+
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+
+    footer.footer {
+        background-color: #4b79a1;
+        color: white;
+        padding: 20px 0;
+    }
+</style>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0" nonce="YOUR_NONCE_HERE"></script>
+
+<header class="text-center">
+    <h1 class="display-4 fw-bolder">Blog</h1>
+    <p class="lead fw-normal">Chia thông tin thủ thuật hay! 😍😍😍</p>
+</header>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <h1 class="fw-bold">@Model.tieude</h1>
+            <p class="lead">
+                Đăng bởi <a class="btn btn-danger text-white" href="@Url.Action("Index","Home")">
+                    <i class="fa fa-home"></i> 360 Store
+                </a>  |
+                <i class="fa fa-clock-o"></i> Ngày cập nhật: @Model.ngaycapnhat.GetValueOrDefault().ToString("dd/MM/yyyy")
+            </p>
+            <hr>
+            <img src="/Data/images/@Model.hinhnen" class="img-fluid rounded">
+            <hr>
+            <article>@Html.Raw(Model.noidung)</article>
+            <hr>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="well">
+                <h4 class="card-header">Chủ đề</h4>
+                <div class="card-body">
+                    @foreach (var item in home.GetListChuDe())
+                    {
+                        <a class="btn btn-info text-white my-2" href="@Url.Action("ListBaiVietTheoChuDeId","Home", new { id = item.machude})">
+                            @item.tenchude
+                        </a>
+                    }
+                </div>
+            </div>
+            <div class="fb-page" data-href="https://www.facebook.com/mai.xuan.iep" data-tabs="timeline" data-width="" data-height="100" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/mai.xuan.iep" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/mai.xuan.iep">360 Store</a>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer text-center">
+    <div class="container">
+        <a href="@randomItem.link">
+            <img src="/Data/images/@randomItem.hinhnen" alt="Promotional Material" class="img-fluid rounded" />
+        </a>
+    </div>
+</footer>

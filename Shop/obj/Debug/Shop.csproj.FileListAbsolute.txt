@@ -243,6 +243,7 @@ D:\Shop-master\Shop\bin\PagedList.Mvc.dll
 D:\Shop-master\Shop\bin\PayPal.dll
 D:\Shop-master\Shop\bin\QRCoder.dll
 D:\Shop-master\Shop\bin\RBush.dll
+D:\Shop-master\Shop\bin\RestSharp.dll
 D:\Shop-master\Shop\bin\SixLabors.Fonts.dll
 D:\Shop-master\Shop\bin\System.Buffers.dll
 D:\Shop-master\Shop\bin\System.ComponentModel.Annotations.dll
@@ -302,6 +303,7 @@ D:\Shop-master\Shop\bin\PagedList.xml
 D:\Shop-master\Shop\bin\PagedList.Mvc.xml
 D:\Shop-master\Shop\bin\PayPal.xml
 D:\Shop-master\Shop\bin\RBush.xml
+D:\Shop-master\Shop\bin\RestSharp.xml
 D:\Shop-master\Shop\bin\SixLabors.Fonts.xml
 D:\Shop-master\Shop\bin\System.Buffers.xml
 D:\Shop-master\Shop\bin\System.Data.SQLite.xml
@@ -334,5 +336,3 @@ D:\Shop-master\Shop\obj\Debug\Shop.csproj.CoreCompileInputs.cache
 D:\Shop-master\Shop\obj\Debug\Shop.csproj.Up2Date
 D:\Shop-master\Shop\obj\Debug\Shop.dll
 D:\Shop-master\Shop\obj\Debug\Shop.pdb
-D:\Shop-master\Shop\bin\RestSharp.dll
-D:\Shop-master\Shop\bin\RestSharp.xml

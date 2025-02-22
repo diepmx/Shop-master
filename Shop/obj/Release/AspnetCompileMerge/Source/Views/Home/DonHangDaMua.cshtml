@@ -1,0 +1,107 @@
+﻿@model List<Shop.Models.DonHang>
+@using Shop.Models;
+
+@{
+    ViewBag.Title = "Đơn Hàng Đã Mua";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    HomeModel home = new HomeModel();
+    int idDDH = 0;
+}
+
+<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+<style>
+    table {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    th, td {
+        vertical-align: middle;
+    }
+
+    .btn-view-details {
+        border-style: solid;
+        padding: 5px;
+        border-color: #08c4ee;
+        border-width: thin;
+        border-radius: 20px;
+        text-decoration: none;
+    }
+</style>
+
+<!-- Header -->
+<header class="py-5" style="background: linear-gradient(90deg, rgba(69,123,157,1) 0%, rgba(255,239,213,1) 50%, rgba(173,216,230,1) 100%);">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold text-white">Đơn Hàng Đã Mua</h1>
+        <p class="lead fw-normal text-white mb-0">Bạn có muốn mua thêm điện thoại không? 💌💌💌</p>
+        <a class="btn btn-danger mt-3" href="@Url.Action("Index", "Home")">
+            <i class="fa fa-dienthoai-house"></i> Mua điện thoại
+        </a>
+    </div>
+</header>
+
+<!-- Order List -->
+<div class="container my-4">
+    <table id="datatablesSimple" class="table table-striped table-bordered">
+        <thead style="background-color: #4682b4; color: white;">
+            <tr>
+                <th class="text-center">Mã Đơn Hàng</th>
+                <th class="text-center">Họ Tên</th>
+                <th class="text-center">Thanh Toán</th>
+                <th class="text-center">Tình Trạng Giao Hàng</th>
+                <th class="text-center">Ngày Đặt</th>
+                <th class="text-center">Ngày Giao</th>
+                <th class="text-center">Xem Chi Tiết</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                idDDH += 1;
+                <tr>
+                    <td class="text-center">ĐH-@Html.DisplayFor(modelItem => item.madon)</td>
+                    <td class="text-center">@Html.DisplayFor(modelItem => item.AspNetUser.hoten)</td>
+                    <td class="text-center">
+                        @if (item.thanhtoan ?? false)
+                        {
+                            <span class="badge bg-success"><i class="fa fa-check-circle"></i> Đã thanh toán</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-primary"><i class="fa fa-info-circle"></i> Chưa thanh toán</span>
+                        }
+                    </td>
+                    <td class="text-center">
+                        @if (item.giaohang ?? false)
+                        {
+                            <span class="badge bg-dark"><i class="fa fa-check-square"></i> Đã giao hàng</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning text-dark"><i class="fa fa-truck"></i> Đang giao hàng</span>
+                        }
+                    </td>
+                    <td class="text-center">@Html.DisplayFor(modelItem => item.ngaydat)</td>
+                    <td class="text-center">@Html.DisplayFor(modelItem => item.ngaygiao)</td>
+                    <td class="text-center">
+                        <a class="btn-view-details" href="@Url.Action("InvoiceInfo", "Home", new { ID = item.madon })">
+                            <i class="fa fa-eye"></i> Xem
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+<script>
+    // Khởi tạo DataTable
+    document.addEventListener('DOMContentLoaded', () => {
+        const table = document.querySelector('#datatablesSimple');
+        if (table) {
+            new simpleDatatables.DataTable(table);
+        }
+    });
+</script>

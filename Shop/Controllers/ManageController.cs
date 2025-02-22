@@ -63,19 +63,54 @@ namespace Shop.Controllers
                 : message == ManageMessageId.RemovePhoneSuccess ? "Số điện thoại của bạn đã bị xóa."
                 : "";
 
+            
             var userId = User.Identity.GetUserId();
+            var user = await UserManager.FindByIdAsync(userId);
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
+                diachi = user.diachi
             };
             return View(model);
         }
 
         //
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UpdateAddress(string SoNhaDuong, string PhuongXa, string QuanHuyen, string TinhThanh)
+        {
+            string userId = User.Identity.GetUserId();
+            var user = await UserManager.FindByIdAsync(userId);
+
+            if (user != null)
+            {
+                // 🔥 Ghép tất cả thành một chuỗi duy nhất và lưu vào `diachi`
+                user.diachi = $"{SoNhaDuong}, {PhuongXa}, {QuanHuyen}, {TinhThanh}";
+
+                // ✅ Lưu thay đổi vào database
+                var result = await UserManager.UpdateAsync(user);
+                if (result.Succeeded)
+                {
+                    TempData["Message"] = "Cập nhật địa chỉ giao hàng thành công!";
+                }
+                else
+                {
+                    TempData["Error"] = "Cập nhật thất bại, vui lòng thử lại.";
+                }
+            }
+            else
+            {
+                TempData["Error"] = "Không tìm thấy tài khoản, vui lòng đăng nhập lại.";
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
         // POST: /Manage/RemoveLogin
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -116,8 +151,10 @@ namespace Shop.Controllers
             {
                 return View(model);
             }
-            // Generate the token and send it
-            var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), model.Number);
+
+            // 🔥 Thay vì tạo mã OTP ngẫu nhiên, luôn đặt là "0000"
+            var code = "0000";
+
             if (UserManager.SmsService != null)
             {
                 var message = new IdentityMessage
@@ -127,8 +164,11 @@ namespace Shop.Controllers
                 };
                 await UserManager.SmsService.SendAsync(message);
             }
+
+            // Chuyển hướng sang trang nhập mã OTP
             return RedirectToAction("VerifyPhoneNumber", new { PhoneNumber = model.Number });
         }
+
 
         //
         // POST: /Manage/EnableTwoFactorAuthentication
@@ -164,13 +204,22 @@ namespace Shop.Controllers
         // GET: /Manage/VerifyPhoneNumber
         public async Task<ActionResult> VerifyPhoneNumber(string phoneNumber)
         {
-            var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), phoneNumber);
-            // Send an SMS through the SMS provider to verify the phone number
+            // 🔥 Thay vì tạo mã OTP ngẫu nhiên, đặt cố định là "0000"
+            var code = "0000";
+
+            // 🚀 Nếu có SMS Service, gửi mã này cho người dùng
+            if (UserManager.SmsService != null)
+            {
+                var message = new IdentityMessage
+                {
+                    Destination = phoneNumber,
+                    Body = "Mã bảo mật của bạn là: " + code
+                };
+                await UserManager.SmsService.SendAsync(message);
+            }
+
             return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
         }
-
-        //
-        // POST: /Manage/VerifyPhoneNumber
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> VerifyPhoneNumber(VerifyPhoneNumberViewModel model)
@@ -179,20 +228,33 @@ namespace Shop.Controllers
             {
                 return View(model);
             }
-            var result = await UserManager.ChangePhoneNumberAsync(User.Identity.GetUserId(), model.PhoneNumber, model.Code);
-            if (result.Succeeded)
+
+            // 🔥 Kiểm tra nếu mã nhập vào là "0000"
+            if (model.Code == "0000")
             {
-                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                var userId = User.Identity.GetUserId();
+                var user = await UserManager.FindByIdAsync(userId);
+
                 if (user != null)
                 {
+                    // ✅ Cập nhật số điện thoại vào tài khoản (BỎ QUA ChangePhoneNumberAsync)
+                    user.PhoneNumber = model.PhoneNumber;
+                    user.PhoneNumberConfirmed = true;
+                    await UserManager.UpdateAsync(user);
+
+                    // Đăng nhập lại để cập nhật thông tin
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                    return RedirectToAction("Index", new { Message = ManageMessageId.AddPhoneSuccess });
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.AddPhoneSuccess });
             }
-            // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "Failed to verify phone");
+
+            // ❌ Nếu mã sai → Hiển thị lỗi
+            ModelState.AddModelError("", "Mã OTP không chính xác. Vui lòng thử lại!");
             return View(model);
         }
+
+
 
         //
         // POST: /Manage/RemovePhoneNumber

@@ -1,0 +1,601 @@
+﻿@using Shop.Models
+@using Shop.Common
+@{
+    HomeModel home = new HomeModel();
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no,
+                   initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>360 Store - Smartphone mọi nhà</title>
+
+    <!-- Google Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i" rel="stylesheet">
+
+    <!-- Bootstrap, Font Awesome -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link href="~/Content/css/styles.css" rel="stylesheet" />
+    <link href="~/Content/css/phonerang.css" rel="stylesheet" />
+
+    <!-- Toastr && SweetAlert2 -->
+    <link href="~/Areas/Administrator/Data/libraries/css/toastr.min.css" rel="stylesheet" />
+    <link href="~/Areas/Administrator/Data/libraries/css/sweetalert2.min.css" rel="stylesheet" />
+
+    <style>
+        /* Nút trở về đầu trang */
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 10px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: red;
+            border: 4px solid #ccc;
+            color: red;
+            cursor: pointer;
+            border-radius: 30px;
+            opacity: 0.7;
+            width: 60px;
+        }
+
+            #myBtn:hover {
+                background-color: #f1f1f1;
+            }
+
+        /* Bỏ qua các hiệu ứng neon cũ nếu muốn
+           (giữ nguyên theo code của bạn) */
+        .neonBack {
+            border-radius: 25px;
+            color: #fff;
+            box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #0ba9ca, 0 0 30px #0ba9ca, 0 0 40px #0ba9ca, 0 0 50px #0ba9ca;
+            -webkit-animation: blink 0.7s infinite alternate;
+            animation: blink 0.7s infinite alternate;
+        }
+
+        .dienthoaizoom {
+            transition: transform .2s;
+        }
+
+            .dienthoaizoom:hover {
+                transform: scale(1.2);
+                z-index: 100;
+            }
+
+        /* STICKY SIDEBAR: Chứa các banner, VIP search,... */
+        .sticky-sidebar.active {
+            display: block;
+        }
+
+        /* Vị trí phone ring / banner-left / banner-right
+           => Tuỳ chỉnh tuỳ dự án. Giữ nguyên code cũ của bạn. */
+
+        /* ========== Nút tròn chứa icon kính lúp ========== */
+        #vipSearchCircle {
+            position: fixed;
+            bottom: 120px; /* tuỳ chỉnh vị trí */
+            right: 30px; /* tuỳ chỉnh vị trí */
+            width: 50px;
+            height: 50px;
+            background: #888; /* màu nền nút */
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+            #vipSearchCircle i {
+                color: #fff; /* màu icon */
+                font-size: 1.2rem;
+            }
+
+            #vipSearchCircle:hover {
+                background: #666;
+                transform: scale(1.08);
+            }
+
+        /* Mờ backdrop modal */
+        .modal-backdrop {
+            opacity: 0.3 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Nút trở về đầu trang -->
+    <button id="myBtn" title="Lên đầu trang">
+        <img src="~/Content/images/back-to-top.png"
+             title='lên đầu trang' width='14' />
+    </button>
+
+    <div class="container-fluid">
+        <div class="row min-vh-100">
+            <!-- ========== HEADER START ========== -->
+            <div class="col-12">
+                <header class="row">
+                    <script>
+                        // Lắng nghe sự kiện scroll => Hiện nút "lên đầu trang"
+                        window.onscroll = function () { scrollFunction() };
+                        function scrollFunction() {
+                            if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+                                document.getElementById("myBtn").style.display = "block";
+                            } else {
+                                document.getElementById("myBtn").style.display = "none";
+                            }
+                        }
+                        // Khi bấm nút => quay về đầu trang
+                        document.getElementById('myBtn')?.addEventListener("click", function () {
+                            document.body.scrollTop = 0;
+                            document.documentElement.scrollTop = 0;
+                        });
+                    </script>
+
+                    <!-- Top Nav -->
+                    <div class="col-12 bg-dark py-2 d-md-block d-none">
+                        <div class="row">
+                            <div class="col-auto me-auto">
+                                <ul class="top-nav">
+                                    <li>
+                                        <a href="tel:+0981484579">
+                                            <i class="fa fa-phone-square me-2"></i>098148459
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="mailto:diepdiep0901@gmail.com">
+                                            <i class="fa fa-envelope me-2"></i>diepdiep0901@gmail.com
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-auto">
+                                @Html.Partial("_LoginPartial")
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Top Nav -->
+                    <!-- Header -->
+                    <div class="col-12 bg-white pt-4">
+                        <div class="row">
+                            <!-- Logo -->
+                            <div class="col-lg-auto">
+                                <div class="site-logo text-center text-lg-left">
+                                    <a href="@Url.Action("Index","Home")">360 Store</a>
+                                </div>
+                            </div>
+
+                            <!-- Thanh tìm kiếm -->
+                            <div class="col-lg-5 mx-auto mt-4 mt-lg-0">
+                                @using (Html.BeginForm("ListDienthoaiTheoSearch", "Home"))
+                                {
+                                    <div class="form-group">
+                                        <div class="input-group text-center">
+                                            <input name="SearchString" type="search"
+                                                   class="form-control border-dark"
+                                                   placeholder="Tìm kiếm sản phẩm..." required />
+                                            <button type="submit" class="btn btn-outline-dark">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                            <!-- Giỏ hàng (header-item-holder) -->
+                            <div class="col-lg-auto text-center text-lg-left header-item-holder">
+                                <a href="#" class="header-item">
+                                    <!-- <i class="fas fa-heart me-2"></i><span id="header-favorite">0</span> -->
+                                </a>
+                                <a href="cart.html" class="header-item">
+                                    @Html.Partial("~/Views/GioHang/GioHangPartial.cshtml")
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Nav -->
+                        <div class="row">
+                            <nav class="navbar navbar-expand-lg navbar-light bg-white col-12">
+                                <button class="navbar-toggler d-lg-none border-0" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#mainNav">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="mainNav">
+                                    <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="@Url.Action("Index","Home")">
+                                                <i class="fa fa-home"></i> Trang chủ
+                                                <span class="sr-only">(current)</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#"
+                                               id="electronics" data-bs-toggle="dropdown"
+                                               aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-arrow-circle-right"></i> Hãng điện thoại
+                                            </a>
+                                            <div class="dropdown-menu neonBack" aria-labelledby="electronics">
+                                                @foreach (var item in home.GetListHang())
+                                                {
+                                                    <a class="dropdown-item dienthoaizoom"
+                                                       href="@Url.Action("ListDienthoaiTheoHangId","Home", new { id = item.mahang })">
+                                                        @item.tenhang
+                                                    </a>
+                                                }
+                                            </div>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#"
+                                               id="fashion" data-bs-toggle="dropdown"
+                                               aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-address-book"></i> Nhu cầu sử dụng
+                                            </a>
+                                            <div class="dropdown-menu neonBack" aria-labelledby="fashion">
+                                                @foreach (var item in home.GetListNhuCau())
+                                                {
+                                                    <a class="dropdown-item dienthoaizoom"
+                                                       href="@Url.Action("ListDienthoaiTheoNhuCauById","Home", new { id = item.manhucau })">
+                                                        @item.tennhucau
+                                                    </a>
+                                                }
+                                            </div>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#"
+                                               id="books" data-bs-toggle="dropdown"
+                                               aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-blog"></i> Blog
+                                            </a>
+                                            <div class="dropdown-menu neonBack" aria-labelledby="books">
+                                                @foreach (var item in home.GetListChuDe())
+                                                {
+                                                    <a class="dropdown-item dienthoaizoom"
+                                                       href="@Url.Action("ListBaiVietTheoChuDeId","Home", new { id = item.machude })">
+                                                        @item.tenchude
+                                                    </a>
+                                                }
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="@Url.Action("About","Home")">
+                                                <i class="fa fa-book"></i> Giới thiệu
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="@Url.Action("Contact","Home")">
+                                                <i class="fa fa-address-card"></i> Liên hệ
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="@Url.Action("QuangCao","Home")">
+                                                <i class="fa fa-atlas"></i> Đặt quảng cáo
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <!-- /Nav -->
+                    </div>
+                    <!-- /Header -->
+                </header>
+            </div>
+            <!-- ========== HEADER END ========== -->
+            <!-- MAIN CONTENT -->
+            <div class="col-12">
+                @RenderBody()
+            </div>
+            <!-- MAIN CONTENT END -->
+            <!-- FOOTER START -->
+            <div class="col-12 align-self-end">
+                <footer class="row">
+                    <div class="col-12 bg-dark text-white pb-3 pt-5">
+                        <div class="row">
+                            <div class="col-lg-2 col-sm-4 text-center text-sm-left mb-sm-0 mb-3">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="footer-logo">
+                                            <a href="index.html">360 Store</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <address>
+                                            Thanh Xuân<br>
+                                            Tp. Hà Nội, Việt Nam
+                                        </address>
+                                    </div>
+                                    <div class="col-12">
+                                        <a href="https://www.facebook.com/mai.xuan.iep?locale=vi_VN"
+                                           class="social-icon" target="_blank">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="https://twitter.com/" class="social-icon" target="_blank">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a href="https://www.pinterest.com/diepdiep0901/" class="social-icon" target="_blank">
+                                            <i class="fab fa-pinterest-p"></i>
+                                        </a>
+                                        <a href="https://www.instagram.com/rod_ohduk/" class="social-icon" target="_blank">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="https://www.youtube.com/watch?v=01dn67QubYQ" class="social-icon" target="_blank">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                        <a href="https://github.com/diepmx/" class="social-icon" target="_blank">
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-8 text-center text-sm-left mb-sm-0 mb-3">
+                                <div class="row">
+                                    <div class="col-12 text-uppercase">
+                                        <h4>Về 360 Store</h4>
+                                    </div>
+                                    <div class="col-12 text-justify">
+                                        <p>
+                                            360 Store - chuyên bán lẻ sỉ điện thoại uy tín cả nước.
+                                            Chúng ta có nhiều mẫu mã hãng, đáp ứng đủ yêu cầu của quý khách.
+                                            Khách được nhân viên chăm sóc tư vấn sản phẩm 24/7.
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <img src="~/Content/images/dang-ky-bo-cong-thuong.png"
+                                                     alt="dang-ky-bo-cong-thuong" class="text-center">
+                                            </div>
+                                            <div class="col-md-3 text-center">
+                                                <img src="~/Content/images/logo-momo.png"
+                                                     alt="dang-ky-bo-cong-thuong"
+                                                     style="width:50px;height:50px;margin-left:10px;">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <img src="~/Content/images/payoo-payment.jpg"
+                                                     alt="paypal" class="text-center">
+                                                <img src="~/Content/images/master-card-payment.jpg"
+                                                     alt="master-card" class="text-center">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <img src="~/Content/images/atm-payment.jpg"
+                                                     alt="atm" class="text-center">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-3 col-5 ms-lg-auto ms-sm-0 ms-auto mb-sm-0 mb-3">
+                                <div class="row">
+                                    <div class="col-12 text-uppercase">
+                                        <h4>Liên kết</h4>
+                                    </div>
+                                    <div class="col-12">
+                                        <ul class="footer-nav">
+                                            <li><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
+                                            <li><a href="@Url.Action("Contact","Home")">Liên hệ</a></li>
+                                            <li><a href="@Url.Action("About","Home")">Giới thiệu</a></li>
+                                            <li><a href="#">Chính sách bảo mật</a></li>
+                                            <li><a href="#">Điều khoản và điều kiện</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-sm-2 col-4 me-auto mb-sm-0 mb-3">
+                                <div class="row">
+                                    <div class="col-12 text-uppercase text-underline">
+                                        <h4>Trợ giúp</h4>
+                                    </div>
+                                    <div class="col-12">
+                                        <ul class="footer-nav">
+                                            <li><a href="#">FAQs</a></li>
+                                            <li><a href="#">Bảo hành</a></li>
+                                            <li><a href="#">HD Thanh toán</a></li>
+                                            <li><a href="#">HD Mua hàng</a></li>
+                                            <li><a href="#">Liên hệ hợp tác</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 text-center text-sm-left">
+                                <div class="row">
+                                    <div class="col-12 text-uppercase">
+                                        <h4>Tin tức</h4>
+                                    </div>
+                                    <div class="col-12">
+                                        <form action="#">
+                                            <div class="mb-3">
+                                                <input type="text" class="form-control" placeholder="Nhập địa chỉ email..." required />
+                                            </div>
+                                            <div class="mb-3">
+                                                <button class="btn btn-danger text-uppercase">Đăng ký</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- FOOTER END -->
+        </div>
+    </div>
+
+    <!--================= TAWK.TO SCRIPT =================-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/676fbd4a49e2fd8dfeff9461/1ig67mqq8';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--================= END TAWK.TO =================-->
+    <!-- Zalo Chat widget -->
+    <div class="zalo-chat-widget"
+         data-oaid="579745863508352884"
+         data-welcome-message="Chúng tôi có thể giúp gì cho bạn!"
+         data-autopopup="0"
+         data-width=""
+         data-height="">
+    </div>
+    <script src="https://sp.zalo.me/plugins/sdk.js"></script>
+
+    <!-- Phone ring -->
+    <div class='phonering-alo-phone phonering-alo-green phonering-alo-show' id='phonering-alo-phoneIcon'>
+        <div class='phonering-alo-ph-circle'></div>
+        <div class='phonering-alo-ph-circle-fill'></div>
+        <a class='pps-btn-img hidden_lg' href='tel:0981484579' title='Liên hệ'>
+            <div class='phonering-alo-ph-img-circle'></div>
+            <div class='label-phone'>0981484579</div>
+        </a>
+        <a class='pps-btn-img hidden_mobile btn-call' href='tel:0981484579;' title='Liên hệ'>
+            <div class='phonering-alo-ph-img-circle'></div>
+            <div class='label-phone'>0981484579</div>
+        </a>
+    </div>
+
+    <!--================= Nút tròn chứa icon kính lúp cho Tìm kiếm VIP =================-->
+    <div id="vipSearchCircle" data-bs-toggle="modal" data-bs-target="#staticBackdropSearch">
+        <i class="fa fa-search"></i>
+    </div>
+
+    <!-- Modal Tìm kiếm VIP -->
+    <div class="modal fade" id="staticBackdropSearch"
+         data-bs-backdrop="static" data-bs-keyboard="false"
+         tabindex="-1" aria-labelledby="staticBackdropLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content" style="height: auto;">
+                <div class="modal-header" style="background-color: red; color: white;">
+                    <h5 class="modal-title" id="staticBackdropLabel">Thống kê điện thoại</h5>
+                    <!-- Nút đóng modal -->
+                    <button type="button" class="btn-close"
+                            data-bs-dismiss="modal" aria-label="Đóng"></button>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Form tìm kiếm -->
+                    <div class="row mb-3">
+                        <div class="col-lg mx-auto mt-4 mt-lg-0 text-center">
+                            @using (Html.BeginForm("ListDienthoaiTheoSearch", "Home"))
+                            {
+                                <div class="form-group">
+                                    <div class="input-group text-center">
+                                        <input name="SearchString" type="search"
+                                               class="form-control border-dark"
+                                               placeholder="Tìm kiếm sản phẩm..." required />
+                                        <button type="submit" class="btn btn-outline-dark">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- 6 khối thống kê: -->
+                    <div class="row">
+                        <!-- 1) Điện thoại mới nhập -->
+                        <div class="col-md" style="background-color: #EAF2FF; color: blue;
+               font-weight: bold; border-radius: 12px; padding: 18px; margin:18px;">
+                            <p style="font-weight: bold; color: red; font-size: 2rem;">
+                                @home.DemDienthoaiMoiNhat()
+                                <img src="~/Content/images/1832779.png" alt="Mới nhập"
+                                     height="60" width="60" style="margin-left:80px;" />
+                            </p>
+                            Điện thoại mới nhập <i class="fa fa-eye"></i>
+                        </div>
+                        <!-- 2) Điện thoại giá rẻ -->
+                        <div class="col-md" style="background-color: #e3fce2; color: green;
+               font-weight: bold; border-radius: 12px; padding: 18px; margin:18px;">
+                            <p style="font-weight: bold; color: red; font-size: 2rem;">
+                                @home.DemDienthoaiGiaRe()
+                                <img src="~/Content/images/4605894.png" alt="Giá rẻ"
+                                     height="60" width="60" style="margin-left:80px;" />
+                            </p>
+                            Điện thoại giá rẻ (<= 15tr) <i class="fa fa-eye"></i>
+                        </div>
+                        <!-- 3) Điện thoại bán chạy -->
+                        <div class="col-md" style="background-color: #b8f1f7; color: blue;
+               font-weight: bold; border-radius: 12px; padding: 18px; margin:18px;">
+                            <p style="font-weight: bold; color: red; font-size: 2rem;">
+                                2
+                                <img src="~/Content/images/13368169.png" alt="Bán chạy"
+                                     height="60" width="60" style="margin-left:80px;" />
+                            </p>
+                            Điện thoại bán chạy <i class="fa fa-eye"></i>
+                        </div>
+                        <!-- 4) Đánh giá nhiều -->
+                        <div class="col-md" style="background-color: #fcfcde; color: green;
+               font-weight: bold; border-radius: 12px; padding: 18px; margin:18px;">
+                            <p style="font-weight: bold; color: red; font-size: 2rem;">
+                                3
+                                <img src="~/Content/images/17331186.png" alt="Đánh giá"
+                                     height="60" width="60" style="margin-left:80px;" />
+                            </p>
+                            Đánh giá nhiều <i class="fa fa-eye"></i>
+                        </div>
+                        <!-- 5) Điện thoại giá cao -->
+                        <div class="col-md" style="background-color: #fce5fa; color: blue;
+               font-weight: bold; border-radius: 12px; padding: 18px; margin:18px;">
+                            <p style="font-weight: bold; color: red; font-size: 2rem;">
+                                @home.DemDienthoaiGiaCao()
+                                <img src="~/Content/images/images (1).png" alt="Giá cao"
+                                     height="60" width="60" style="margin-left:80px;" />
+                            </p>
+                            Điện thoại giá cao (>= 30tr) <i class="fa fa-eye"></i>
+                        </div>
+                        <!-- 6) Cấu hình khủng -->
+                        <div class="col-md" style="background-color: #fbf1e8; color: green;
+               font-weight: bold; border-radius: 12px; padding: 18px; margin:18px;">
+                            <p style="font-weight: bold; color: red; font-size: 2rem;">
+                                7
+                                <img src="~/Content/images/images.png" alt="Cấu hình khủng"
+                                     height="60" width="60" style="margin-left:80px;" />
+                            </p>
+                            Cấu hình khủng <i class="fa fa-eye"></i>
+                        </div>
+                    </div>
+                    <!-- End 6 khối -->
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-success"
+                            data-bs-dismiss="modal">
+                        Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script type="text/javascript" src="~/Content/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/script.js"></script>
+    <script type="text/javascript" src="~/Content/js/scripts.js"></script>
+
+    <!-- Toastr & SweetAlert2 -->
+    <script src="~/Areas/Administrator/Data/libraries/js/karma.laclac.min.js"></script>
+    <script src="~/Areas/Administrator/Data/libraries/js/toastr.min.js"></script>
+    <script src="~/Areas/Administrator/Data/libraries/js/sweetalert2.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

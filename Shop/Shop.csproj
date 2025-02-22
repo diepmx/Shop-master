@@ -1039,7 +1039,7 @@
     <Content Include="Areas\Administrator\Data\images\halalnode-401.jpg" />
     <Content Include="Areas\Administrator\Data\images\hang.png" />
     <Content Include="Areas\Administrator\Data\images\invoice-cance-list.png" />
-    <Content Include="Areas\Administrator\Data\images\laptop.png" />
+    
     <Content Include="Areas\Administrator\Data\images\leader-roles-user.png" />
     <Content Include="Areas\Administrator\Data\images\meta.png" />
     <Content Include="Areas\Administrator\Data\images\nhucau.png" />
@@ -2936,7 +2936,7 @@
     <Content Include="Content\images\banner-cellphone.jpg" />
     <Content Include="Content\images\banner-dell.jpg" />
     <Content Include="Content\images\banner-la-gi.jpg" />
-    <Content Include="Content\images\banner-laptop-800x300.png" />
+   
     <Content Include="Content\images\banner-levono-2.png" />
     <Content Include="Content\images\banner-levono.png" />
     <Content Include="Content\images\banner-msi-1.png" />
@@ -2973,7 +2973,7 @@
     <Content Include="Content\images\icon-return.png" />
     <Content Include="Content\images\icon-ship.png" />
     <Content Include="Content\images\idepad_3.png" />
-    <Content Include="Content\images\iLaptop.png" />
+    
     <Content Include="Content\images\image-1.jpg" />
     <Content Include="Content\images\image-2.jpg" />
     <Content Include="Content\images\image-3.jpg" />
@@ -2983,34 +2983,9 @@
     <Content Include="Content\images\jcb-payment.jpg" />
     <Content Include="Content\images\khoaruoi.png" />
     <Content Include="Content\images\khoitaodonhang.png" />
-    <Content Include="Content\images\laptop-%281%29.jpg" />
-    <Content Include="Content\images\laptop-%281%29.png" />
-    <Content Include="Content\images\laptop-%2810%29.jpg" />
-    <Content Include="Content\images\laptop-%2811%29.jpg" />
-    <Content Include="Content\images\laptop-%2812%29.jpg" />
-    <Content Include="Content\images\laptop-%2813%29.jpg" />
-    <Content Include="Content\images\laptop-%2814%29.jpg" />
-    <Content Include="Content\images\laptop-%2815%29.jpg" />
-    <Content Include="Content\images\laptop-%2816%29.jpg" />
-    <Content Include="Content\images\laptop-%2817%29.jpg" />
-    <Content Include="Content\images\laptop-%282%29.jpg" />
-    <Content Include="Content\images\laptop-%283%29.jpg" />
-    <Content Include="Content\images\laptop-%284%29.jpg" />
-    <Content Include="Content\images\laptop-%285%29.jpg" />
-    <Content Include="Content\images\laptop-%286%29.jpg" />
-    <Content Include="Content\images\laptop-%287%29.jpg" />
-    <Content Include="Content\images\laptop-%288%29.jpg" />
-    <Content Include="Content\images\laptop-%289%29.jpg" />
-    <Content Include="Content\images\laptop-asus-vivibook.jpg" />
-    <Content Include="Content\images\laptop-ban-chay.png" />
-    <Content Include="Content\images\Laptop-Blue-Background-Free-image-on-Pixabay.jpg" />
-    <Content Include="Content\images\laptop-comment.png" />
-    <Content Include="Content\images\laptop-gia-max.png" />
-    <Content Include="Content\images\laptop-gia-re.png" />
-    <Content Include="Content\images\laptop-hang-nao-ben-nhat.jpg" />
-    <Content Include="Content\images\laptop-web-traffic.png" />
+   
     <Content Include="Content\images\lenovo.png" />
-    <Content Include="Content\images\lenovoLaptop-390x210.png" />
+ 
     <Content Include="Content\images\log-out.png" />
     <Content Include="Content\images\login-moi-nhat.png" />
     <Content Include="Content\images\logo-momo.png" />
@@ -3752,21 +3727,9 @@
     <Content Include="Plugins\ckeditor\styles.js" />
     <Content Include="Plugins\ckeditor\vendor\promise.js" />
     <Content Include="Plugins\CKFinder.dll" />
-    <Content Include="Plugins\ckfinder\bin\Debug\CKFinder.dll" />
-    <Content Include="Plugins\ckfinder\bin\Debug\CKFinder.pdb" />
-    <Content Include="Plugins\ckfinder\bin\Debug\CKFinder_FileEditor.dll" />
-    <Content Include="Plugins\ckfinder\bin\Debug\CKFinder_FileEditor.pdb" />
-    <Content Include="Plugins\ckfinder\bin\Debug\CKFinder_ImageResize.dll" />
-    <Content Include="Plugins\ckfinder\bin\Debug\CKFinder_ImageResize.pdb" />
-    <Content Include="Plugins\ckfinder\bin\Debug\CKFinder_Watermark.dll" />
-    <Content Include="Plugins\ckfinder\bin\Debug\CKFinder_Watermark.pdb" />
-    <Content Include="Plugins\ckfinder\bin\Release\CKFinder.dll" />
-    <Content Include="Plugins\ckfinder\bin\Release\CKFinder_FileEditor.dll" />
-    <Content Include="Plugins\ckfinder\bin\Release\CKFinder_FileEditor.pdb" />
-    <Content Include="Plugins\ckfinder\bin\Release\CKFinder_ImageResize.dll" />
-    <Content Include="Plugins\ckfinder\bin\Release\CKFinder_ImageResize.pdb" />
-    <Content Include="Plugins\ckfinder\bin\Release\CKFinder_Watermark.dll" />
-    <Content Include="Plugins\ckfinder\bin\Release\CKFinder_Watermark.pdb" />
+   
+    
+    
     <Content Include="Plugins\ckfinder\changelog.txt" />
     <Content Include="Plugins\ckfinder\ckfinder.html" />
     <Content Include="Plugins\ckfinder\ckfinder.js" />
@@ -5075,6 +5038,11 @@
     <Content Include="Others\assets\scss\_slider.scss" />
     <Content Include="Others\assets\scss\_subscribe.scss" />
     <Content Include="Others\assets\scss\_variabls.scss" />
+    <None Include="Properties\PublishProfiles\diepmx-001-site1 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\diepmx-001-site1 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />

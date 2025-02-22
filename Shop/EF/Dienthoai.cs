@@ -1,11 +1,11 @@
-namespace Shop.EF
+﻿namespace Shop.EF
 {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
+    
     [Table("Dienthoai")]
     public partial class Dienthoai
     {
@@ -22,8 +22,9 @@ namespace Shop.EF
 
         [Required]
         [StringLength(100)]
+        
         public string tendienthoai { get; set; }
-
+        [Required(ErrorMessage = "Giá bán là bắt buộc")]
         public decimal? giaban { get; set; }
 
         [Column(TypeName = "ntext")]

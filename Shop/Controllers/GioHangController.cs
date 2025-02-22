@@ -187,7 +187,7 @@ namespace Shop.Controllers
             data.DonHangs.InsertOnSubmit(dh);
             data.SubmitChanges();
 
-            // Lưu chi tiết đơn hàng
+            // Lưu chi tiết đơn hàng và cập nhật số lượng tồn kho
             foreach (var item in gh)
             {
                 ChiTietDonHang ctdh = new ChiTietDonHang();
@@ -196,16 +196,30 @@ namespace Shop.Controllers
                 ctdh.soluong = item.iSoluong;
                 ctdh.dongia = (decimal)item.giaban;
                 data.ChiTietDonHangs.InsertOnSubmit(ctdh);
+
+                // Cập nhật số lượng tồn kho
+                Dienthoai s = data.Dienthoais.Single(n => n.madienthoai == item.madienthoai);
+                if (s.soluongton >= ctdh.soluong)
+                {
+                    s.soluongton -= ctdh.soluong; // Giảm số lượng tồn kho
+                }
+                else
+                {
+                    // Trường hợp số lượng sản phẩm không đủ
+                    Notification.set_flash("Không đủ số lượng sản phẩm trong kho!", "warning");
+                    return RedirectToAction("GioHang");
+                }
             }
+
             data.SubmitChanges();
 
-            // Xóa giỏ hàng sau khi đặt hàng
+            // Xóa giỏ hàng sau khi đặt hàng thành công
             Session["GioHang"] = null;
 
-            // Thông báo thành công và chuyển hướng
             Notification.set_flash("Bạn đã đặt hàng thành công!", "success");
             return RedirectToAction("XacnhanDonhang", "GioHang");
         }
+
 
         public ActionResult XacnhanDonhang()//xác nhận đơn mạng
         {

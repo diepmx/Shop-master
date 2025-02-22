@@ -1,0 +1,17 @@
+﻿@using Shop.Areas.Administrator.Data.message
+@if (Notification.has_flash())
+{
+    var Notifi = Notification.get_flash();
+    if (Notifi != null)
+    {
+        <script>
+            Swal.fire('Thông báo!', '@Notifi.mgs', '@Notifi.mgs_type');
+        </script>
+    }
+    else
+    {
+        <script>
+            console.log('No notification found to display.');
+        </script>
+    }
+}
